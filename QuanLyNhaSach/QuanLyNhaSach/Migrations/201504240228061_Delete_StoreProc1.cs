@@ -1,0 +1,20 @@
+namespace QuanLyNhaSach.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Delete_StoreProc1 : DbMigration
+    {
+        public override void Up()
+        {
+            DropStoredProcedure("dbo.TacGia_Insert");
+            DropStoredProcedure("dbo.TacGia_Update");
+            DropStoredProcedure("dbo.TacGia_Delete");
+        }
+        
+        public override void Down()
+        {
+            throw new NotSupportedException("Scaffolding create or alter procedure operations is not supported in down methods.");
+        }
+    }
+}
