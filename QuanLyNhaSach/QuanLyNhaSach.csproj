@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\DALTacGia.cs" />
     <Compile Include="DTO\BANGCHAMCONG.cs" />
     <Compile Include="DTO\BODEM.cs" />
     <Compile Include="DTO\CALAMVIEC.cs" />
@@ -105,12 +104,6 @@
       <DependentUpon>ConnectionProperties.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Program.cs" />
-    <Compile Include="GUI\TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201505150249202_Initial.cs" />
     <Compile Include="Migrations\201505150249202_Initial.Designer.cs">
       <DependentUpon>201505150249202_Initial.cs</DependentUpon>
@@ -133,9 +126,6 @@
     <EmbeddedResource Include="GUI\ConnectionProperties.resx">
       <DependentUpon>ConnectionProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\TestForm.resx">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505150249202_Initial.resx">
       <DependentUpon>201505150249202_Initial.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,7 +133,9 @@
       <DependentUpon>201505150329456_Second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAL\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
