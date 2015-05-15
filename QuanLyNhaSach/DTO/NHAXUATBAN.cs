@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("NHAXUATBAN")]
-    public partial class NHAXUATBAN
+    public partial class NhaXuatBan
     {
-        public NHAXUATBAN()
+        public NhaXuatBan()
         {
-            SACHes = new HashSet<SACH>();
+            DSSach = new HashSet<Sach>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace QuanLyNhaSach.DTO
         [StringLength(50)]
         public string TenNhaXuatBan { get; set; }
 
-        public virtual ICollection<SACH> SACHes { get; set; }
+        public virtual ICollection<Sach> DSSach { get; set; }
     }
 }

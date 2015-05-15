@@ -7,7 +7,7 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("SACH")]
-    public partial class SACH : SANPHAM
+    public partial class Sach : SanPham
     {
         [Key]
         [StringLength(20)]
@@ -26,8 +26,8 @@ namespace QuanLyNhaSach.DTO
 
         public int? NamXuatBan { get; set; }
 
-        public virtual DAUSACH DAUSACH { get; set; }
+        public virtual DauSach DauSach { get; set; }
 
-        public virtual NHAXUATBAN NHAXUATBAN { get; set; }
+        public virtual NhaXuatBan NhaXuatBan { get; set; }
     }
 }

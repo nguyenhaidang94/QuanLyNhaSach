@@ -27,10 +27,10 @@ namespace QuanLyNhaSach.DTO
 
         public int? SoLuong { get; set; }
 
-        public virtual HOADONBANHANG HOADONBANHANG { get; set; }
+        public virtual HoaDonBanHang HoaDonBanHang { get; set; }
 
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SanPham SanPham { get; set; }
 
-        public virtual THUESUAT THUESUAT { get; set; }
+        public virtual ThueSuat ThueSuat { get; set; }
     }
 }

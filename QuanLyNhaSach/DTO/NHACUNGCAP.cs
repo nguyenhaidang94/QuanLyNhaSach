@@ -7,12 +7,12 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("NHACUNGCAP")]
-    public partial class NHACUNGCAP
+    public partial class NhaCungCap
     {
-        public NHACUNGCAP()
+        public NhaCungCap()
         {
-            SANPHAMs = new HashSet<SANPHAM>();
-            PHIEUDATMUAs = new HashSet<PHIEUDATMUA>();
+            DSSanPham = new HashSet<SanPham>();
+            DSPhieuDatMua = new HashSet<PhieuDatMua>();
         }
 
         [Key]
@@ -28,8 +28,8 @@ namespace QuanLyNhaSach.DTO
         [StringLength(20)]
         public string SoDienThoai { get; set; }
 
-        public virtual ICollection<SANPHAM> SANPHAMs { get; set; }
+        public virtual ICollection<SanPham> DSSanPham { get; set; }
 
-        public virtual ICollection<PHIEUDATMUA> PHIEUDATMUAs { get; set; }
+        public virtual ICollection<PhieuDatMua> DSPhieuDatMua { get; set; }
     }
 }

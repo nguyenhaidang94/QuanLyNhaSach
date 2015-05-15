@@ -7,7 +7,7 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("BODEM")]
-    public partial class BODEM
+    public partial class BoDem
     {
         [Key]
         [Column(Order = 0)]

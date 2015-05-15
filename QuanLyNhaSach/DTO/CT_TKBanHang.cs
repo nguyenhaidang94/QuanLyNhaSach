@@ -39,8 +39,8 @@ namespace QuanLyNhaSach.DTO
         [Column(TypeName = "money")]
         public decimal? TienBan { get; set; }
 
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SanPham SanPham { get; set; }
 
-        public virtual THONGKEBANHANG THONGKEBANHANG { get; set; }
+        public virtual ThongKeBanHang ThongKeBanHang { get; set; }
     }
 }

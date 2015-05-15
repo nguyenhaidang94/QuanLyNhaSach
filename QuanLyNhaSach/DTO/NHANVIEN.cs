@@ -7,17 +7,17 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("NHANVIEN")]
-    public partial class NHANVIEN
+    public partial class NhanVien
     {
-        public NHANVIEN()
+        public NhanVien()
         {
-            BANGCHAMCONGs = new HashSet<BANGCHAMCONG>();
-            PHIEUCHIs = new HashSet<PHIEUCHI>();
-            PHIEUNHAPKHOes = new HashSet<PHIEUNHAPKHO>();
-            PHIEUTHUs = new HashSet<PHIEUTHU>();
-            PHIEUXUATKHOes = new HashSet<PHIEUXUATKHO>();
-            PHIEUDATMUAs = new HashSet<PHIEUDATMUA>();
-            BANGCHAMCONGs1 = new HashSet<BANGCHAMCONG>();
+            BANGCHAMCONGs = new HashSet<BangChamCong>();
+            DSPhieuChi = new HashSet<PhieuChi>();
+            DSPhieuNhapKho = new HashSet<PhieuNhapKho>();
+            DSPhieuThu = new HashSet<PhieuThu>();
+            DSPhieuXuatKho = new HashSet<PhieuXuatKho>();
+            DSPhieuDatMua = new HashSet<PhieuDatMua>();
+            DSBangCC = new HashSet<BangChamCong>();
         }
 
         [Key]
@@ -40,20 +40,20 @@ namespace QuanLyNhaSach.DTO
         [Column(TypeName = "money")]
         public decimal? LuongNhanVien { get; set; }
 
-        public virtual ICollection<BANGCHAMCONG> BANGCHAMCONGs { get; set; }
+        public virtual ICollection<BangChamCong> BANGCHAMCONGs { get; set; }
 
-        public virtual CHUCVU CHUCVU { get; set; }
+        public virtual ChucVu CHUCVU { get; set; }
 
-        public virtual ICollection<PHIEUCHI> PHIEUCHIs { get; set; }
+        public virtual ICollection<PhieuChi> DSPhieuChi { get; set; }
 
-        public virtual ICollection<PHIEUNHAPKHO> PHIEUNHAPKHOes { get; set; }
+        public virtual ICollection<PhieuNhapKho> DSPhieuNhapKho { get; set; }
 
-        public virtual ICollection<PHIEUTHU> PHIEUTHUs { get; set; }
+        public virtual ICollection<PhieuThu> DSPhieuThu { get; set; }
 
-        public virtual ICollection<PHIEUXUATKHO> PHIEUXUATKHOes { get; set; }
+        public virtual ICollection<PhieuXuatKho> DSPhieuXuatKho { get; set; }
 
-        public virtual ICollection<PHIEUDATMUA> PHIEUDATMUAs { get; set; }
+        public virtual ICollection<PhieuDatMua> DSPhieuDatMua { get; set; }
 
-        public virtual ICollection<BANGCHAMCONG> BANGCHAMCONGs1 { get; set; }
+        public virtual ICollection<BangChamCong> DSBangCC { get; set; }
     }
 }

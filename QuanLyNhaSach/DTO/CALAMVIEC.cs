@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("CALAMVIEC")]
-    public partial class CALAMVIEC
+    public partial class CaLamViec
     {
-        public CALAMVIEC()
+        public CaLamViec()
         {
-            BANGCHAMCONGs = new HashSet<BANGCHAMCONG>();
+            DSBangCC = new HashSet<BangChamCong>();
         }
 
         [Key]
@@ -25,6 +25,6 @@ namespace QuanLyNhaSach.DTO
         [Column(TypeName = "money")]
         public decimal? LuongCLV { get; set; }
 
-        public virtual ICollection<BANGCHAMCONG> BANGCHAMCONGs { get; set; }
+        public virtual ICollection<BangChamCong> DSBangCC { get; set; }
     }
 }

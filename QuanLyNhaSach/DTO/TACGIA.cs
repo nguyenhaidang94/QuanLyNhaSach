@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("TACGIA")]
-    public partial class TACGIA
+    public partial class TacGia
     {
-        public TACGIA()
+        public TacGia()
         {
-            DAUSACHes = new HashSet<DAUSACH>();
+            DSDauSach = new HashSet<DauSach>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace QuanLyNhaSach.DTO
         [StringLength(50)]
         public string TenTacGia { get; set; }
 
-        public virtual ICollection<DAUSACH> DAUSACHes { get; set; }
+        public virtual ICollection<DauSach> DSDauSach { get; set; }
     }
 }

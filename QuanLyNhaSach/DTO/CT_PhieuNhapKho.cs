@@ -23,8 +23,8 @@ namespace QuanLyNhaSach.DTO
 
         public int? SoLuong { get; set; }
 
-        public virtual PHIEUNHAPKHO PHIEUNHAPKHO { get; set; }
+        public virtual PhieuNhapKho PhieuNhapKho { get; set; }
 
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

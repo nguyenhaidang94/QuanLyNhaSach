@@ -7,15 +7,15 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("SANPHAM")]
-    public partial class SANPHAM
+    public partial class SanPham
     {
-        public SANPHAM()
+        public SanPham()
         {
-            CT_HDBanHang = new HashSet<CT_HDBanHang>();
-            CT_PHIEUDATMUA = new HashSet<CT_PHIEUDATMUA>();
-            CT_PhieuNhapKho = new HashSet<CT_PhieuNhapKho>();
-            CT_PhieuXuatKho = new HashSet<CT_PhieuXuatKho>();
-            CT_TKBanHang = new HashSet<CT_TKBanHang>();
+            DSCT_HDBanHang = new HashSet<CT_HDBanHang>();
+            DSCT_PHIEUDATMUA = new HashSet<CT_PhieuDatMua>();
+            DSCT_PhieuNhapKho = new HashSet<CT_PhieuNhapKho>();
+            DSCT_PhieuXuatKho = new HashSet<CT_PhieuXuatKho>();
+            DSCT_TKBanHang = new HashSet<CT_TKBanHang>();
         }
 
         [Key]
@@ -48,23 +48,23 @@ namespace QuanLyNhaSach.DTO
 
         public bool? TinhTrang { get; set; }
 
-        public virtual ICollection<CT_HDBanHang> CT_HDBanHang { get; set; }
+        public virtual ICollection<CT_HDBanHang> DSCT_HDBanHang { get; set; }
 
-        public virtual ICollection<CT_PHIEUDATMUA> CT_PHIEUDATMUA { get; set; }
+        public virtual ICollection<CT_PhieuDatMua> DSCT_PHIEUDATMUA { get; set; }
 
-        public virtual ICollection<CT_PhieuNhapKho> CT_PhieuNhapKho { get; set; }
+        public virtual ICollection<CT_PhieuNhapKho> DSCT_PhieuNhapKho { get; set; }
 
-        public virtual ICollection<CT_PhieuXuatKho> CT_PhieuXuatKho { get; set; }
+        public virtual ICollection<CT_PhieuXuatKho> DSCT_PhieuXuatKho { get; set; }
 
-        public virtual ICollection<CT_TKBanHang> CT_TKBanHang { get; set; }
+        public virtual ICollection<CT_TKBanHang> DSCT_TKBanHang { get; set; }
 
-        public virtual DONVITINH DONVITINH { get; set; }
+        public virtual DonViTinh DonViTinh { get; set; }
 
-        public virtual LOAISANPHAM LOAISANPHAM { get; set; }
+        public virtual LoaiSanPham LoaiSanPham { get; set; }
 
-        public virtual NHACUNGCAP NHACUNGCAP { get; set; }
+        public virtual NhaCungCap NhaCungCap { get; set; }
 
-        public virtual QUAYHANG QUAYHANG { get; set; }
+        public virtual QuayHang QuayHang { get; set; }
 
     }
 }

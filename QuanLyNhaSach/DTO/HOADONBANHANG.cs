@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("HOADONBANHANG")]
-    public partial class HOADONBANHANG
+    public partial class HoaDonBanHang
     {
-        public HOADONBANHANG()
+        public HoaDonBanHang()
         {
-            CT_HDBanHang = new HashSet<CT_HDBanHang>();
+            DSCT_HDBanHang = new HashSet<CT_HDBanHang>();
         }
 
         [Key]
@@ -31,6 +31,6 @@ namespace QuanLyNhaSach.DTO
         [Column(TypeName = "money")]
         public decimal? TongThanhTien { get; set; }
 
-        public virtual ICollection<CT_HDBanHang> CT_HDBanHang { get; set; }
+        public virtual ICollection<CT_HDBanHang> DSCT_HDBanHang { get; set; }
     }
 }

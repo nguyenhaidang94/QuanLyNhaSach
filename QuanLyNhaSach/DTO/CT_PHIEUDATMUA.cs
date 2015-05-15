@@ -6,7 +6,7 @@ namespace QuanLyNhaSach.DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class CT_PHIEUDATMUA
+    public partial class CT_PhieuDatMua
     {
         [Key]
         [Column(Order = 0)]
@@ -24,8 +24,8 @@ namespace QuanLyNhaSach.DTO
 
         public bool? TinhTrang { get; set; }
 
-        public virtual PHIEUDATMUA PHIEUDATMUA { get; set; }
+        public virtual PhieuDatMua PhieuDatMua { get; set; }
 
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

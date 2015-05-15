@@ -27,41 +27,41 @@ namespace QuanLyNhaSach.DTO
             }    
         }
 
-        public virtual DbSet<BANGCHAMCONG> BANGCHAMCONGs { get; set; }
-        public virtual DbSet<CALAMVIEC> CALAMVIECs { get; set; }
-        public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
-        public virtual DbSet<CT_HDBanHang> CT_HDBanHang { get; set; }
-        public virtual DbSet<CT_PHIEUDATMUA> CT_PHIEUDATMUA { get; set; }
-        public virtual DbSet<CT_PhieuNhapKho> CT_PhieuNhapKho { get; set; }
-        public virtual DbSet<CT_PhieuXuatKho> CT_PhieuXuatKho { get; set; }
-        public virtual DbSet<CT_TKBanHang> CT_TKBanHang { get; set; }
-        public virtual DbSet<DAUSACH> DAUSACHes { get; set; }
-        public virtual DbSet<DONVITINH> DONVITINHs { get; set; }
-        public virtual DbSet<HOADONBANHANG> HOADONBANHANGs { get; set; }
-        public virtual DbSet<LOAIDDHT> LOAIDDHTs { get; set; }
-        public virtual DbSet<LOAISANPHAM> LOAISANPHAMs { get; set; }
-        public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
-        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
-        public virtual DbSet<NHASANXUAT> NHASANXUATs { get; set; }
-        public virtual DbSet<NHAXUATBAN> NHAXUATBANs { get; set; }
-        public virtual DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
-        public virtual DbSet<PHIEUDATMUA> PHIEUDATMUAs { get; set; }
-        public virtual DbSet<PHIEUNHAPKHO> PHIEUNHAPKHOes { get; set; }
-        public virtual DbSet<PHIEUTHU> PHIEUTHUs { get; set; }
-        public virtual DbSet<PHIEUXUATKHO> PHIEUXUATKHOes { get; set; }
-        public virtual DbSet<QUAYHANG> QUAYHANGs { get; set; }
-        public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
-        public virtual DbSet<TACGIA> TACGIAs { get; set; }
-        public virtual DbSet<THELOAISACH> THELOAISACHes { get; set; }
-        public virtual DbSet<THONGKEBANHANG> THONGKEBANHANGs { get; set; }
-        public virtual DbSet<THUESUAT> THUESUATs { get; set; }
-        public virtual DbSet<BODEM> BODEMs { get; set; }
+        public virtual DbSet<BangChamCong> DbBangChamCong { get; set; }
+        public virtual DbSet<CaLamViec> DbCaLamViec { get; set; }
+        public virtual DbSet<ChucVu> DbChucVu { get; set; }
+        public virtual DbSet<CT_HDBanHang> DbCT_HDBanHang { get; set; }
+        public virtual DbSet<CT_PhieuDatMua> DbCT_PhieuDatMua { get; set; }
+        public virtual DbSet<CT_PhieuNhapKho> DbCT_PhieuNhapKho { get; set; }
+        public virtual DbSet<CT_PhieuXuatKho> DbCT_PhieuXuatKho { get; set; }
+        public virtual DbSet<CT_TKBanHang> DbCT_TKBanHang { get; set; }
+        public virtual DbSet<DauSach> DbDauSach { get; set; }
+        public virtual DbSet<DonViTinh> DbDonViTinh { get; set; }
+        public virtual DbSet<HoaDonBanHang> DbHoaDonBanHang { get; set; }
+        public virtual DbSet<LoaiDDHT> DbLoaiDDHT { get; set; }
+        public virtual DbSet<LoaiSanPham> DbLoaiSanPham { get; set; }
+        public virtual DbSet<NhaCungCap> DbNhaCungCap { get; set; }
+        public virtual DbSet<NhanVien> DbNhanVien { get; set; }
+        public virtual DbSet<NhaSanXuat> DbNhaSanXuat { get; set; }
+        public virtual DbSet<NhaXuatBan> DbNhaXuatBan { get; set; }
+        public virtual DbSet<PhieuChi> DbPhieuChi { get; set; }
+        public virtual DbSet<PhieuDatMua> DbPhieuDatMua { get; set; }
+        public virtual DbSet<PhieuNhapKho> DbPhieuNhapKho { get; set; }
+        public virtual DbSet<PhieuThu> DbPhieuThu { get; set; }
+        public virtual DbSet<PhieuXuatKho> DbPhieuXuatKho { get; set; }
+        public virtual DbSet<QuayHang> DbQuayHang { get; set; }
+        public virtual DbSet<SanPham> DbSanPham { get; set; }
+        public virtual DbSet<TacGia> DbTacGia { get; set; }
+        public virtual DbSet<TheLoaiSach> DbTheLoaiSach { get; set; }
+        public virtual DbSet<ThongKeBanHang> DbThongKeBanHang { get; set; }
+        public virtual DbSet<ThueSuat> DbThueSuat { get; set; }
+        public virtual DbSet<BoDem> DbBoDem { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SACH>().ToTable("SACH");
-            modelBuilder.Entity<DODUNGHOCTAP>().ToTable("DODUNGHOCTAP");
-            modelBuilder.Entity<BODEM>().HasKey(x => new
+            modelBuilder.Entity<Sach>().ToTable("SACH");
+            modelBuilder.Entity<DoDungHocTap>().ToTable("DODUNGHOCTAP");
+            modelBuilder.Entity<BoDem>().HasKey(x => new
             {
                 #region atributes
                 x.BangChamCong,
@@ -88,42 +88,42 @@ namespace QuanLyNhaSach.DTO
                 #endregion
             });
 
-            modelBuilder.Entity<BANGCHAMCONG>()
+            modelBuilder.Entity<BangChamCong>()
                 .Property(e => e.MaBCC)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<BANGCHAMCONG>()
+            modelBuilder.Entity<BangChamCong>()
                 .Property(e => e.MaCaLamViec)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<BANGCHAMCONG>()
+            modelBuilder.Entity<BangChamCong>()
                 .Property(e => e.NguoiChamCong)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<BANGCHAMCONG>()
-                .HasMany(e => e.NHANVIENs)
-                .WithMany(e => e.BANGCHAMCONGs1)
+            modelBuilder.Entity<BangChamCong>()
+                .HasMany(e => e.DSNhanVien)
+                .WithMany(e => e.DSBangCC)
                 .Map(m => m.ToTable("CT_BANGCHAMCONG").MapLeftKey("MaBCC").MapRightKey("MaNhanVien"));
 
-            modelBuilder.Entity<CALAMVIEC>()
+            modelBuilder.Entity<CaLamViec>()
                 .Property(e => e.MaCaLamViec)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CALAMVIEC>()
+            modelBuilder.Entity<CaLamViec>()
                 .Property(e => e.LuongCLV)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<CALAMVIEC>()
-                .HasMany(e => e.BANGCHAMCONGs)
-                .WithRequired(e => e.CALAMVIEC)
+            modelBuilder.Entity<CaLamViec>()
+                .HasMany(e => e.DSBangCC)
+                .WithRequired(e => e.CaLamViec)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<CHUCVU>()
+            modelBuilder.Entity<ChucVu>()
                 .Property(e => e.MaChucVu)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CHUCVU>()
-                .HasMany(e => e.NHANVIENs)
+            modelBuilder.Entity<ChucVu>()
+                .HasMany(e => e.DSNhanVien)
                 .WithRequired(e => e.CHUCVU)
                 .WillCascadeOnDelete(false);
 
@@ -143,11 +143,11 @@ namespace QuanLyNhaSach.DTO
                 .Property(e => e.GiaBan)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<CT_PHIEUDATMUA>()
+            modelBuilder.Entity<CT_PhieuDatMua>()
                 .Property(e => e.MaPhieuDatMua)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CT_PHIEUDATMUA>()
+            modelBuilder.Entity<CT_PhieuDatMua>()
                 .Property(e => e.MaSanPham)
                 .IsUnicode(false);
 
@@ -183,351 +183,351 @@ namespace QuanLyNhaSach.DTO
                 .Property(e => e.TienBan)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<DAUSACH>()
+            modelBuilder.Entity<DauSach>()
                 .Property(e => e.MaDauSach)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DAUSACH>()
+            modelBuilder.Entity<DauSach>()
                 .Property(e => e.MaTheLoai)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DAUSACH>()
-                .HasMany(e => e.TACGIAs)
-                .WithMany(e => e.DAUSACHes)
+            modelBuilder.Entity<DauSach>()
+                .HasMany(e => e.DSTacGia)
+                .WithMany(e => e.DSDauSach)
                 .Map(m => m.ToTable("CT_DAUSACH").MapLeftKey("MaDauSach").MapRightKey("MaTacGia"));
 
-            modelBuilder.Entity<DODUNGHOCTAP>()
+            modelBuilder.Entity<DoDungHocTap>()
                 .Property(e => e.MaSanPham)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DODUNGHOCTAP>()
+            modelBuilder.Entity<DoDungHocTap>()
                 .Property(e => e.MaLoaiDDHT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DODUNGHOCTAP>()
+            modelBuilder.Entity<DoDungHocTap>()
                 .Property(e => e.MaNhaSanXuat)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DONVITINH>()
+            modelBuilder.Entity<DonViTinh>()
                 .Property(e => e.MaDVT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DONVITINH>()
-                .HasMany(e => e.SANPHAMs)
-                .WithRequired(e => e.DONVITINH)
+            modelBuilder.Entity<DonViTinh>()
+                .HasMany(e => e.DSSanPham)
+                .WithRequired(e => e.DonViTinh)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<HOADONBANHANG>()
+            modelBuilder.Entity<HoaDonBanHang>()
                 .Property(e => e.MaHoaDon)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<HOADONBANHANG>()
+            modelBuilder.Entity<HoaDonBanHang>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<HOADONBANHANG>()
+            modelBuilder.Entity<HoaDonBanHang>()
                 .Property(e => e.TongThanhTien)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<HOADONBANHANG>()
-                .HasMany(e => e.CT_HDBanHang)
-                .WithRequired(e => e.HOADONBANHANG)
+            modelBuilder.Entity<HoaDonBanHang>()
+                .HasMany(e => e.DSCT_HDBanHang)
+                .WithRequired(e => e.HoaDonBanHang)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<LOAIDDHT>()
+            modelBuilder.Entity<LoaiDDHT>()
                 .Property(e => e.MaLoaiDDHT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<LOAISANPHAM>()
+            modelBuilder.Entity<LoaiSanPham>()
                 .Property(e => e.MaLoaiSanPham)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<LOAISANPHAM>()
-                .HasMany(e => e.SANPHAMs)
-                .WithRequired(e => e.LOAISANPHAM)
+            modelBuilder.Entity<LoaiSanPham>()
+                .HasMany(e => e.DSSanPham)
+                .WithRequired(e => e.LoaiSanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHACUNGCAP>()
+            modelBuilder.Entity<NhaCungCap>()
                 .Property(e => e.MaNhaCungCap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHACUNGCAP>()
+            modelBuilder.Entity<NhaCungCap>()
                 .Property(e => e.SoDienThoai)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHACUNGCAP>()
-                .HasMany(e => e.SANPHAMs)
-                .WithRequired(e => e.NHACUNGCAP)
+            modelBuilder.Entity<NhaCungCap>()
+                .HasMany(e => e.DSSanPham)
+                .WithRequired(e => e.NhaCungCap)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHACUNGCAP>()
-                .HasMany(e => e.PHIEUDATMUAs)
-                .WithRequired(e => e.NHACUNGCAP)
+            modelBuilder.Entity<NhaCungCap>()
+                .HasMany(e => e.DSPhieuDatMua)
+                .WithRequired(e => e.NhaCungCap)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHANVIEN>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.MaChucVu)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHANVIEN>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.DienThoai)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHANVIEN>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.LuongNhanVien)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<NHANVIEN>()
+            modelBuilder.Entity<NhanVien>()
                 .HasMany(e => e.BANGCHAMCONGs)
-                .WithRequired(e => e.NHANVIEN)
+                .WithRequired(e => e.NhanVienCC)
                 .HasForeignKey(e => e.NguoiChamCong)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUCHIs)
-                .WithRequired(e => e.NHANVIEN)
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.DSPhieuChi)
+                .WithRequired(e => e.NhanVien)
                 .HasForeignKey(e => e.MaNhanVienChi)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUNHAPKHOes)
-                .WithRequired(e => e.NHANVIEN)
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.DSPhieuNhapKho)
+                .WithRequired(e => e.NhanVien)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUTHUs)
-                .WithRequired(e => e.NHANVIEN)
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.DSPhieuThu)
+                .WithRequired(e => e.NhanVien)
                 .HasForeignKey(e => e.MaNhanVienThu)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUXUATKHOes)
-                .WithRequired(e => e.NHANVIEN)
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.DSPhieuXuatKho)
+                .WithRequired(e => e.NhanVien)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUDATMUAs)
-                .WithRequired(e => e.NHANVIEN)
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.DSPhieuDatMua)
+                .WithRequired(e => e.NhanVien)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NHASANXUAT>()
+            modelBuilder.Entity<NhaSanXuat>()
                 .Property(e => e.MaNhaSanXuat)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHAXUATBAN>()
+            modelBuilder.Entity<NhaXuatBan>()
                 .Property(e => e.MaNhaXuatBan)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUCHI>()
+            modelBuilder.Entity<PhieuChi>()
                 .Property(e => e.MaPhieuChi)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUCHI>()
+            modelBuilder.Entity<PhieuChi>()
                 .Property(e => e.MaNhanVienChi)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUCHI>()
+            modelBuilder.Entity<PhieuChi>()
                 .Property(e => e.SoTien)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<PHIEUDATMUA>()
+            modelBuilder.Entity<PhieuDatMua>()
                 .Property(e => e.MaPhieuDatMua)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUDATMUA>()
+            modelBuilder.Entity<PhieuDatMua>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUDATMUA>()
+            modelBuilder.Entity<PhieuDatMua>()
                 .Property(e => e.MaNhaCungCap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUDATMUA>()
-                .HasMany(e => e.CT_PHIEUDATMUA)
-                .WithRequired(e => e.PHIEUDATMUA)
+            modelBuilder.Entity<PhieuDatMua>()
+                .HasMany(e => e.DSCT_PhieuDatMua)
+                .WithRequired(e => e.PhieuDatMua)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PHIEUDATMUA>()
-                .HasMany(e => e.PHIEUNHAPKHOes)
-                .WithRequired(e => e.PHIEUDATMUA)
+            modelBuilder.Entity<PhieuDatMua>()
+                .HasMany(e => e.DSPhieuNhapKho)
+                .WithRequired(e => e.PhieuDatMua)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PHIEUNHAPKHO>()
+            modelBuilder.Entity<PhieuNhapKho>()
                 .Property(e => e.MaPhieuNhap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUNHAPKHO>()
+            modelBuilder.Entity<PhieuNhapKho>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUNHAPKHO>()
+            modelBuilder.Entity<PhieuNhapKho>()
                 .Property(e => e.MaPhieuDatMua)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUNHAPKHO>()
-                .HasMany(e => e.CT_PhieuNhapKho)
-                .WithRequired(e => e.PHIEUNHAPKHO)
+            modelBuilder.Entity<PhieuNhapKho>()
+                .HasMany(e => e.DSCT_PhieuNhapKho)
+                .WithRequired(e => e.PhieuNhapKho)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PHIEUTHU>()
+            modelBuilder.Entity<PhieuThu>()
                 .Property(e => e.MaPhieuThu)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUTHU>()
+            modelBuilder.Entity<PhieuThu>()
                 .Property(e => e.MaNhanVienThu)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUTHU>()
+            modelBuilder.Entity<PhieuThu>()
                 .Property(e => e.SoTien)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<PHIEUXUATKHO>()
+            modelBuilder.Entity<PhieuXuatKho>()
                 .Property(e => e.MaPhieuXuat)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUXUATKHO>()
+            modelBuilder.Entity<PhieuXuatKho>()
                 .Property(e => e.MaNhanVien)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUXUATKHO>()
-                .HasMany(e => e.CT_PhieuXuatKho)
-                .WithRequired(e => e.PHIEUXUATKHO)
+            modelBuilder.Entity<PhieuXuatKho>()
+                .HasMany(e => e.DSCT_PhieuXuatKho)
+                .WithRequired(e => e.PhieuXuatKho)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<QUAYHANG>()
+            modelBuilder.Entity<QuayHang>()
                 .Property(e => e.MaQuay)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<QUAYHANG>()
+            modelBuilder.Entity<QuayHang>()
                 .Property(e => e.ViTri)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<QUAYHANG>()
-                .HasMany(e => e.SANPHAMs)
-                .WithRequired(e => e.QUAYHANG)
+            modelBuilder.Entity<QuayHang>()
+                .HasMany(e => e.DSSanPham)
+                .WithRequired(e => e.QuayHang)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaSanPham)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaLoaiSanPham)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaNhaCungCap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaQuay)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaDVT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SANPHAM>()
+            modelBuilder.Entity<SanPham>()
                 .Property(e => e.DonGia)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CT_HDBanHang)
-                .WithRequired(e => e.SANPHAM)
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.DSCT_HDBanHang)
+                .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CT_PHIEUDATMUA)
-                .WithRequired(e => e.SANPHAM)
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.DSCT_PHIEUDATMUA)
+                .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CT_PhieuNhapKho)
-                .WithRequired(e => e.SANPHAM)
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.DSCT_PhieuNhapKho)
+                .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CT_PhieuXuatKho)
-                .WithRequired(e => e.SANPHAM)
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.DSCT_PhieuXuatKho)
+                .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<SANPHAM>()
-                .HasMany(e => e.CT_TKBanHang)
-                .WithRequired(e => e.SANPHAM)
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.DSCT_TKBanHang)
+                .WithRequired(e => e.SanPham)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TACGIA>()
+            modelBuilder.Entity<TacGia>()
                 .Property(e => e.MaTacGia)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<THELOAISACH>()
+            modelBuilder.Entity<TheLoaiSach>()
                 .Property(e => e.MaTheLoaiSach)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<THELOAISACH>()
-                .HasMany(e => e.DAUSACHes)
-                .WithRequired(e => e.THELOAISACH)
+            modelBuilder.Entity<TheLoaiSach>()
+                .HasMany(e => e.DSDauSach)
+                .WithRequired(e => e.TheLoaiSach)
                 .HasForeignKey(e => e.MaTheLoai)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<THONGKEBANHANG>()
+            modelBuilder.Entity<ThongKeBanHang>()
                 .Property(e => e.TongTienNhap)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<THONGKEBANHANG>()
+            modelBuilder.Entity<ThongKeBanHang>()
                 .Property(e => e.TongTienBan)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<THONGKEBANHANG>()
-                .HasMany(e => e.CT_TKBanHang)
-                .WithRequired(e => e.THONGKEBANHANG)
+            modelBuilder.Entity<ThongKeBanHang>()
+                .HasMany(e => e.DSCT_TKBanHang)
+                .WithRequired(e => e.ThongKeBanHang)
                 .HasForeignKey(e => new { e.Thang, e.Nam })
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<THUESUAT>()
+            modelBuilder.Entity<ThueSuat>()
                 .Property(e => e.MaSoThue)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<THUESUAT>()
-                .HasMany(e => e.CT_HDBanHang)
-                .WithRequired(e => e.THUESUAT)
+            modelBuilder.Entity<ThueSuat>()
+                .HasMany(e => e.DSCT_HDBanHang)
+                .WithRequired(e => e.ThueSuat)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<BANGCHAMCONG>().MapToStoredProcedures();
-            modelBuilder.Entity<BODEM>().MapToStoredProcedures();
-            modelBuilder.Entity<CALAMVIEC>().MapToStoredProcedures();
-            modelBuilder.Entity<CHUCVU>().MapToStoredProcedures();
+            modelBuilder.Entity<BangChamCong>().MapToStoredProcedures();
+            modelBuilder.Entity<BoDem>().MapToStoredProcedures();
+            modelBuilder.Entity<CaLamViec>().MapToStoredProcedures();
+            modelBuilder.Entity<ChucVu>().MapToStoredProcedures();
             modelBuilder.Entity<CT_HDBanHang>().MapToStoredProcedures();
-            modelBuilder.Entity<CT_PHIEUDATMUA>().MapToStoredProcedures();
+            modelBuilder.Entity<CT_PhieuDatMua>().MapToStoredProcedures();
             modelBuilder.Entity<CT_PhieuNhapKho>().MapToStoredProcedures();
             modelBuilder.Entity<CT_PhieuXuatKho>().MapToStoredProcedures();
             modelBuilder.Entity<CT_TKBanHang>().MapToStoredProcedures();
-            modelBuilder.Entity<DAUSACH>().MapToStoredProcedures();
-            modelBuilder.Entity<DODUNGHOCTAP>().MapToStoredProcedures();
-            modelBuilder.Entity<DONVITINH>().MapToStoredProcedures();
-            modelBuilder.Entity<HOADONBANHANG>().MapToStoredProcedures();
-            modelBuilder.Entity<LOAIDDHT>().MapToStoredProcedures();
-            modelBuilder.Entity<LOAISANPHAM>().MapToStoredProcedures();
-            modelBuilder.Entity<NHACUNGCAP>().MapToStoredProcedures();
-            modelBuilder.Entity<NHANVIEN>().MapToStoredProcedures();
-            modelBuilder.Entity<NHASANXUAT>().MapToStoredProcedures();
-            modelBuilder.Entity<NHAXUATBAN>().MapToStoredProcedures();
-            modelBuilder.Entity<PHIEUCHI>().MapToStoredProcedures();
-            modelBuilder.Entity<PHIEUDATMUA>().MapToStoredProcedures();
-            modelBuilder.Entity<PHIEUNHAPKHO>().MapToStoredProcedures();
-            modelBuilder.Entity<PHIEUTHU>().MapToStoredProcedures();
-            modelBuilder.Entity<PHIEUXUATKHO>().MapToStoredProcedures();
-            modelBuilder.Entity<QUAYHANG>().MapToStoredProcedures();
-            modelBuilder.Entity<SACH>().MapToStoredProcedures();
-            modelBuilder.Entity<SANPHAM>().MapToStoredProcedures();
-            modelBuilder.Entity<TACGIA>().MapToStoredProcedures();
-            modelBuilder.Entity<THELOAISACH>().MapToStoredProcedures();
-            modelBuilder.Entity<THONGKEBANHANG>().MapToStoredProcedures();
-            modelBuilder.Entity<THUESUAT>().MapToStoredProcedures();
+            modelBuilder.Entity<DauSach>().MapToStoredProcedures();
+            modelBuilder.Entity<DoDungHocTap>().MapToStoredProcedures();
+            modelBuilder.Entity<DonViTinh>().MapToStoredProcedures();
+            modelBuilder.Entity<HoaDonBanHang>().MapToStoredProcedures();
+            modelBuilder.Entity<LoaiDDHT>().MapToStoredProcedures();
+            modelBuilder.Entity<LoaiSanPham>().MapToStoredProcedures();
+            modelBuilder.Entity<NhaCungCap>().MapToStoredProcedures();
+            modelBuilder.Entity<NhanVien>().MapToStoredProcedures();
+            modelBuilder.Entity<NhaSanXuat>().MapToStoredProcedures();
+            modelBuilder.Entity<NhaXuatBan>().MapToStoredProcedures();
+            modelBuilder.Entity<PhieuChi>().MapToStoredProcedures();
+            modelBuilder.Entity<PhieuDatMua>().MapToStoredProcedures();
+            modelBuilder.Entity<PhieuNhapKho>().MapToStoredProcedures();
+            modelBuilder.Entity<PhieuThu>().MapToStoredProcedures();
+            modelBuilder.Entity<PhieuXuatKho>().MapToStoredProcedures();
+            modelBuilder.Entity<QuayHang>().MapToStoredProcedures();
+            modelBuilder.Entity<Sach>().MapToStoredProcedures();
+            modelBuilder.Entity<SanPham>().MapToStoredProcedures();
+            modelBuilder.Entity<TacGia>().MapToStoredProcedures();
+            modelBuilder.Entity<TheLoaiSach>().MapToStoredProcedures();
+            modelBuilder.Entity<ThongKeBanHang>().MapToStoredProcedures();
+            modelBuilder.Entity<ThueSuat>().MapToStoredProcedures();
         }
     }
 }

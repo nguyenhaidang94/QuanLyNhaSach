@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("THUESUAT")]
-    public partial class THUESUAT
+    public partial class ThueSuat
     {
-        public THUESUAT()
+        public ThueSuat()
         {
-            CT_HDBanHang = new HashSet<CT_HDBanHang>();
+            DSCT_HDBanHang = new HashSet<CT_HDBanHang>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace QuanLyNhaSach.DTO
 
         public double? GiaTri { get; set; }
 
-        public virtual ICollection<CT_HDBanHang> CT_HDBanHang { get; set; }
+        public virtual ICollection<CT_HDBanHang> DSCT_HDBanHang { get; set; }
     }
 }

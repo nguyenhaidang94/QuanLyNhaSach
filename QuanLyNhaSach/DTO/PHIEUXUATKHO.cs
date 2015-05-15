@@ -7,11 +7,11 @@ namespace QuanLyNhaSach.DTO
     using System.Data.Entity.Spatial;
 
     [Table("PHIEUXUATKHO")]
-    public partial class PHIEUXUATKHO
+    public partial class PhieuXuatKho
     {
-        public PHIEUXUATKHO()
+        public PhieuXuatKho()
         {
-            CT_PhieuXuatKho = new HashSet<CT_PhieuXuatKho>();
+            DSCT_PhieuXuatKho = new HashSet<CT_PhieuXuatKho>();
         }
 
         [Key]
@@ -27,8 +27,8 @@ namespace QuanLyNhaSach.DTO
 
         public int? TongSoLuong { get; set; }
 
-        public virtual ICollection<CT_PhieuXuatKho> CT_PhieuXuatKho { get; set; }
+        public virtual ICollection<CT_PhieuXuatKho> DSCT_PhieuXuatKho { get; set; }
 
-        public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
     }
 }
