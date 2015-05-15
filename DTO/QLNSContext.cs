@@ -3,13 +3,23 @@ namespace DTO
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Diagnostics;
 
     public class QLNSContext : DbContext
     {
         
-        public QLNSContext()
+        public QLNSContext(String connectionString)
             : base("name=QLNSContext")
         {
+            Debug.WriteLine(this.Database.Log);
+            try
+            {
+                this.Database.Connection.ConnectionString = connectionString;
+            }
+            catch(InvalidOperationException ex)
+            {
+                Debug.WriteLine(ex.StackTrace);   
+            }    
         }
 
         public virtual DbSet<BANGCHAMCONG> BANGCHAMCONGs { get; set; }
