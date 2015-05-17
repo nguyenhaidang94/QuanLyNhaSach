@@ -1,0 +1,16 @@
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\QuanLyNhaSach.exe.config
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\QuanLyNhaSach.exe
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\QuanLyNhaSach.pdb
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\EntityFramework.dll
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\EntityFramework.SqlServer.dll
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\EntityFramework.xml
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\EntityFramework.SqlServer.xml
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.csprojResolveAssemblyReference.cache
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.Properties.Resources.resources
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.csproj.GenerateResource.Cache
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.exe
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.pdb
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.Migrations.Initial.resources
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\DevComponents.DotNetBar2.dll
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\bin\Debug\DevComponents.DotNetBar2.xml
+E:\Systems Analysis and Design\12520554\Project\SourceCode - New\QuanLyNhaSach\QuanLyNhaSach\obj\Debug\QuanLyNhaSach.GUI.GUIQuanLyNhaSach.resources
