@@ -40,11 +40,13 @@
             this.radSqlServerAuthentication = new System.Windows.Forms.RadioButton();
             this.radWindowsAuthentication = new System.Windows.Forms.RadioButton();
             this.grbConnectToDatabase = new System.Windows.Forms.GroupBox();
+            this.btnLoadDb = new System.Windows.Forms.Button();
             this.pnlCreateDatabase = new System.Windows.Forms.Panel();
+            this.btnCreateDb = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.txtLogicalName = new System.Windows.Forms.TextBox();
+            this.txtDatabaseName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLink = new System.Windows.Forms.TextBox();
+            this.txtFileScript = new System.Windows.Forms.TextBox();
             this.radCreateDatabase = new System.Windows.Forms.RadioButton();
             this.cboDatabaseName = new System.Windows.Forms.ComboBox();
             this.radSelectDatabase = new System.Windows.Forms.RadioButton();
@@ -52,7 +54,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnLoadDb = new System.Windows.Forms.Button();
             this.grbLogOnToServer.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.grbConnectToDatabase.SuspendLayout();
@@ -70,7 +71,6 @@
             this.cboServerName.TabIndex = 4;
             this.cboServerName.DropDown += new System.EventHandler(this.cboServerName_DropDown);
             this.cboServerName.SelectedIndexChanged += new System.EventHandler(this.cboServerName_SelectedIndexChanged);
-            this.cboServerName.TextChanged += new System.EventHandler(this.cboServerName_TextChanged);
             // 
             // lblServerName
             // 
@@ -196,17 +196,40 @@
             this.grbConnectToDatabase.TabStop = false;
             this.grbConnectToDatabase.Text = "Connect to a database";
             // 
+            // btnLoadDb
+            // 
+            this.btnLoadDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadDb.Location = new System.Drawing.Point(317, 46);
+            this.btnLoadDb.Name = "btnLoadDb";
+            this.btnLoadDb.Size = new System.Drawing.Size(84, 27);
+            this.btnLoadDb.TabIndex = 11;
+            this.btnLoadDb.Text = "Load Db";
+            this.btnLoadDb.UseVisualStyleBackColor = true;
+            this.btnLoadDb.Click += new System.EventHandler(this.btnLoadDb_Click);
+            // 
             // pnlCreateDatabase
             // 
+            this.pnlCreateDatabase.Controls.Add(this.btnCreateDb);
             this.pnlCreateDatabase.Controls.Add(this.btnBrowse);
-            this.pnlCreateDatabase.Controls.Add(this.txtLogicalName);
+            this.pnlCreateDatabase.Controls.Add(this.txtDatabaseName);
             this.pnlCreateDatabase.Controls.Add(this.label1);
-            this.pnlCreateDatabase.Controls.Add(this.txtLink);
+            this.pnlCreateDatabase.Controls.Add(this.txtFileScript);
             this.pnlCreateDatabase.Enabled = false;
             this.pnlCreateDatabase.Location = new System.Drawing.Point(6, 103);
             this.pnlCreateDatabase.Name = "pnlCreateDatabase";
             this.pnlCreateDatabase.Size = new System.Drawing.Size(395, 92);
             this.pnlCreateDatabase.TabIndex = 7;
+            // 
+            // btnCreateDb
+            // 
+            this.btnCreateDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateDb.Location = new System.Drawing.Point(302, 59);
+            this.btnCreateDb.Name = "btnCreateDb";
+            this.btnCreateDb.Size = new System.Drawing.Size(90, 24);
+            this.btnCreateDb.TabIndex = 13;
+            this.btnCreateDb.Text = "Create Db";
+            this.btnCreateDb.UseVisualStyleBackColor = true;
+            this.btnCreateDb.Click += new System.EventHandler(this.btnCreateDb_Click);
             // 
             // btnBrowse
             // 
@@ -217,13 +240,14 @@
             this.btnBrowse.TabIndex = 12;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // txtLogicalName
+            // txtDatabaseName
             // 
-            this.txtLogicalName.Location = new System.Drawing.Point(16, 61);
-            this.txtLogicalName.Name = "txtLogicalName";
-            this.txtLogicalName.Size = new System.Drawing.Size(284, 22);
-            this.txtLogicalName.TabIndex = 11;
+            this.txtDatabaseName.Location = new System.Drawing.Point(16, 61);
+            this.txtDatabaseName.Name = "txtDatabaseName";
+            this.txtDatabaseName.Size = new System.Drawing.Size(284, 22);
+            this.txtDatabaseName.TabIndex = 11;
             // 
             // label1
             // 
@@ -235,13 +259,13 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Logical Name:";
             // 
-            // txtLink
+            // txtFileScript
             // 
-            this.txtLink.Location = new System.Drawing.Point(16, 12);
-            this.txtLink.Name = "txtLink";
-            this.txtLink.ReadOnly = true;
-            this.txtLink.Size = new System.Drawing.Size(284, 22);
-            this.txtLink.TabIndex = 9;
+            this.txtFileScript.Location = new System.Drawing.Point(16, 12);
+            this.txtFileScript.Name = "txtFileScript";
+            this.txtFileScript.ReadOnly = true;
+            this.txtFileScript.Size = new System.Drawing.Size(284, 22);
+            this.txtFileScript.TabIndex = 9;
             // 
             // radCreateDatabase
             // 
@@ -323,17 +347,6 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnLoadDb
-            // 
-            this.btnLoadDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadDb.Location = new System.Drawing.Point(317, 46);
-            this.btnLoadDb.Name = "btnLoadDb";
-            this.btnLoadDb.Size = new System.Drawing.Size(84, 27);
-            this.btnLoadDb.TabIndex = 11;
-            this.btnLoadDb.Text = "Load Db";
-            this.btnLoadDb.UseVisualStyleBackColor = true;
-            this.btnLoadDb.Click += new System.EventHandler(this.btnLoadDb_Click);
-            // 
             // ConnectionProperties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +362,7 @@
             this.Controls.Add(this.lblServerName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ConnectionProperties";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConnectionProperties";
             this.grbLogOnToServer.ResumeLayout(false);
             this.grbLogOnToServer.PerformLayout();
@@ -385,10 +399,11 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.RadioButton radCreateDatabase;
         private System.Windows.Forms.Panel pnlCreateDatabase;
-        private System.Windows.Forms.TextBox txtLink;
-        private System.Windows.Forms.TextBox txtLogicalName;
+        private System.Windows.Forms.TextBox txtFileScript;
+        private System.Windows.Forms.TextBox txtDatabaseName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnLoadDb;
+        private System.Windows.Forms.Button btnCreateDb;
     }
 }

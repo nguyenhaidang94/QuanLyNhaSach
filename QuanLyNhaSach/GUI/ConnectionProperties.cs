@@ -11,13 +11,20 @@ using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
 using System.Diagnostics;
 using QuanLyNhaSach.SqlHelper;
+using System.IO;
 
 namespace QuanLyNhaSach.GUI
 {
     public partial class ConnectionProperties : Form
     {
+        ///connectionstring
+        ///
+        ///
         private MyConnectionString _ConnectionString;
 
+        //biến bool xác định combobox được load lần đầu
+        //
+        //
         private bool _IsFirstLoad;
         public bool IsFirstLoad
         {
@@ -25,6 +32,9 @@ namespace QuanLyNhaSach.GUI
             set { _IsFirstLoad = value; }
         }
 
+        ///constructor mặc định
+        ///chức năng:
+        ///mô tả:
         public ConnectionProperties()
         {
             InitializeComponent();
@@ -32,6 +42,9 @@ namespace QuanLyNhaSach.GUI
             _IsFirstLoad = true;
         }
 
+        ///sự kiện click nút cancel
+        ///chức năng: thoát chương trình
+        ///mô tả:
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to exit?", "Warning", MessageBoxButtons.YesNo);
@@ -39,6 +52,9 @@ namespace QuanLyNhaSach.GUI
                 this.Close();
         }
 
+        ///sự kiện click nút refresh
+        ///chức năng: load lại tên database vào combobox
+        ///mô tả:
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             if (_IsFirstLoad)
@@ -56,24 +72,33 @@ namespace QuanLyNhaSach.GUI
                 Debug.WriteLine(ex.StackTrace);
             }
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            if (!grbConnectToDatabase.Enabled)
-                grbConnectToDatabase.Enabled = true;
+            if (grbConnectToDatabase.Enabled)
+                grbConnectToDatabase.Enabled = false;
             MessageBox.Show("Finish refreshing.");
             
         }
 
+        //sự kiện thay đổi trạng thái radiobutton WindowsAuthentication
+        //chức năng: ẩn hoặc hiện pnlUser
+        //mô tả:
         private void radWindowsAuthentication_CheckedChanged(object sender, EventArgs e)
         {
             if (radWindowsAuthentication.Checked && pnlUser.Enabled)
                 pnlUser.Enabled = false;  
         }
 
+        ///sự kiện thay đổi trạng thái radiobutton SqlSerer Authentication
+        ///chức năng: ẩn hoặc hiện pnlUser
+        ///mô tả:
         private void radSqlServerAuthentication_CheckedChanged(object sender, EventArgs e)
         {
             if (radSqlServerAuthentication.Checked && !pnlUser.Enabled)
                 pnlUser.Enabled = true;
         }
 
+        ///sự kiện thay đổi trạng thái check box ShowPassword
+        ///chức năng: ẩn, hiện password
+        ///mô tả:
         private void chbShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (chbShowPassword.Checked)
@@ -82,6 +107,9 @@ namespace QuanLyNhaSach.GUI
                 txtPassword.UseSystemPasswordChar = true;
         }
 
+        ///sự kiện click button OK
+        ///chức năng: lưu lại kết nối và thoát
+        ///mô tả:
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(cboServerName.Text))
@@ -110,6 +138,9 @@ namespace QuanLyNhaSach.GUI
             }
         }
 
+        ///sự kiện thay đổi item cboServerName
+        ///chức năng: ẩn pnlUser, xóa các csdl đã add vào combobox
+        ///mô tả:
         private void cboServerName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (grbConnectToDatabase.Enabled)
@@ -118,14 +149,9 @@ namespace QuanLyNhaSach.GUI
                 cboDatabaseName.Items.Clear();
         }
 
-        private void cboServerName_TextChanged(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(cboServerName.Text) && !grbConnectToDatabase.Enabled)
-                grbConnectToDatabase.Enabled = true;
-            if (String.IsNullOrEmpty(cboServerName.Text) && grbConnectToDatabase.Enabled)
-                grbConnectToDatabase.Enabled = false;
-        }
-
+        ///sự kiện thay đổi trạng thái radiobutton SelectDatabase
+        ///chức năng: ẩn, hiện cboDatabaseName
+        ///
         private void radSelectDatabase_CheckedChanged(object sender, EventArgs e)
         {
             if (!radSelectDatabase.Checked && cboDatabaseName.Enabled)
@@ -134,14 +160,24 @@ namespace QuanLyNhaSach.GUI
                 cboDatabaseName.Enabled = true;
         }
 
+        ///sự kiện thay đổi trạng thái radiobutton CreateDatabase
+        ///chức năng: ẩn, hiện pnlCreateDatabase
+        ///mô tả:
         private void radCreateDatabase_CheckedChanged(object sender, EventArgs e)
         {
             if (!radCreateDatabase.Checked && pnlCreateDatabase.Enabled)
                 pnlCreateDatabase.Enabled = false;
-            if (radCreateDatabase.Checked && !pnlCreateDatabase.Enabled)
-                pnlCreateDatabase.Enabled = true;
+            if (radCreateDatabase.Checked)
+            {
+                if (!pnlCreateDatabase.Enabled)
+                    pnlCreateDatabase.Enabled = true;
+                _ConnectionString.ActiveDatabase = false;
+            }
         }
 
+        ///sự kiện xổ cboServerName
+        ///chức năng: load database, add vào cbo
+        ///mô tả: chỉ load database khi xổ combobox lần đầu tiên
         private void cboServerName_DropDown(object sender, EventArgs e)
         {
             if (_IsFirstLoad)
@@ -162,6 +198,9 @@ namespace QuanLyNhaSach.GUI
             }
         }
 
+        ///sự kiện click nút TestConnection
+        ///chức năng: kiểm tra connectionstring
+        ///mô tả:
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(cboServerName.Text))
@@ -185,7 +224,42 @@ namespace QuanLyNhaSach.GUI
                         _ConnectionString.ActiveUserName = true;
                     }
                 }
-                if (String.IsNullOrEmpty(cboDatabaseName.Text))
+                if (radSelectDatabase.Checked)
+                {
+                    if (String.IsNullOrEmpty(cboDatabaseName.Text))
+                    {
+                        MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
+                        if (dbConn.Open())
+                        {
+                            MessageBox.Show("Test success.");
+                            if (!grbConnectToDatabase.Enabled)
+                                grbConnectToDatabase.Enabled = true;
+                            dbConn.Close();
+                        }
+                        else
+                            MessageBox.Show("Test fail.");
+                    }
+                    else
+                    {
+                        _ConnectionString.InitialCatalog = cboDatabaseName.Text;
+                        _ConnectionString.ActiveDatabase = true;
+                        MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetConnectionString());
+                        if (dbConn.Open())
+                        {
+                            MessageBox.Show("Test success.");
+                            if (!grbConnectToDatabase.Enabled)
+                                grbConnectToDatabase.Enabled = true;
+                            dbConn.Close();
+                        }
+                        else
+                        {
+                            _ConnectionString.ActiveUserName = false;
+                            _ConnectionString.ActiveDatabase = false;
+                            MessageBox.Show("Test fail.");
+                        }
+                    }
+                }
+                else
                 {
                     MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
                     if (dbConn.Open())
@@ -195,33 +269,16 @@ namespace QuanLyNhaSach.GUI
                             grbConnectToDatabase.Enabled = true;
                         dbConn.Close();
                     }
-                    else 
-                        MessageBox.Show("Test fail.");
-                }
-                else
-                {
-                    _ConnectionString.InitialCatalog = cboDatabaseName.Text;
-                    _ConnectionString.ActiveDatabase = true;
-                    MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetConnectionString());
-                    if (dbConn.Open())
-                    {
-                        MessageBox.Show("Test success.");
-                        if (!grbConnectToDatabase.Enabled)
-                            grbConnectToDatabase.Enabled = true;
-                        dbConn.Close();
-                    }
                     else
-                    {
-                        _ConnectionString.ActiveUserName = false;
-                        _ConnectionString.ActiveDatabase = false;
                         MessageBox.Show("Test fail.");
-                    }
                 }
-                
             }
 
         }
 
+        ///sự kiện click nút LoadDb
+        ///chức năng: load tên csdl vào combobox
+        ///mô tả:
         private void btnLoadDb_Click(object sender, EventArgs e)
         {
             MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
@@ -250,6 +307,85 @@ namespace QuanLyNhaSach.GUI
                         }
                     }
                 }
+            }
+        }
+
+        ///sự kiện click nút Browse
+        ///chức năng: dẫn đến file script csdl
+        ///mô tả:
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "File script (*.sql)|*.sql;";
+            dialog.ShowDialog();
+            if (dialog.FileName != "")
+                txtFileScript.Text = dialog.FileName;
+        }
+
+        ///sự kiện click nút CreateDb
+        ///chức năng: tạo csdl từ file script
+        ///mô tả:
+        private void btnCreateDb_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtFileScript.Text) || String.IsNullOrEmpty(txtDatabaseName.Text))
+            {
+                MessageBox.Show("You have not selected file script or entered database name");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string[] words = txtFileScript.Text.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words[words.Length - 1].ToLower() != "sql")
+                    {
+                        MessageBox.Show("File script is not in format");
+                        return;
+                    }
+                }
+                catch { return; }
+            }
+
+            MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
+            if (dbConn == null)
+            {
+                MessageBox.Show("You have not connected to server");
+                return;
+            }
+
+            string databaseName = txtDatabaseName.Text.Trim().ToUpper();
+            if (DatabaseManager.CheckDatabaseExist(dbConn, databaseName) > 0)
+            {
+                MessageBox.Show("DatabaseName is existed");
+                return;
+            }
+
+            FileInfo file = null;
+            string script = null;
+            try
+            {
+                file = new FileInfo(txtFileScript.Text);
+                script = file.OpenText().ReadToEnd();
+            }
+            catch
+            {
+                MessageBox.Show("Reading file script fails");
+                return;
+            }
+
+            this.Cursor = Cursors.WaitCursor;
+            bool isTrue = DatabaseManager.CreateDatabase(dbConn, script, databaseName);
+            this.Cursor = Cursors.Arrow;
+            if (isTrue)
+            {
+                MessageBox.Show("Database is created successfully");
+                _ConnectionString.InitialCatalog = databaseName;
+                _ConnectionString.ActiveDatabase = true;
+            }
+            else
+            {
+                _ConnectionString.ActiveDatabase = true;
+                MessageBox.Show("Creating database failed");
             }
         }
     }
