@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyNhaSach.GUI;
+using QuanLyNhaSach.SqlHelper;
 
 namespace QuanLyNhaSach
 {
@@ -17,7 +18,7 @@ namespace QuanLyNhaSach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUIQuanLyNhaSach());
+            Application.Run(new ConnectionProperties());
         }
     }
 }

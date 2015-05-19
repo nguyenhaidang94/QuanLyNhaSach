@@ -168,6 +168,54 @@ namespace QuanLyNhaSach.SqlHelper
         }
 
         //-----------------------------------------
+        //Desc: thực thi store procedure trả về một đối tượng
+        //-----------------------------------------
+        public bool ExecuteOutputStoredProcedure(string spName, SqlParameter outputParameter,
+            params SqlParameter[] sqlParameters
+            )
+        {
+            SqlCommand sqlCmd = new SqlCommand(spName, _sqlConn) { CommandType = CommandType.StoredProcedure };
+            if (sqlParameters != null && sqlParameters.Length > 0)
+            {
+                foreach (SqlParameter sqlParam in sqlParameters)
+                {
+                    try
+                    {
+                        sqlParam.Direction = ParameterDirection.Input;
+                        sqlCmd.Parameters.Add(sqlParam);
+                    }
+                    catch { return false; }
+                }
+            }
+            if (outputParameter != null)
+            {
+                try
+                {
+                    outputParameter.Direction = ParameterDirection.Output;
+                    sqlCmd.Parameters.Add(outputParameter);
+                }
+                catch { return false; }
+            }
+            
+            if (Open())
+            {
+                try
+                {
+                    sqlCmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    Close();
+                    return false;
+                }
+                Close();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        //-----------------------------------------
         //Desc: lấy dữ liệu thông qua câu try vấn sql, thất bại trở về null
         //-----------------------------------------
         public DataTable ExecuteQuery(string sql)
