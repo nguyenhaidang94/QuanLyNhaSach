@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuanLyNhaSach.DTO;
 using System.Diagnostics;
+using Settings = QuanLyNhaSach.Properties.Settings;
 
 namespace QuanLyNhaSach.DAL
 {
@@ -12,13 +13,13 @@ namespace QuanLyNhaSach.DAL
     {
         public List<HoaDonBanHang> GetList() 
         { 
-            using (QLNSContext db = new QLNSContext())
+            using (QLNSContext db = new QLNSContext(Settings.Default.EntityConnectionString))
             {
                 try
                 {
                     return db.DbHoaDonBanHang.ToList<HoaDonBanHang>();
                 }
-                catch(ArgumentNullException ex)
+                catch(Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
                     return null;
