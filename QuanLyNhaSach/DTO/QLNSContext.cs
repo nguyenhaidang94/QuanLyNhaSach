@@ -481,10 +481,6 @@ namespace QuanLyNhaSach.DTO
                 .HasForeignKey(e => new { e.Thang, e.Nam })
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ThueSuat>()
-                .Property(e => e.MaSoThue)
-                .IsUnicode(false);
-
             modelBuilder.Entity<BangChamCong>().MapToStoredProcedures();
             modelBuilder.Entity<BoDem>().MapToStoredProcedures();
             modelBuilder.Entity<CaLamViec>().MapToStoredProcedures();
