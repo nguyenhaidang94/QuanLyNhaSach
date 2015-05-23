@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,5 +123,51 @@ namespace QuanLyNhaSach.SqlHelper
             }
         }
 
+        //-----------------------------------------
+        //Desc: Sao lưu cơ sở dữ liệu
+        //-----------------------------------------
+        public static bool BackupDatabase(string folderPath, string databaseName)
+        {
+            if (DatabaseManager.MasterConnection == null)
+                return false;
+
+            int i = 1;
+            string fileName = folderPath + "\\" + databaseName + i.ToString("D3") + ".bak";
+            //xem thư mục có tên đã được tạo chưa, nếu đã được tạo thì thay đổi tên
+            while (File.Exists(fileName))
+            {
+                i++;
+                fileName = folderPath + "\\" + databaseName + i.ToString("D3") + ".bak";
+            }
+
+            string sql = "BACKUP DATABASE " + databaseName
+                       + " TO DISK ='" + fileName + "'";
+            if (DatabaseManager.MasterConnection.ExecuteNonQuery(sql))
+                return true;
+            else
+                return false;
+        }
+
+        public static bool RestoreDatabase(string fileName, string databaseName)
+        {
+            if (DatabaseManager.MasterConnection == null)
+                return false;
+
+            int dbExist = CheckDatabaseExist(MasterConnection, databaseName);
+            string sql = "";
+            if (dbExist > 0)
+            {
+                sql += "Alter Database " + databaseName + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+                sql += "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH REPLACE;";
+                return DatabaseManager.MasterConnection.ExecuteNonQuery(sql);
+            }
+            else if (dbExist == 0)
+            {
+                sql += "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH REPLACE;";
+                return DatabaseManager.MasterConnection.ExecuteNonQuery(sql);
+            }
+            else
+                return false;
+        }
     }
 }
