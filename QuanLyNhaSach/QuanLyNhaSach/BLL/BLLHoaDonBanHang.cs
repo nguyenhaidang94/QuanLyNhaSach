@@ -25,7 +25,7 @@ namespace QuanLyNhaSach.BLL
         public HoaDonBanHang LayHoaDon(String maHoaDon) 
         {
             DALHoaDonBanHang dal = new DALHoaDonBanHang();
-            return dal.LayHoaDonVaSanPham(maHoaDon);
+            return dal.LayHoaDonVaCTSanPham(maHoaDon);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace QuanLyNhaSach.DAL
         ///phương thức lấy thông tin 1 hóa đơn
         ///chức năng:
         ///mô tả:
-        public HoaDonBanHang LayHoaDonVaSanPham(String maHoaDon) 
+        public HoaDonBanHang LayHoaDonVaCTSanPham(String maHoaDon) 
         {
             using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
             {
@@ -41,8 +41,19 @@ namespace QuanLyNhaSach.DAL
                 {
                     HoaDonBanHang hoadon = db.DbHoaDonBanHang.Find(maHoaDon);
                     if (hoadon != null)
+                    {
                         //sử dụng kỹ thuật implicit loading
                         db.Entry(hoadon).Collection(e => e.DSCT_HDBanHang).Load();
+                        foreach (var ctHoaDon in hoadon.DSCT_HDBanHang)
+                        {
+                            if (!db.Entry(ctHoaDon).Reference(e => e.CT_SanPham).IsLoaded)
+                            {
+                                db.Entry(ctHoaDon).Reference(e => e.CT_SanPham).Load();
+                                if (!db.Entry(ctHoaDon.CT_SanPham).Reference(e => e.SanPham).IsLoaded)
+                                    db.Entry(ctHoaDon.CT_SanPham).Reference(e => e.SanPham).Load();
+                            }
+                        }
+                    }
                     return hoadon;
                 }
                 catch (Exception ex)
