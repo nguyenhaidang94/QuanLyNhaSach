@@ -203,16 +203,19 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnXemChiTiet_Click(object sender, EventArgs e)
         {
-            if (dgwDSHoaDon.SelectedRows.Count <= 0)
+            if (dgwDSHoaDon.SelectedRows.Count <= 0 && dgwDSHoaDon.SelectedCells.Count <= 0)
                 MessageBox.Show("Bạn chưa chọn hóa đơn để xem");
-            else if (dgwDSHoaDon.SelectedRows.Count > 1)
-                MessageBox.Show("Chỉ được chọn 1 hóa đơn");
             else
             {
+                int index;
+                if (dgwDSHoaDon.SelectedRows.Count > 0)
+                    index = dgwDSHoaDon.SelectedRows[0].Index;
+                else
+                    index = dgwDSHoaDon.SelectedCells[0].RowIndex;
                 String maHoaDon = null;
                 try
                 {
-                    maHoaDon = (String)dgwDSHoaDon.SelectedRows[0].Cells[0].Value;
+                    maHoaDon = (String)dgwDSHoaDon.Rows[index].Cells[0].Value;
                 }
                 catch (Exception ex)
                 {
@@ -251,7 +254,8 @@ namespace QuanLyNhaSach.GUI
                                     {
                                         existed = true;
                                         row.Cells[2].Value = (int)row.Cells[2].Value + 1;
-                                        row.Cells[3].Value = (Double)row.Cells[1].Value * (int)row.Cells[2].Value;
+                                        row.Cells[3].Value = (Decimal)row.Cells[1].Value * (int)row.Cells[2].Value;
+                                        break;
                                     }
                                 }
                                 if (!existed)
