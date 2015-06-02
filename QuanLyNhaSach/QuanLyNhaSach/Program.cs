@@ -19,7 +19,6 @@ namespace QuanLyNhaSach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new GUIQuanLyHoaDon());
             if (!String.IsNullOrEmpty(Settings.Default.MasterConnectionString)
                 && !String.IsNullOrEmpty(Settings.Default.ConnectionString))
             {
@@ -40,6 +39,7 @@ namespace QuanLyNhaSach
                 Application.Run(new ConnectionProperties());
             if (DatabaseManager.IsConnected)
                 Application.Run(new GUIQuanLyNhaSach());
+		//test chuc nang tach nhanh
         }
     }
 }
