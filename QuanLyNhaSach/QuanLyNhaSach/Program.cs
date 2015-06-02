@@ -19,7 +19,6 @@ namespace QuanLyNhaSach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new GUIQuanLyHoaDon());
             if (!String.IsNullOrEmpty(Settings.Default.MasterConnectionString)
                 && !String.IsNullOrEmpty(Settings.Default.ConnectionString))
             {
