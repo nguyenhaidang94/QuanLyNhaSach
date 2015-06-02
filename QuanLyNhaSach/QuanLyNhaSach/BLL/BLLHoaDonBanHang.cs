@@ -22,10 +22,10 @@ namespace QuanLyNhaSach.BLL
         ///phương thức lấy thông tin 1 hóa đơn
         ///chức năng:
         ///mô tả:
-        public HoaDonBanHang LayHoaDon(String maHoaDon) 
+        public HoaDonBanHang GetReceipts(String maHoaDon) 
         {
             DALHoaDonBanHang dal = new DALHoaDonBanHang();
-            return dal.LayHoaDonVaCTSanPham(maHoaDon);
+            return dal.GetReceiptsWithDetailedProducts(maHoaDon);
         }
     }
 }

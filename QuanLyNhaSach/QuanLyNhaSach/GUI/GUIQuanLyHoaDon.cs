@@ -226,7 +226,7 @@ namespace QuanLyNhaSach.GUI
                 else
                 {
                     BLLHoaDonBanHang bll = new BLLHoaDonBanHang();
-                    HoaDonBanHang hoadon = bll.LayHoaDon(maHoaDon);
+                    HoaDonBanHang hoadon = bll.GetReceipts(maHoaDon);
                     if (hoadon == null)
                         MessageBox.Show("Hóa đơn không tồn tại");
                     else

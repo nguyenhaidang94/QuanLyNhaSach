@@ -33,7 +33,7 @@ namespace QuanLyNhaSach.DAL
         ///phương thức lấy thông tin 1 hóa đơn
         ///chức năng:
         ///mô tả:
-        public HoaDonBanHang LayHoaDonVaCTSanPham(String maHoaDon) 
+        public HoaDonBanHang GetReceiptsWithDetailedProducts(String maHoaDon) 
         {
             using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
             {

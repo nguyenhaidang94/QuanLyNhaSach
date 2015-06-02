@@ -22,5 +22,10 @@ namespace QuanLyNhaSach.DTO
         public string TenLoaiSanPham { get; set; }
 
         public virtual ICollection<SanPham> DSSanPham { get; set; }
+
+        public override string ToString()
+        {
+            return TenLoaiSanPham;
+        }
     }
 }

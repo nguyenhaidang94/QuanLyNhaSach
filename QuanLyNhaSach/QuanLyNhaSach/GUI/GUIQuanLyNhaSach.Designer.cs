@@ -50,11 +50,11 @@
             this.btnLapHoaDon = new DevComponents.DotNetBar.ButtonItem();
             this.ribpnlTongHop = new DevComponents.DotNetBar.RibbonPanel();
             this.ribpnlHeThong = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribpnlBaoCao = new DevComponents.DotNetBar.RibbonPanel();
             this.ribpnlNhanVien = new DevComponents.DotNetBar.RibbonPanel();
             this.ribpnlThuChi = new DevComponents.DotNetBar.RibbonPanel();
             this.ribpnlNhapXuatKho = new DevComponents.DotNetBar.RibbonPanel();
             this.ribpnlDatMua = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribpnlBaoCao = new DevComponents.DotNetBar.RibbonPanel();
             this.ribXemTongHop = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribQLHeThong = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribQLBanHang = new DevComponents.DotNetBar.RibbonTabItem();
@@ -213,11 +213,11 @@
             this.ribMain.Controls.Add(this.ribpnlBanHang);
             this.ribMain.Controls.Add(this.ribpnlTongHop);
             this.ribMain.Controls.Add(this.ribpnlHeThong);
+            this.ribMain.Controls.Add(this.ribpnlBaoCao);
             this.ribMain.Controls.Add(this.ribpnlNhanVien);
             this.ribMain.Controls.Add(this.ribpnlThuChi);
             this.ribMain.Controls.Add(this.ribpnlNhapXuatKho);
             this.ribMain.Controls.Add(this.ribpnlDatMua);
-            this.ribMain.Controls.Add(this.ribpnlBaoCao);
             this.ribMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribMain.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribXemTongHop,
@@ -378,6 +378,29 @@
             this.ribpnlHeThong.TabIndex = 1;
             this.ribpnlHeThong.Visible = false;
             // 
+            // ribpnlBaoCao
+            // 
+            this.ribpnlBaoCao.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribpnlBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribpnlBaoCao.Location = new System.Drawing.Point(0, 56);
+            this.ribpnlBaoCao.Name = "ribpnlBaoCao";
+            this.ribpnlBaoCao.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribpnlBaoCao.Size = new System.Drawing.Size(790, 95);
+            // 
+            // 
+            // 
+            this.ribpnlBaoCao.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribpnlBaoCao.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribpnlBaoCao.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribpnlBaoCao.TabIndex = 8;
+            this.ribpnlBaoCao.Visible = false;
+            // 
             // ribpnlNhanVien
             // 
             this.ribpnlNhanVien.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -469,29 +492,6 @@
             this.ribpnlDatMua.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribpnlDatMua.TabIndex = 4;
             this.ribpnlDatMua.Visible = false;
-            // 
-            // ribpnlBaoCao
-            // 
-            this.ribpnlBaoCao.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribpnlBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribpnlBaoCao.Location = new System.Drawing.Point(0, 56);
-            this.ribpnlBaoCao.Name = "ribpnlBaoCao";
-            this.ribpnlBaoCao.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribpnlBaoCao.Size = new System.Drawing.Size(790, 95);
-            // 
-            // 
-            // 
-            this.ribpnlBaoCao.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribpnlBaoCao.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribpnlBaoCao.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribpnlBaoCao.TabIndex = 8;
-            this.ribpnlBaoCao.Visible = false;
             // 
             // ribXemTongHop
             // 
@@ -645,9 +645,9 @@
             this.buttonItem7,
             this.buttonItem9});
             this.ribLeft.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.ribLeft.Location = new System.Drawing.Point(0, 226);
+            this.ribLeft.Location = new System.Drawing.Point(0, 397);
             this.ribLeft.Name = "ribLeft";
-            this.ribLeft.Size = new System.Drawing.Size(220, 195);
+            this.ribLeft.Size = new System.Drawing.Size(220, 24);
             this.ribLeft.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribLeft.TabIndex = 2;
             // 
@@ -708,7 +708,7 @@
             this.expnlHeThong.DisabledBackColor = System.Drawing.Color.Empty;
             this.expnlHeThong.Dock = System.Windows.Forms.DockStyle.Top;
             this.expnlHeThong.HideControlsWhenCollapsed = true;
-            this.expnlHeThong.Location = new System.Drawing.Point(0, 26);
+            this.expnlHeThong.Location = new System.Drawing.Point(0, 197);
             this.expnlHeThong.Name = "expnlHeThong";
             this.expnlHeThong.Size = new System.Drawing.Size(220, 200);
             this.expnlHeThong.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -735,7 +735,7 @@
             this.lblThoat.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblThoat.Location = new System.Drawing.Point(9, 171);
             this.lblThoat.Name = "lblThoat";
-            this.lblThoat.Size = new System.Drawing.Size(195, 23);
+            this.lblThoat.Size = new System.Drawing.Size(91, 23);
             this.lblThoat.TabIndex = 6;
             this.lblThoat.Text = "Thoát";
             this.lblThoat.Click += new System.EventHandler(this.lblThoat_Click);
@@ -749,7 +749,7 @@
             this.lblPhucHoiDL.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblPhucHoiDL.Location = new System.Drawing.Point(9, 146);
             this.lblPhucHoiDL.Name = "lblPhucHoiDL";
-            this.lblPhucHoiDL.Size = new System.Drawing.Size(195, 23);
+            this.lblPhucHoiDL.Size = new System.Drawing.Size(91, 23);
             this.lblPhucHoiDL.TabIndex = 5;
             this.lblPhucHoiDL.Text = "Phục Hồi Dữ Liệu";
             // 
@@ -762,7 +762,7 @@
             this.lblSaoLuuDL.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblSaoLuuDL.Location = new System.Drawing.Point(9, 117);
             this.lblSaoLuuDL.Name = "lblSaoLuuDL";
-            this.lblSaoLuuDL.Size = new System.Drawing.Size(195, 23);
+            this.lblSaoLuuDL.Size = new System.Drawing.Size(91, 23);
             this.lblSaoLuuDL.TabIndex = 4;
             this.lblSaoLuuDL.Text = "Sao Lưu Dữ Liệu";
             // 
@@ -775,7 +775,7 @@
             this.lblPhanQuyen.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblPhanQuyen.Location = new System.Drawing.Point(9, 88);
             this.lblPhanQuyen.Name = "lblPhanQuyen";
-            this.lblPhanQuyen.Size = new System.Drawing.Size(195, 23);
+            this.lblPhanQuyen.Size = new System.Drawing.Size(91, 23);
             this.lblPhanQuyen.TabIndex = 3;
             this.lblPhanQuyen.Text = "Phân Quyền";
             // 
@@ -788,7 +788,7 @@
             this.lblDangXuat.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblDangXuat.Location = new System.Drawing.Point(9, 59);
             this.lblDangXuat.Name = "lblDangXuat";
-            this.lblDangXuat.Size = new System.Drawing.Size(195, 23);
+            this.lblDangXuat.Size = new System.Drawing.Size(91, 23);
             this.lblDangXuat.TabIndex = 2;
             this.lblDangXuat.Text = "Đăng Xuất";
             // 
@@ -801,7 +801,7 @@
             this.lblDangNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblDangNhap.Location = new System.Drawing.Point(9, 30);
             this.lblDangNhap.Name = "lblDangNhap";
-            this.lblDangNhap.Size = new System.Drawing.Size(195, 23);
+            this.lblDangNhap.Size = new System.Drawing.Size(91, 23);
             this.lblDangNhap.TabIndex = 1;
             this.lblDangNhap.Text = "Đăng Nhập";
             // 
@@ -817,12 +817,10 @@
             this.expnlXemTongHop.Controls.Add(this.lblSanPham);
             this.expnlXemTongHop.DisabledBackColor = System.Drawing.Color.Empty;
             this.expnlXemTongHop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.expnlXemTongHop.Expanded = false;
-            this.expnlXemTongHop.ExpandedBounds = new System.Drawing.Rectangle(0, 0, 220, 197);
             this.expnlXemTongHop.HideControlsWhenCollapsed = true;
             this.expnlXemTongHop.Location = new System.Drawing.Point(0, 0);
             this.expnlXemTongHop.Name = "expnlXemTongHop";
-            this.expnlXemTongHop.Size = new System.Drawing.Size(220, 26);
+            this.expnlXemTongHop.Size = new System.Drawing.Size(220, 197);
             this.expnlXemTongHop.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expnlXemTongHop.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expnlXemTongHop.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
@@ -847,7 +845,7 @@
             this.lblHuongDan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblHuongDan.Location = new System.Drawing.Point(9, 171);
             this.lblHuongDan.Name = "lblHuongDan";
-            this.lblHuongDan.Size = new System.Drawing.Size(195, 23);
+            this.lblHuongDan.Size = new System.Drawing.Size(91, 23);
             this.lblHuongDan.TabIndex = 7;
             this.lblHuongDan.Text = "Hướng Dẫn";
             // 
@@ -860,7 +858,7 @@
             this.lblThongTin.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblThongTin.Location = new System.Drawing.Point(9, 146);
             this.lblThongTin.Name = "lblThongTin";
-            this.lblThongTin.Size = new System.Drawing.Size(195, 23);
+            this.lblThongTin.Size = new System.Drawing.Size(91, 23);
             this.lblThongTin.TabIndex = 6;
             this.lblThongTin.Text = "Thông Tin";
             // 
@@ -873,7 +871,7 @@
             this.lblSearch.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblSearch.Location = new System.Drawing.Point(9, 117);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(195, 23);
+            this.lblSearch.Size = new System.Drawing.Size(91, 23);
             this.lblSearch.TabIndex = 5;
             this.lblSearch.Text = "Tìm Kiếm";
             // 
@@ -886,7 +884,7 @@
             this.lblDoDungHocTap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblDoDungHocTap.Location = new System.Drawing.Point(9, 88);
             this.lblDoDungHocTap.Name = "lblDoDungHocTap";
-            this.lblDoDungHocTap.Size = new System.Drawing.Size(195, 23);
+            this.lblDoDungHocTap.Size = new System.Drawing.Size(91, 23);
             this.lblDoDungHocTap.TabIndex = 4;
             this.lblDoDungHocTap.Text = "Đồ Dùng Học Tập";
             // 
@@ -899,7 +897,7 @@
             this.lblSach.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblSach.Location = new System.Drawing.Point(9, 59);
             this.lblSach.Name = "lblSach";
-            this.lblSach.Size = new System.Drawing.Size(195, 23);
+            this.lblSach.Size = new System.Drawing.Size(91, 23);
             this.lblSach.TabIndex = 3;
             this.lblSach.Text = "Sách";
             // 
@@ -912,9 +910,10 @@
             this.lblSanPham.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblSanPham.Location = new System.Drawing.Point(9, 30);
             this.lblSanPham.Name = "lblSanPham";
-            this.lblSanPham.Size = new System.Drawing.Size(195, 23);
+            this.lblSanPham.Size = new System.Drawing.Size(91, 23);
             this.lblSanPham.TabIndex = 2;
             this.lblSanPham.Text = "Sản Phẩm";
+            this.lblSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // GUIQuanLyNhaSach
             // 

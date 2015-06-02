@@ -50,5 +50,13 @@ namespace QuanLyNhaSach.GUI
         {
             new GUIQuanLyHoaDon(FORMSTATE.ADD_SATE).Show();
         }
+
+        ///sự kiện click button Sản Phẩm
+        ///chức năng: Hiển thị màn hình Tìm kiếm sản phẩm
+        ///mô tả:
+        private void btnSanPham_Click(object sender, EventArgs e)
+        {
+            new GUITimKiemSanPham().Show();
+        }
     }
 }
