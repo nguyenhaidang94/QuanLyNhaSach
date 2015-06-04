@@ -59,14 +59,36 @@ namespace QuanLyNhaSach.GUI
             new GUITimKiemSanPham().Show();
         }
 
+        ///sự kiện click button Ds phiếu nhập kho
+        ///chức năng: Hiển thị màn hình Ql danh sách phiếu nhập kho
+        ///mô tả:
         private void btnDSPhieuNhapKho_Click(object sender, EventArgs e)
         {
             new GUIQuanLyNhapKho(FORMSTATE.LIST_STATE).Show();
         }
 
+        ///sự kiện click button Lập phiếu nhập kho
+        ///chức năng: Hiển thị màn hình Lập phiếu nhập kho
+        ///mô tả:
         private void btnLapPhieuNhapKho_Click(object sender, EventArgs e)
         {
             new GUIQuanLyNhapKho(FORMSTATE.ADD_SATE).Show();
+        }
+
+        ///sự kiện click button Ds phiếu đặt mua
+        ///chức năng: Hiển thị màn hình Ql danh sách phiếu đặt mua
+        ///mô tả:
+        private void btnDSPhieuDatMua_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyDatMua(FORMSTATE.LIST_STATE).Show();
+        }
+
+        ///sự kiện click button Lập phiếu đặt mua
+        ///chức năng: Hiển thị màn hình Lập phiếu đặt mua
+        ///mô tả:
+        private void btnLapPhieuDatMua_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyDatMua(FORMSTATE.ADD_SATE).Show();
         }
     }
 }
