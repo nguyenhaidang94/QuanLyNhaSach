@@ -116,6 +116,12 @@
     <Compile Include="GUI\ConnectionProperties.designer.cs">
       <DependentUpon>ConnectionProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUIQuanLyDatMua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyDatMua.Designer.cs">
+      <DependentUpon>GUIQuanLyDatMua.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUIQuanLyHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,10 @@
     <Compile Include="Migrations\201505261852193_delete_attribute_cthoadonbanhang.Designer.cs">
       <DependentUpon>201505261852193_delete_attribute_cthoadonbanhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs" />
+    <Compile Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.Designer.cs">
+      <DependentUpon>201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +165,9 @@
     <Compile Include="SqlHelper\DatabaseManager.cs" />
     <Compile Include="SqlHelper\MyConnectionString.cs" />
     <Compile Include="SqlHelper\MyDatabaseConnection.cs" />
+    <EmbeddedResource Include="GUI\GUIQuanLyDatMua.resx">
+      <DependentUpon>GUIQuanLyDatMua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyHoaDon.resx">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505261852193_delete_attribute_cthoadonbanhang.resx">
       <DependentUpon>201505261852193_delete_attribute_cthoadonbanhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.resx">
+      <DependentUpon>201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
