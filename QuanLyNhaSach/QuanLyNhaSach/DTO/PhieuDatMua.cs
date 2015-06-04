@@ -32,6 +32,8 @@ namespace QuanLyNhaSach.DTO
 
         public int? TongSoLuong { get; set; }
 
+        public bool? TinhTrang { get; set; }
+
         public virtual ICollection<CT_PhieuDatMua> DSCT_PhieuDatMua { get; set; }
 
         public virtual NhaCungCap NhaCungCap { get; set; }
