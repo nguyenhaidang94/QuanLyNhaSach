@@ -50,8 +50,9 @@ namespace QuanLyNhaSach.GUI
                     btnXemChiTiet.Enabled = true;
                     btnTroLai.Enabled = false;
 
-                    pnlDSHoaDon.Visible = true;
+                    pnlChiTietHD.Visible = false;
                     pnlLapHoaDon.Visible = false;
+                    pnlDSHoaDon.Visible = true;
                     break;
                 case FORMSTATE.ADD_SATE:
                     btnThem.Enabled = false;
@@ -60,8 +61,10 @@ namespace QuanLyNhaSach.GUI
                     btnTimKiem.Enabled = false;
                     btnXemChiTiet.Enabled = false;
                     btnTroLai.Enabled = true;
+
                     pnlDSHoaDon.Visible = false;
                     pnlLapHoaDon.Visible = true;
+                    pnlChiTietHD.Visible = false;
                     break;
                 case FORMSTATE.DETAILED_STATE:
                     btnThem.Enabled = false;

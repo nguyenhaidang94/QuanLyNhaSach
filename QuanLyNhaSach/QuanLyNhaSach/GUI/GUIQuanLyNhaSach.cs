@@ -58,5 +58,15 @@ namespace QuanLyNhaSach.GUI
         {
             new GUITimKiemSanPham().Show();
         }
+
+        private void btnDSPhieuNhapKho_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyNhapKho(FORMSTATE.LIST_STATE).Show();
+        }
+
+        private void btnLapPhieuNhapKho_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyNhapKho(FORMSTATE.ADD_SATE).Show();
+        }
     }
 }
