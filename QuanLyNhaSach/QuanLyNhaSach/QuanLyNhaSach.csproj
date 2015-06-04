@@ -72,10 +72,12 @@
     <Compile Include="BLL\BLLCT_SanPham.cs" />
     <Compile Include="BLL\BLLHoaDonBanHang.cs" />
     <Compile Include="BLL\BLLLoaiSanPham.cs" />
+    <Compile Include="BLL\BLLPhieuNhapKho.cs" />
     <Compile Include="BLL\BLLSanPham.cs" />
     <Compile Include="DAL\DALCT_SanPham.cs" />
     <Compile Include="DAL\DALHoaDonBanHang.cs" />
     <Compile Include="DAL\DALLoaiSanPham.cs" />
+    <Compile Include="DAL\DALPhieuNhapKho.cs" />
     <Compile Include="DAL\DALSanPham.cs" />
     <Compile Include="DTO\BangChamCong.cs" />
     <Compile Include="DTO\BoDem.cs" />
@@ -120,6 +122,12 @@
     <Compile Include="GUI\GUIQuanLyHoaDon.designer.cs">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUIQuanLyNhapKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyNhapKho.Designer.cs">
+      <DependentUpon>GUIQuanLyNhapKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUIQuanLyNhaSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +157,9 @@
     <Compile Include="SqlHelper\MyDatabaseConnection.cs" />
     <EmbeddedResource Include="GUI\GUIQuanLyHoaDon.resx">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyNhapKho.resx">
+      <DependentUpon>GUIQuanLyNhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyNhaSach.resx">
       <DependentUpon>GUIQuanLyNhaSach.cs</DependentUpon>
