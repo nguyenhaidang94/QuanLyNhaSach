@@ -53,6 +53,8 @@ namespace QuanLyNhaSach.GUI
                     pnlChiTietHD.Visible = false;
                     pnlLapHoaDon.Visible = false;
                     pnlDSHoaDon.Visible = true;
+                    pnlLapHoaDon.Visible = false;
+                    lblTitle.Text = "<b><font size=\"+20\"><font color=\"#B02B2C\">DANH SÁCH HÓA ĐƠN</font></font></b>";
                     break;
                 case FORMSTATE.ADD_SATE:
                     btnThem.Enabled = false;
@@ -64,7 +66,7 @@ namespace QuanLyNhaSach.GUI
 
                     pnlDSHoaDon.Visible = false;
                     pnlLapHoaDon.Visible = true;
-                    pnlChiTietHD.Visible = false;
+                    lblTitle.Text = "<b><font size=\"+20\"><font color=\"#B02B2C\">LẬP HÓA ĐƠN</font></font></b>";
                     break;
                 case FORMSTATE.DETAILED_STATE:
                     btnThem.Enabled = false;
@@ -77,6 +79,7 @@ namespace QuanLyNhaSach.GUI
                     pnlDSHoaDon.Visible = false;
                     pnlLapHoaDon.Visible = false;
                     pnlChiTietHD.Visible = true;
+                    lblTitle.Text = "<b><font size=\"+20\"><font color=\"#B02B2C\">CHI TIẾT HÓA ĐƠN</font></font></b>";
                     break;
                 default:
                     break;
