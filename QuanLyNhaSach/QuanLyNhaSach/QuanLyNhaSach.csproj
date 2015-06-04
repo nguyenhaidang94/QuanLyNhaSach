@@ -116,6 +116,12 @@
     <Compile Include="GUI\ConnectionProperties.designer.cs">
       <DependentUpon>ConnectionProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUIQuanLyDatMua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyDatMua.Designer.cs">
+      <DependentUpon>GUIQuanLyDatMua.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUIQuanLyHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <Compile Include="SqlHelper\DatabaseManager.cs" />
     <Compile Include="SqlHelper\MyConnectionString.cs" />
     <Compile Include="SqlHelper\MyDatabaseConnection.cs" />
+    <EmbeddedResource Include="GUI\GUIQuanLyDatMua.resx">
+      <DependentUpon>GUIQuanLyDatMua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyHoaDon.resx">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
     </EmbeddedResource>
