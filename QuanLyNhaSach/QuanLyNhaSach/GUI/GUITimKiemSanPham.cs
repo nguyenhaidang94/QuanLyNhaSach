@@ -15,12 +15,27 @@ namespace QuanLyNhaSach.GUI
 {
     public partial class GUITimKiemSanPham : DevComponents.DotNetBar.Office2007Form
     {
+        ///khai báo sự kiện và delegate cho sự kiện
+        ///chức năng:
+        ///mô tả:
+        public delegate void SelectProductEventHandler(Object sender);
+        public event SelectProductEventHandler SelectEvent;
+
         ///constructor
         ///chức năng:
         ///mô tả:
         public GUITimKiemSanPham()
         {
             InitializeComponent();
+        }
+
+        ///ném sự kiện Select
+        ///chức năng: kiểm tra sự kiện trước khi ném ra
+        ///mô tả:
+        private void SelectProduct(Object sender)
+        {
+            if (SelectEvent != null)
+                SelectEvent(sender);
         }
 
         ///hiển thị danh sách sản phẩm lên list view
@@ -239,6 +254,26 @@ namespace QuanLyNhaSach.GUI
         {
             if (MessageBox.Show("Bạn có đồng ý thoát không?", "Nhắc nhở", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
+        }
+
+        ///sự kiện click btnChonSanPham
+        ///chức năng: chọn CTSanPham để lập hóa đơn
+        ///mô tả:
+        private void btnChonSanPham_Click(object sender, EventArgs e)
+        {
+            List<String> selectedProducts = new List<String>();
+            foreach (ListViewItem item in lvwSanPham.SelectedItems)
+            {
+                try
+                {
+                    selectedProducts.Add(item.SubItems[1].Text);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+            SelectProduct((Object)selectedProducts);
         }
     }
 }

@@ -18,21 +18,21 @@ namespace QuanLyNhaSach.SqlHelper
             set { DatabaseManager._IsConnected = value; }
         }
 
-        private static MyConnectionString _ConnectionString;
+        private static MyConnectionString _ConnectionString = null;
         public static MyConnectionString ConnectionString
         {
             get { return DatabaseManager._ConnectionString; }
             set { DatabaseManager._ConnectionString = value; }
         }
 
-        private static MyDatabaseConnection _DbConnection;
+        private static MyDatabaseConnection _DbConnection = null;
         public static MyDatabaseConnection DbConnection
         {
             get { return DatabaseManager._DbConnection; }
             set { DatabaseManager._DbConnection = value; }
         }
 
-        private static MyDatabaseConnection _MasterConnection;
+        private static MyDatabaseConnection _MasterConnection = null;
         public static MyDatabaseConnection MasterConnection
         {
             get { return DatabaseManager._MasterConnection; }

@@ -115,7 +115,7 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát không?", null, MessageBoxButtons.YesNo)
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Nhắc Nhở", MessageBoxButtons.YesNo)
                 == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }

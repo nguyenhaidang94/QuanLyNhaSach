@@ -30,7 +30,7 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void lblThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát không?", null, MessageBoxButtons.YesNo)
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Nhắc nhở", MessageBoxButtons.YesNo)
                 == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
@@ -89,6 +89,15 @@ namespace QuanLyNhaSach.GUI
         private void btnLapPhieuDatMua_Click(object sender, EventArgs e)
         {
             new GUIQuanLyDatMua(FORMSTATE.ADD_SATE).Show();
+        }
+
+        ///sự kiện click button Đăng Nhập
+        ///chức năng: Hiển thị màn hình Đăng Nhập
+        ///mô tả:
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            GUIDangNhap formDangNhap = new GUIDangNhap();
+            formDangNhap.ShowDialog();
         }
     }
 }

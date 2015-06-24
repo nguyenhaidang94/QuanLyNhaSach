@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using QuanLyNhaSach.DTO;
 using QuanLyNhaSach.BLL;
 using System.Diagnostics;
+using QuanLyNhaSach.SqlHelper;
 
 namespace QuanLyNhaSach.GUI
 {
@@ -98,6 +99,8 @@ namespace QuanLyNhaSach.GUI
                         LoadDSHoaDon();
                     break;
                 case FORMSTATE.ADD_SATE:
+                    if (UserManager.User != null)
+                        txt2NhanVien.Text = UserManager.User.MaNhanVien;
                     break;
                 case FORMSTATE.DETAILED_STATE:
                     break;
@@ -126,12 +129,26 @@ namespace QuanLyNhaSach.GUI
             _IsListLoaded = true;
         }
 
+        ///hàm kiểm tra sản phẩm
+        ///chức năng: hàm kiểm tra sản phẩm đã có trong hóa đơn chưa
+        ///mô tả: dùng cho chức năng lập hóa đơn
+        private bool KiemTraTonTai(String maCTSanPham)
+        {
+            for (int i = 0; i < dgw2DSSanPham.Rows.Count; i++)
+            {
+                if (dgw2DSSanPham.Rows[i].Cells[0].Value != null
+                    && dgw2DSSanPham.Rows[i].Cells[0].Value.ToString().Equals(maCTSanPham))
+                    return true;
+            }
+            return false;
+        }
+
         ///sự kiện click button Thoát
         ///chức năng: Thoát màn hình
         ///mô tả:
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát không?", null, MessageBoxButtons.YesNo)
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Nhắc nhở", MessageBoxButtons.YesNo)
                 == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
@@ -166,7 +183,7 @@ namespace QuanLyNhaSach.GUI
                 case FORMSTATE.ADD_SATE:
                     txt2NhanVien.Clear();
                     txt2TenKhachHang.Clear();
-                    txt2TongTien.Clear();
+                    txt2TongTien.Value = 0;
                     dt2NgayLap.Value = new DateTime();
                     try
                     {
@@ -201,7 +218,46 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (String.IsNullOrEmpty(txt2TenKhachHang.Text))
+                    MessageBox.Show("Chưa nhập tên khách hàng", "Nhắc nhở");
+                else
+                {
+                    HoaDonBanHang hoadon = new HoaDonBanHang();
+                    hoadon.NgayBan = dt2NgayLap.Value;
+                    hoadon.MaNhanVien = txt2NhanVien.Text;
+                    hoadon.TenKhachHang = txt2TenKhachHang.Text;
+                    hoadon.TongThanhTien = Decimal.Parse(txt2TongTien.Text);
 
+                    List<CT_HDBanHang> dsCTHoaDon = new List<CT_HDBanHang>();
+                    foreach (DataGridViewRow row in dgw2DSSanPham.Rows)
+                    {
+                        if (row != null)
+                        {
+                            CT_HDBanHang cthoadon = new CT_HDBanHang();
+                            cthoadon.MaCTSanPham = (row.Cells[0].Value as string);
+                            if (cthoadon.MaCTSanPham != null)
+                                dsCTHoaDon.Add(cthoadon);
+                        }
+                    }
+                    if (dsCTHoaDon.Count <= 0)
+                        MessageBox.Show("Chưa chọn sản phẩm");
+                    else
+                    {
+                        BLLHoaDonBanHang bllHoaDon = new BLLHoaDonBanHang();
+                        if (bllHoaDon.LapHoaDon(hoadon, dsCTHoaDon))
+                            MessageBox.Show("Lập hóa đơn thành công");
+                        else
+                            MessageBox.Show("Lập hóa đơn thất bại");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Có lỗi trong quá trình lập hóa đơn");
+            }
         }
 
         ///sự kiện click button Chi tiết
@@ -282,12 +338,39 @@ namespace QuanLyNhaSach.GUI
             }
         }
 
+        ///hàm xử lý sự kiện chọn sản phẩm từ form Tìm kiếm
+        ///chức năng: hiển thị thông tin CTSanPham
+        ///mô tả: dùng cho chức năng lập hóa đơn
+        private void SelectEvent_Handler(Object sender)
+        {
+            List<String> selectedProducts = (List<String>)sender;
+            foreach (var maCTSanPham in selectedProducts)
+            {
+                BLLCT_SanPham bll = new BLLCT_SanPham();
+                CT_SanPham ctSanPham = bll.Search(maCTSanPham);
+                if (ctSanPham != null && !KiemTraTonTai(ctSanPham.MaCTSanPham))
+                {
+                    try
+                    {
+                        dgw2DSSanPham.Rows.Add(ctSanPham.MaCTSanPham, ctSanPham.SanPham.TenSanPham, ctSanPham.SanPham.DonGia);
+                        txt2TongTien.Value += Decimal.ToDouble(ctSanPham.SanPham.DonGia.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+            }
+        }
+
         ///sự kiện click button Tìm sản phẩm
         ///chức năng: Hiện form tìm sản phẩm
         ///mô tả:
         private void btnTimSanPham_Click(object sender, EventArgs e)
         {
-
+            GUITimKiemSanPham formTimKiem = new GUITimKiemSanPham();
+            formTimKiem.Show();
+            formTimKiem.SelectEvent += new GUITimKiemSanPham.SelectProductEventHandler(SelectEvent_Handler);
         }
 
         ///sự kiện khi kết thúc nhập dữ liệu cho ô

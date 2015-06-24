@@ -16,17 +16,17 @@ namespace QuanLyNhaSach.DAL
         ///mô tả:
         public List<LoaiSanPham> GetList()
         {
-            using (QLNSContext db = new QLNSContext(Settings.Default.EntityConnectionString))
+            try
             {
-                try
-                {
+                using (QLNSContext db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {               
                     return db.DbLoaiSanPham.ToList();
                 }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                    return null;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
     }
