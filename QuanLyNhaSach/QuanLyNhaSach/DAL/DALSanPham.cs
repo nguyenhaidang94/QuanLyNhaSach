@@ -7,6 +7,8 @@ using QuanLyNhaSach.SqlHelper;
 using System.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
+using Settings = QuanLyNhaSach.Properties.Settings;
+using QuanLyNhaSach.DTO;
 
 namespace QuanLyNhaSach.DAL
 {

@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Data;
 using QuanLyNhaSach.SqlHelper;
 using System.Data.SqlClient;
+using QuanLyNhaSach.DTO;
 
 namespace QuanLyNhaSach.DAL
 {
@@ -19,9 +20,9 @@ namespace QuanLyNhaSach.DAL
         ///mô tả:
         public CT_SanPham GetDetailedProducts(String maCTSanPham)
         {
-            using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+            try
             {
-                try
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
                 {
                     CT_SanPham ctSanPham = db.DbCT_SanPham.Find(maCTSanPham);
                     if (ctSanPham != null)
@@ -31,12 +32,13 @@ namespace QuanLyNhaSach.DAL
                     }
                     else
                         return null;
+                
                 }
-                catch(Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                    return null;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 
@@ -58,6 +60,34 @@ namespace QuanLyNhaSach.DAL
                 SqlParameter sqlprTrongKho = new SqlParameter("@TrongKho", SqlDbType.Bit) { Value = 0 };
                 return DatabaseManager.DbConnection.ExecuteStoredProcedure(spName, sqlprMaSanPham, sqlprTenSanPham,
                     sqlprMaLoaiSanPham, sqlprDonGiaMin, sqlprDonGiaMax, sqlprTrongKho);
+            }
+        }
+
+        ///tìm kiếm ct sản phẩm theo mã CTSanPham
+        ///chức năng:
+        ///mô tả:
+        public CT_SanPham Search(string maCTSanPham)
+        {
+            try
+            {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {
+                
+                    CT_SanPham ctSanPham = db.DbCT_SanPham.Find(maCTSanPham);
+                    if (ctSanPham == null)
+                        return null;
+                    else
+                    {
+                        db.Entry(ctSanPham).Reference(e => e.SanPham).Load();
+                        return ctSanPham;
+                    }
+                
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
     }

@@ -27,5 +27,19 @@ namespace QuanLyNhaSach.BLL
             DALHoaDonBanHang dal = new DALHoaDonBanHang();
             return dal.GetReceiptsWithDetailedProducts(maHoaDon);
         }
+
+        ///lập hóa đơn
+        ///chức năng:
+        ///mô tả:
+        public bool LapHoaDon(HoaDonBanHang hoadon, List<CT_HDBanHang> dsCTHoaDon)
+        {
+            DALHoaDonBanHang dalHoaDon = new DALHoaDonBanHang();
+            DALCT_SanPham dalCT_SanPham = new DALCT_SanPham();
+            hoadon.MaHoaDon = dalHoaDon.PhatSinhMa();
+            if (hoadon.MaHoaDon == null)
+                return false;
+            else
+                return dalHoaDon.LuuHoaDon(hoadon, dsCTHoaDon);
+        }
     }
 }

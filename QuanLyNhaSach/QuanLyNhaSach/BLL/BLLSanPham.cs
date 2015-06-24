@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyNhaSach.DAL;
+using QuanLyNhaSach.DTO;
 
 namespace QuanLyNhaSach.BLL
 {

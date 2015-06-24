@@ -28,5 +28,14 @@ namespace QuanLyNhaSach.BLL
             DALCT_SanPham dal = new DALCT_SanPham();
             return dal.Search(maCtSanPham, tenSanPham, maLoai, donGiaMin, donGiaMax);
         }
+
+        ///tìm kiếm ct sản phẩm theo mã CTSanPham
+        ///chức năng:
+        ///mô tả: gọi đến hàm tìm kiếm của lớp DALCT_SanPham
+        public CT_SanPham Search(string maCTSanPham)
+        {
+            DALCT_SanPham dal = new DALCT_SanPham();
+            return dal.Search(maCTSanPham);
+        }
     }
 }

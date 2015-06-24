@@ -42,6 +42,7 @@ namespace QuanLyNhaSach.DTO
         public virtual DbSet<HoaDonBanHang> DbHoaDonBanHang { get; set; }
         public virtual DbSet<LoaiDDHT> DbLoaiDDHT { get; set; }
         public virtual DbSet<LoaiSanPham> DbLoaiSanPham { get; set; }
+        public virtual DbSet<NguoiDung> DbNguoiDung { get; set; }
         public virtual DbSet<NhaCungCap> DbNhaCungCap { get; set; }
         public virtual DbSet<NhanVien> DbNhanVien { get; set; }
         public virtual DbSet<NhaSanXuat> DbNhaSanXuat { get; set; }
@@ -486,6 +487,18 @@ namespace QuanLyNhaSach.DTO
                 .HasForeignKey(e => new { e.Thang, e.Nam })
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<NguoiDung>()
+                .Property(e => e.TaiKhoan)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .Property(e => e.MatKhau)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .Property(e => e.MaNhanVien)
+                .IsUnicode(false);
+
             modelBuilder.Entity<BangChamCong>().MapToStoredProcedures();
             modelBuilder.Entity<BoDem>().MapToStoredProcedures();
             modelBuilder.Entity<CaLamViec>().MapToStoredProcedures();
@@ -501,6 +514,8 @@ namespace QuanLyNhaSach.DTO
             modelBuilder.Entity<HoaDonBanHang>().MapToStoredProcedures();
             modelBuilder.Entity<LoaiDDHT>().MapToStoredProcedures();
             modelBuilder.Entity<LoaiSanPham>().MapToStoredProcedures();
+            modelBuilder.Entity<NguoiDung>().MapToStoredProcedures();
+            modelBuilder.Entity<NhanVien>().MapToStoredProcedures();
             modelBuilder.Entity<NhaCungCap>().MapToStoredProcedures();
             modelBuilder.Entity<NhanVien>().MapToStoredProcedures();
             modelBuilder.Entity<NhaSanXuat>().MapToStoredProcedures();

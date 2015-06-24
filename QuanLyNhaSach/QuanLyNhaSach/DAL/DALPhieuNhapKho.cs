@@ -16,17 +16,17 @@ namespace QuanLyNhaSach.DAL
         ///mô tả:
         public List<PhieuNhapKho> GetList()
         {
-            using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+            try
             {
-                try
-                {
-                    return db.DbPhieuNhapKho.ToList<PhieuNhapKho>();
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {               
+                        return db.DbPhieuNhapKho.ToList<PhieuNhapKho>();               
                 }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                    return null;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 
@@ -35,10 +35,10 @@ namespace QuanLyNhaSach.DAL
         ///mô tả:
         public PhieuNhapKho GetReceiptsWithDetailedProducts(String maPhieuNhapKho)
         {
-            using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+            try
             {
-                try
-                {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {                
                     PhieuNhapKho phieuNhapKho = db.DbPhieuNhapKho.Find(maPhieuNhapKho);
                     if (phieuNhapKho != null)
                     {
@@ -52,13 +52,13 @@ namespace QuanLyNhaSach.DAL
                             }
                         }
                     }
-                    return phieuNhapKho;
+                    return phieuNhapKho;              
                 }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                    return null;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
     }
