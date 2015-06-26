@@ -181,9 +181,9 @@
     <Compile Include="GUI\GUITimKiemSanPham.Designer.cs">
       <DependentUpon>GUITimKiemSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505260146327_Initial.cs" />
-    <Compile Include="Migrations\201505260146327_Initial.Designer.cs">
-      <DependentUpon>201505260146327_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201506261505231_initial.cs" />
+    <Compile Include="Migrations\201506261505231_initial.Designer.cs">
+      <DependentUpon>201506261505231_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -224,8 +224,8 @@
     <EmbeddedResource Include="GUI\GUITimKiemSanPham.resx">
       <DependentUpon>GUITimKiemSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505260146327_Initial.resx">
-      <DependentUpon>201505260146327_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506261505231_initial.resx">
+      <DependentUpon>201506261505231_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -253,12 +253,77 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="GUI\Icon\product-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Icon\icon 48x48.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database\script.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\add-receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\Book-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\chuc-vu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\Close-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\database-process-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\do-dung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\Help-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\Inventory-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\log-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\receipts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\report-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\schedule-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\user-group-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\basket-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\employers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\Chart-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

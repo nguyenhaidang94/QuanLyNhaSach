@@ -1,8 +1,8 @@
-namespace QLNS.Migrations
+namespace QuanLyNhaSach.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-
+    
     public partial class initial : DbMigration
     {
         public override void Up()
@@ -10,364 +10,363 @@ namespace QLNS.Migrations
             CreateTable(
                 "dbo.BANGCHAMCONG",
                 c => new
-                {
-                    MaBCC = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaCaLamViec = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayChamCong = c.DateTime(storeType: "date"),
-                    NguoiChamCong = c.String(nullable: false, maxLength: 20, unicode: false),
-                })
+                    {
+                        MaBCC = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaCaLamViec = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayChamCong = c.DateTime(storeType: "date"),
+                        NguoiChamCong = c.String(nullable: false, maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => t.MaBCC)
                 .ForeignKey("dbo.CALAMVIEC", t => t.MaCaLamViec)
                 .ForeignKey("dbo.NHANVIEN", t => t.NguoiChamCong)
                 .Index(t => t.MaCaLamViec)
                 .Index(t => t.NguoiChamCong);
-
+            
             CreateTable(
                 "dbo.CALAMVIEC",
                 c => new
-                {
-                    MaCaLamViec = c.String(nullable: false, maxLength: 20, unicode: false),
-                    ThoiGianBD = c.Time(precision: 7),
-                    ThoiGianKT = c.Time(precision: 7),
-                    LuongCLV = c.Decimal(precision: 19, scale: 4),
-                })
+                    {
+                        MaCaLamViec = c.String(nullable: false, maxLength: 20, unicode: false),
+                        ThoiGianBD = c.Time(precision: 7),
+                        ThoiGianKT = c.Time(precision: 7),
+                        LuongCLV = c.Decimal(precision: 19, scale: 4),
+                    })
                 .PrimaryKey(t => t.MaCaLamViec);
-
+            
             CreateTable(
                 "dbo.NHANVIEN",
                 c => new
-                {
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaChucVu = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenNhanVien = c.String(maxLength: 50),
-                    DiaChi = c.String(maxLength: 100),
-                    DienThoai = c.String(maxLength: 20, unicode: false),
-                    LuongNhanVien = c.Decimal(storeType: "money"),
-                })
+                    {
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaChucVu = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenNhanVien = c.String(maxLength: 50),
+                        DiaChi = c.String(maxLength: 100),
+                        DienThoai = c.String(maxLength: 20, unicode: false),
+                        LuongNhanVien = c.Decimal(storeType: "money"),
+                    })
                 .PrimaryKey(t => t.MaNhanVien)
                 .ForeignKey("dbo.CHUCVU", t => t.MaChucVu)
                 .Index(t => t.MaChucVu);
-
+            
             CreateTable(
                 "dbo.CHUCVU",
                 c => new
-                {
-                    MaChucVu = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenChucVu = c.String(maxLength: 50),
-                    TrachNhiem = c.String(maxLength: 50),
-                })
+                    {
+                        MaChucVu = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenChucVu = c.String(maxLength: 50),
+                        TrachNhiem = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaChucVu);
-
+            
             CreateTable(
                 "dbo.PHIEUCHI",
                 c => new
-                {
-                    MaPhieuChi = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhanVienChi = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayChi = c.DateTime(storeType: "date"),
-                    NguoiNhan = c.String(maxLength: 50),
-                    SoTien = c.Decimal(storeType: "money"),
-                    LyDo = c.String(maxLength: 50),
-                })
+                    {
+                        MaPhieuChi = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhanVienChi = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayChi = c.DateTime(storeType: "date"),
+                        NguoiNhan = c.String(maxLength: 50),
+                        SoTien = c.Decimal(storeType: "money"),
+                        LyDo = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaPhieuChi)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVienChi)
                 .Index(t => t.MaNhanVienChi);
-
+            
             CreateTable(
                 "dbo.PHIEUDATMUA",
                 c => new
-                {
-                    MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayDatMua = c.DateTime(storeType: "date"),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TongSoLuong = c.Int(),
-                    TinhTrang = c.Boolean(),
-                })
+                    {
+                        MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayDatMua = c.DateTime(storeType: "date"),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TongSoLuong = c.Int(),
+                        TinhTrang = c.Boolean(),
+                    })
                 .PrimaryKey(t => t.MaPhieuDatMua)
                 .ForeignKey("dbo.NHACUNGCAP", t => t.MaNhaCungCap)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVien)
                 .Index(t => t.MaNhanVien)
                 .Index(t => t.MaNhaCungCap);
-
+            
             CreateTable(
                 "dbo.CT_PhieuDatMua",
                 c => new
-                {
-                    MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    DonGia = c.Double(),
-                    SoLuong = c.Double(),
-                    TinhTrang = c.Boolean(),
-                })
+                    {
+                        MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        DonGia = c.Double(),
+                        SoLuong = c.Double(),
+                        TinhTrang = c.Boolean(),
+                    })
                 .PrimaryKey(t => new { t.MaPhieuDatMua, t.MaSanPham })
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham)
                 .ForeignKey("dbo.PHIEUDATMUA", t => t.MaPhieuDatMua)
                 .Index(t => t.MaPhieuDatMua)
                 .Index(t => t.MaSanPham);
-
+            
             CreateTable(
                 "dbo.SANPHAM",
                 c => new
-                {
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaLoaiSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaDVT = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenSanPham = c.String(maxLength: 50),
-                    DonGia = c.Decimal(storeType: "money"),
-                    SoLuong = c.Int(),
-                })
+                    {
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaLoaiSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaDVT = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenSanPham = c.String(maxLength: 50),
+                        DonGia = c.Decimal(storeType: "money"),
+                        SoLuong = c.Int(),
+                        MaQuayHang = c.String(nullable: false, maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => t.MaSanPham)
                 .ForeignKey("dbo.DONVITINH", t => t.MaDVT)
                 .ForeignKey("dbo.LOAISANPHAM", t => t.MaLoaiSanPham)
                 .ForeignKey("dbo.NHACUNGCAP", t => t.MaNhaCungCap)
+                .ForeignKey("dbo.QUAYHANG", t => t.MaQuayHang)
                 .Index(t => t.MaLoaiSanPham)
                 .Index(t => t.MaNhaCungCap)
-                .Index(t => t.MaDVT);
-
+                .Index(t => t.MaDVT)
+                .Index(t => t.MaQuayHang);
+            
             CreateTable(
                 "dbo.DONVITINH",
                 c => new
-                {
-                    MaDVT = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenDVT = c.String(maxLength: 50),
-                })
+                    {
+                        MaDVT = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenDVT = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaDVT);
-
+            
             CreateTable(
                 "dbo.CT_PhieuNhapKho",
                 c => new
-                {
-                    MaPhieuNhap = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    DonGia = c.Decimal(storeType: "money"),
-                    SoLuong = c.Int(),
-                })
+                    {
+                        MaPhieuNhap = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        DonGia = c.Decimal(storeType: "money"),
+                        SoLuong = c.Int(),
+                    })
                 .PrimaryKey(t => new { t.MaPhieuNhap, t.MaSanPham })
                 .ForeignKey("dbo.PHIEUNHAPKHO", t => t.MaPhieuNhap)
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham)
                 .Index(t => t.MaPhieuNhap)
                 .Index(t => t.MaSanPham);
-
+            
             CreateTable(
                 "dbo.PHIEUNHAPKHO",
                 c => new
-                {
-                    MaPhieuNhap = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayNhap = c.DateTime(storeType: "date"),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TongSoLuong = c.Int(),
-                })
+                    {
+                        MaPhieuNhap = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayNhap = c.DateTime(storeType: "date"),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaPhieuDatMua = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TongSoLuong = c.Int(),
+                    })
                 .PrimaryKey(t => t.MaPhieuNhap)
                 .ForeignKey("dbo.PHIEUDATMUA", t => t.MaPhieuDatMua)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVien)
                 .Index(t => t.MaNhanVien)
                 .Index(t => t.MaPhieuDatMua);
-
+            
             CreateTable(
                 "dbo.CT_PhieuXuatKho",
                 c => new
-                {
-                    MaPhieuXuat = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaQuayHang = c.String(nullable: false, maxLength: 20, unicode: false),
-                    SoLuong = c.Int(),
-                })
+                    {
+                        MaPhieuXuat = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        SoLuong = c.Int(),
+                    })
                 .PrimaryKey(t => new { t.MaPhieuXuat, t.MaSanPham })
                 .ForeignKey("dbo.PHIEUXUATKHO", t => t.MaPhieuXuat)
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham, cascadeDelete: true)
                 .Index(t => t.MaPhieuXuat)
                 .Index(t => t.MaSanPham);
-
+            
             CreateTable(
                 "dbo.PHIEUXUATKHO",
                 c => new
-                {
-                    MaPhieuXuat = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayXuat = c.DateTime(storeType: "date"),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TongSoLuong = c.Int(),
-                })
+                    {
+                        MaPhieuXuat = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayXuat = c.DateTime(storeType: "date"),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TongSoLuong = c.Int(),
+                    })
                 .PrimaryKey(t => t.MaPhieuXuat)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVien)
                 .Index(t => t.MaNhanVien);
-
+            
             CreateTable(
                 "dbo.CT_SANPHAM",
                 c => new
-                {
-                    MaCTSanPham = c.String(nullable: false, maxLength: 20),
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaQuay = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TinhTrang = c.Boolean(),
-                })
+                    {
+                        MaCTSanPham = c.String(nullable: false, maxLength: 20),
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TinhTrang = c.Boolean(),
+                    })
                 .PrimaryKey(t => t.MaCTSanPham)
-                .ForeignKey("dbo.QUAYHANG", t => t.MaQuay)
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham, cascadeDelete: true)
-                .Index(t => t.MaSanPham)
-                .Index(t => t.MaQuay);
-
+                .Index(t => t.MaSanPham);
+            
             CreateTable(
                 "dbo.CT_HDBanHang",
                 c => new
-                {
-                    MaHoaDon = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaCTSanPham = c.String(nullable: false, maxLength: 20),
-                })
+                    {
+                        MaHoaDon = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaCTSanPham = c.String(nullable: false, maxLength: 20),
+                    })
                 .PrimaryKey(t => new { t.MaHoaDon, t.MaCTSanPham })
                 .ForeignKey("dbo.HOADONBANHANG", t => t.MaHoaDon)
                 .ForeignKey("dbo.CT_SANPHAM", t => t.MaCTSanPham)
                 .Index(t => t.MaHoaDon)
                 .Index(t => t.MaCTSanPham);
-
+            
             CreateTable(
                 "dbo.HOADONBANHANG",
                 c => new
-                {
-                    MaHoaDon = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayBan = c.DateTime(storeType: "date"),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenKhachHang = c.String(maxLength: 50),
-                    TongThanhTien = c.Decimal(storeType: "money"),
-                })
+                    {
+                        MaHoaDon = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayBan = c.DateTime(storeType: "date"),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenKhachHang = c.String(maxLength: 50),
+                        TongThanhTien = c.Decimal(storeType: "money"),
+                    })
                 .PrimaryKey(t => t.MaHoaDon);
-
-            CreateTable(
-                "dbo.QUAYHANG",
-                c => new
-                {
-                    MaQuay = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenQuay = c.String(maxLength: 50),
-                    ViTri = c.String(maxLength: 20, unicode: false),
-                })
-                .PrimaryKey(t => t.MaQuay);
-
+            
             CreateTable(
                 "dbo.CT_TKBanHang",
                 c => new
-                {
-                    Thang = c.Int(nullable: false),
-                    Nam = c.Int(nullable: false),
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TonDau = c.Int(),
-                    SoLuongNhap = c.Int(),
-                    TienNhap = c.Decimal(storeType: "money"),
-                    SoLuongXuat = c.Int(),
-                    TonCuoi = c.Int(),
-                    SoLuongBan = c.Int(),
-                    TienBan = c.Decimal(storeType: "money"),
-                })
+                    {
+                        Thang = c.Int(nullable: false),
+                        Nam = c.Int(nullable: false),
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TonDau = c.Int(),
+                        SoLuongNhap = c.Int(),
+                        TienNhap = c.Decimal(storeType: "money"),
+                        SoLuongXuat = c.Int(),
+                        TonCuoi = c.Int(),
+                        SoLuongBan = c.Int(),
+                        TienBan = c.Decimal(storeType: "money"),
+                    })
                 .PrimaryKey(t => new { t.Thang, t.Nam, t.MaSanPham })
                 .ForeignKey("dbo.THONGKEBANHANG", t => new { t.Thang, t.Nam })
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham)
                 .Index(t => new { t.Thang, t.Nam })
                 .Index(t => t.MaSanPham);
-
+            
             CreateTable(
                 "dbo.THONGKEBANHANG",
                 c => new
-                {
-                    Thang = c.Int(nullable: false),
-                    Nam = c.Int(nullable: false),
-                    TongTonDau = c.Int(),
-                    TongSoLuongNhap = c.Int(),
-                    TongTienNhap = c.Decimal(storeType: "money"),
-                    TongSoLuongXuat = c.Int(),
-                    TongTonCuoi = c.Int(),
-                    TongSoLuongBan = c.Int(),
-                    TongTienBan = c.Decimal(storeType: "money"),
-                })
+                    {
+                        Thang = c.Int(nullable: false),
+                        Nam = c.Int(nullable: false),
+                        TongTonDau = c.Int(),
+                        TongSoLuongNhap = c.Int(),
+                        TongTienNhap = c.Decimal(storeType: "money"),
+                        TongSoLuongXuat = c.Int(),
+                        TongTonCuoi = c.Int(),
+                        TongSoLuongBan = c.Int(),
+                        TongTienBan = c.Decimal(storeType: "money"),
+                    })
                 .PrimaryKey(t => new { t.Thang, t.Nam });
-
+            
             CreateTable(
                 "dbo.LOAISANPHAM",
                 c => new
-                {
-                    MaLoaiSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenLoaiSanPham = c.String(maxLength: 50),
-                })
+                    {
+                        MaLoaiSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenLoaiSanPham = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaLoaiSanPham);
-
+            
             CreateTable(
                 "dbo.NHACUNGCAP",
                 c => new
-                {
-                    MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenNhaCungCap = c.String(maxLength: 50),
-                    DiaChi = c.String(maxLength: 100),
-                    SoDienThoai = c.String(maxLength: 20, unicode: false),
-                })
+                    {
+                        MaNhaCungCap = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenNhaCungCap = c.String(maxLength: 50),
+                        DiaChi = c.String(maxLength: 100),
+                        SoDienThoai = c.String(maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => t.MaNhaCungCap);
-
+            
+            CreateTable(
+                "dbo.QUAYHANG",
+                c => new
+                    {
+                        MaQuay = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenQuay = c.String(maxLength: 50),
+                        ViTri = c.String(maxLength: 20, unicode: false),
+                    })
+                .PrimaryKey(t => t.MaQuay);
+            
             CreateTable(
                 "dbo.LOAIDDHT",
                 c => new
-                {
-                    MaLoaiDDHT = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenLoaiDDHT = c.String(maxLength: 50),
-                })
+                    {
+                        MaLoaiDDHT = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenLoaiDDHT = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaLoaiDDHT);
-
+            
             CreateTable(
                 "dbo.NHASANXUAT",
                 c => new
-                {
-                    MaNhaSanXuat = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenNhaSanXuat = c.String(maxLength: 50),
-                })
+                    {
+                        MaNhaSanXuat = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenNhaSanXuat = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaNhaSanXuat);
-
+            
             CreateTable(
                 "dbo.DAUSACH",
                 c => new
-                {
-                    MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaTheLoai = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenDauSach = c.String(maxLength: 50),
-                })
+                    {
+                        MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaTheLoai = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenDauSach = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaDauSach)
                 .ForeignKey("dbo.THELOAISACH", t => t.MaTheLoai)
                 .Index(t => t.MaTheLoai);
-
+            
             CreateTable(
                 "dbo.TACGIA",
                 c => new
-                {
-                    MaTacGia = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenTacGia = c.String(maxLength: 50),
-                })
+                    {
+                        MaTacGia = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenTacGia = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaTacGia);
-
+            
             CreateTable(
                 "dbo.THELOAISACH",
                 c => new
-                {
-                    MaTheLoaiSach = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenTheLoaiSach = c.String(maxLength: 50),
-                })
+                    {
+                        MaTheLoaiSach = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenTheLoaiSach = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaTheLoaiSach);
-
+            
             CreateTable(
                 "dbo.NHAXUATBAN",
                 c => new
-                {
-                    MaNhaXuatBan = c.String(nullable: false, maxLength: 20, unicode: false),
-                    TenNhaXuatBan = c.String(maxLength: 50),
-                })
+                    {
+                        MaNhaXuatBan = c.String(nullable: false, maxLength: 20, unicode: false),
+                        TenNhaXuatBan = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaNhaXuatBan);
-
+            
             CreateTable(
                 "dbo.PHIEUTHU",
                 c => new
-                {
-                    MaPhieuThu = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhanVienThu = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NgayThu = c.DateTime(storeType: "date"),
-                    SoTien = c.Decimal(storeType: "money"),
-                    LyDo = c.String(maxLength: 50),
-                })
+                    {
+                        MaPhieuThu = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhanVienThu = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NgayThu = c.DateTime(storeType: "date"),
+                        SoTien = c.Decimal(storeType: "money"),
+                        LyDo = c.String(maxLength: 50),
+                    })
                 .PrimaryKey(t => t.MaPhieuThu)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVienThu)
                 .Index(t => t.MaNhanVienThu);
@@ -375,79 +374,79 @@ namespace QLNS.Migrations
             CreateTable(
                 "dbo.BODEM",
                 c => new
-                {
-                    BangChamCong = c.Int(nullable: false),
-                    CaLamViec = c.Int(nullable: false),
-                    ChucVu = c.Int(nullable: false),
-                    DauSach = c.Int(nullable: false),
-                    DonViTinh = c.Int(nullable: false),
-                    HoaDonBanHang = c.Int(nullable: false),
-                    LoaiDDHT = c.Int(nullable: false),
-                    LoaiSanPham = c.Int(nullable: false),
-                    NhaCungCap = c.Int(nullable: false),
-                    NhanVien = c.Int(nullable: false),
-                    NhaSanXuat = c.Int(nullable: false),
-                    NhaXuatBan = c.Int(nullable: false),
-                    PhieuChi = c.Int(nullable: false),
-                    PhieuDatMua = c.Int(nullable: false),
-                    PhieuNhapKho = c.Int(nullable: false),
-                    PhieuThu = c.Int(nullable: false),
-                    PhieuXuatKho = c.Int(nullable: false),
-                    QuayHang = c.Int(nullable: false),
-                    SanPham = c.Int(nullable: false),
-                    TacGia = c.Int(nullable: false),
-                    TheLoaiSach = c.Int(nullable: false),
-                    CT_SanPham = c.Int(nullable: false),
-                });
-            //.PrimaryKey(t => new { t.BangChamCong, t.CaLamViec, t.ChucVu, t.DauSach, t.DonViTinh, t.HoaDonBanHang, t.LoaiDDHT, t.LoaiSanPham, t.NhaCungCap, t.NhanVien, t.NhaSanXuat, t.NhaXuatBan, t.PhieuChi, t.PhieuDatMua, t.PhieuNhapKho, t.PhieuThu, t.PhieuXuatKho, t.QuayHang, t.SanPham, t.TacGia, t.TheLoaiSach });
-
+                    {
+                        BangChamCong = c.Int(nullable: false),
+                        CaLamViec = c.Int(nullable: false),
+                        ChucVu = c.Int(nullable: false),
+                        DauSach = c.Int(nullable: false),
+                        DonViTinh = c.Int(nullable: false),
+                        HoaDonBanHang = c.Int(nullable: false),
+                        LoaiDDHT = c.Int(nullable: false),
+                        LoaiSanPham = c.Int(nullable: false),
+                        NhaCungCap = c.Int(nullable: false),
+                        NhanVien = c.Int(nullable: false),
+                        NhaSanXuat = c.Int(nullable: false),
+                        NhaXuatBan = c.Int(nullable: false),
+                        PhieuChi = c.Int(nullable: false),
+                        PhieuDatMua = c.Int(nullable: false),
+                        PhieuNhapKho = c.Int(nullable: false),
+                        PhieuThu = c.Int(nullable: false),
+                        PhieuXuatKho = c.Int(nullable: false),
+                        QuayHang = c.Int(nullable: false),
+                        SanPham = c.Int(nullable: false),
+                        TacGia = c.Int(nullable: false),
+                        TheLoaiSach = c.Int(nullable: false),
+                        CT_SanPham = c.Int(nullable: false),
+                    });
+                //.PrimaryKey(t => new { t.BangChamCong, t.CaLamViec, t.ChucVu, t.DauSach, t.DonViTinh, t.HoaDonBanHang, t.LoaiDDHT, t.LoaiSanPham, t.NhaCungCap, t.NhanVien, t.NhaSanXuat, t.NhaXuatBan, t.PhieuChi, t.PhieuDatMua, t.PhieuNhapKho, t.PhieuThu, t.PhieuXuatKho, t.QuayHang, t.SanPham, t.TacGia, t.TheLoaiSach });
+            
             CreateTable(
                 "dbo.NGUOIDUNG",
                 c => new
-                {
-                    TaiKhoan = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MatKhau = c.String(nullable: false, maxLength: 32, unicode: false),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                })
+                    {
+                        TaiKhoan = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MatKhau = c.String(nullable: false, maxLength: 32, unicode: false),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => t.TaiKhoan)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVien, cascadeDelete: true)
                 .Index(t => t.MaNhanVien);
-
+            
             CreateTable(
                 "dbo.CT_DAUSACH",
                 c => new
-                {
-                    MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaTacGia = c.String(nullable: false, maxLength: 20, unicode: false),
-                })
+                    {
+                        MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaTacGia = c.String(nullable: false, maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => new { t.MaDauSach, t.MaTacGia })
                 .ForeignKey("dbo.DAUSACH", t => t.MaDauSach, cascadeDelete: true)
                 .ForeignKey("dbo.TACGIA", t => t.MaTacGia, cascadeDelete: true)
                 .Index(t => t.MaDauSach)
                 .Index(t => t.MaTacGia);
-
+            
             CreateTable(
                 "dbo.CT_BANGCHAMCONG",
                 c => new
-                {
-                    MaBCC = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
-                })
+                    {
+                        MaBCC = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhanVien = c.String(nullable: false, maxLength: 20, unicode: false),
+                    })
                 .PrimaryKey(t => new { t.MaBCC, t.MaNhanVien })
                 .ForeignKey("dbo.BANGCHAMCONG", t => t.MaBCC, cascadeDelete: true)
                 .ForeignKey("dbo.NHANVIEN", t => t.MaNhanVien, cascadeDelete: true)
                 .Index(t => t.MaBCC)
                 .Index(t => t.MaNhanVien);
-
+            
             CreateTable(
                 "dbo.SACH",
                 c => new
-                {
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhaXuatBan = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NamXuatBan = c.Int(),
-                })
+                    {
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaDauSach = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhaXuatBan = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NamXuatBan = c.Int(),
+                    })
                 .PrimaryKey(t => t.MaSanPham)
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham)
                 .ForeignKey("dbo.DAUSACH", t => t.MaDauSach, cascadeDelete: true)
@@ -455,16 +454,16 @@ namespace QLNS.Migrations
                 .Index(t => t.MaSanPham)
                 .Index(t => t.MaDauSach)
                 .Index(t => t.MaNhaXuatBan);
-
+            
             CreateTable(
                 "dbo.DODUNGHOCTAP",
                 c => new
-                {
-                    MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaLoaiDDHT = c.String(nullable: false, maxLength: 20, unicode: false),
-                    MaNhaSanXuat = c.String(nullable: false, maxLength: 20, unicode: false),
-                    NamSanXuat = c.Int(),
-                })
+                    {
+                        MaSanPham = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaLoaiDDHT = c.String(nullable: false, maxLength: 20, unicode: false),
+                        MaNhaSanXuat = c.String(nullable: false, maxLength: 20, unicode: false),
+                        NamSanXuat = c.Int(),
+                    })
                 .PrimaryKey(t => t.MaSanPham)
                 .ForeignKey("dbo.SANPHAM", t => t.MaSanPham)
                 .ForeignKey("dbo.LOAIDDHT", t => t.MaLoaiDDHT, cascadeDelete: true)
@@ -472,401 +471,405 @@ namespace QLNS.Migrations
                 .Index(t => t.MaSanPham)
                 .Index(t => t.MaLoaiDDHT)
                 .Index(t => t.MaNhaSanXuat);
-
+            
             CreateStoredProcedure(
                 "dbo.BangChamCong_Insert",
                 p => new
-                {
-                    MaBCC = p.String(maxLength: 20, unicode: false),
-                    MaCaLamViec = p.String(maxLength: 20, unicode: false),
-                    NgayChamCong = p.DateTime(storeType: "date"),
-                    NguoiChamCong = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaBCC = p.String(maxLength: 20, unicode: false),
+                        MaCaLamViec = p.String(maxLength: 20, unicode: false),
+                        NgayChamCong = p.DateTime(storeType: "date"),
+                        NguoiChamCong = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"INSERT [dbo].[BANGCHAMCONG]([MaBCC], [MaCaLamViec], [NgayChamCong], [NguoiChamCong])
                       VALUES (@MaBCC, @MaCaLamViec, @NgayChamCong, @NguoiChamCong)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.BangChamCong_Update",
                 p => new
-                {
-                    MaBCC = p.String(maxLength: 20, unicode: false),
-                    MaCaLamViec = p.String(maxLength: 20, unicode: false),
-                    NgayChamCong = p.DateTime(storeType: "date"),
-                    NguoiChamCong = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaBCC = p.String(maxLength: 20, unicode: false),
+                        MaCaLamViec = p.String(maxLength: 20, unicode: false),
+                        NgayChamCong = p.DateTime(storeType: "date"),
+                        NguoiChamCong = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"UPDATE [dbo].[BANGCHAMCONG]
                       SET [MaCaLamViec] = @MaCaLamViec, [NgayChamCong] = @NgayChamCong, [NguoiChamCong] = @NguoiChamCong
                       WHERE ([MaBCC] = @MaBCC)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.BangChamCong_Delete",
                 p => new
-                {
-                    MaBCC = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaBCC = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[BANGCHAMCONG]
                       WHERE ([MaBCC] = @MaBCC)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CaLamViec_Insert",
                 p => new
-                {
-                    MaCaLamViec = p.String(maxLength: 20, unicode: false),
-                    ThoiGianBD = p.Time(),
-                    ThoiGianKT = p.Time(),
-                    LuongCLV = p.Decimal(precision: 19, scale: 4),
-                },
+                    {
+                        MaCaLamViec = p.String(maxLength: 20, unicode: false),
+                        ThoiGianBD = p.Time(),
+                        ThoiGianKT = p.Time(),
+                        LuongCLV = p.Decimal(precision: 19, scale: 4),
+                    },
                 body:
                     @"INSERT [dbo].[CALAMVIEC]([MaCaLamViec], [ThoiGianBD], [ThoiGianKT], [LuongCLV])
                       VALUES (@MaCaLamViec, @ThoiGianBD, @ThoiGianKT, @LuongCLV)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CaLamViec_Update",
                 p => new
-                {
-                    MaCaLamViec = p.String(maxLength: 20, unicode: false),
-                    ThoiGianBD = p.Time(),
-                    ThoiGianKT = p.Time(),
-                    LuongCLV = p.Decimal(precision: 19, scale: 4),
-                },
+                    {
+                        MaCaLamViec = p.String(maxLength: 20, unicode: false),
+                        ThoiGianBD = p.Time(),
+                        ThoiGianKT = p.Time(),
+                        LuongCLV = p.Decimal(precision: 19, scale: 4),
+                    },
                 body:
                     @"UPDATE [dbo].[CALAMVIEC]
                       SET [ThoiGianBD] = @ThoiGianBD, [ThoiGianKT] = @ThoiGianKT, [LuongCLV] = @LuongCLV
                       WHERE ([MaCaLamViec] = @MaCaLamViec)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CaLamViec_Delete",
                 p => new
-                {
-                    MaCaLamViec = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaCaLamViec = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CALAMVIEC]
                       WHERE ([MaCaLamViec] = @MaCaLamViec)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhanVien_Insert",
                 p => new
-                {
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaChucVu = p.String(maxLength: 20, unicode: false),
-                    TenNhanVien = p.String(maxLength: 50),
-                    DiaChi = p.String(maxLength: 100),
-                    DienThoai = p.String(maxLength: 20, unicode: false),
-                    LuongNhanVien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaChucVu = p.String(maxLength: 20, unicode: false),
+                        TenNhanVien = p.String(maxLength: 50),
+                        DiaChi = p.String(maxLength: 100),
+                        DienThoai = p.String(maxLength: 20, unicode: false),
+                        LuongNhanVien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"INSERT [dbo].[NHANVIEN]([MaNhanVien], [MaChucVu], [TenNhanVien], [DiaChi], [DienThoai], [LuongNhanVien])
                       VALUES (@MaNhanVien, @MaChucVu, @TenNhanVien, @DiaChi, @DienThoai, @LuongNhanVien)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhanVien_Update",
                 p => new
-                {
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaChucVu = p.String(maxLength: 20, unicode: false),
-                    TenNhanVien = p.String(maxLength: 50),
-                    DiaChi = p.String(maxLength: 100),
-                    DienThoai = p.String(maxLength: 20, unicode: false),
-                    LuongNhanVien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaChucVu = p.String(maxLength: 20, unicode: false),
+                        TenNhanVien = p.String(maxLength: 50),
+                        DiaChi = p.String(maxLength: 100),
+                        DienThoai = p.String(maxLength: 20, unicode: false),
+                        LuongNhanVien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"UPDATE [dbo].[NHANVIEN]
                       SET [MaChucVu] = @MaChucVu, [TenNhanVien] = @TenNhanVien, [DiaChi] = @DiaChi, [DienThoai] = @DienThoai, [LuongNhanVien] = @LuongNhanVien
                       WHERE ([MaNhanVien] = @MaNhanVien)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhanVien_Delete",
                 p => new
-                {
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[NHANVIEN]
                       WHERE ([MaNhanVien] = @MaNhanVien)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ChucVu_Insert",
                 p => new
-                {
-                    MaChucVu = p.String(maxLength: 20, unicode: false),
-                    TenChucVu = p.String(maxLength: 50),
-                    TrachNhiem = p.String(maxLength: 50),
-                },
+                    {
+                        MaChucVu = p.String(maxLength: 20, unicode: false),
+                        TenChucVu = p.String(maxLength: 50),
+                        TrachNhiem = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[CHUCVU]([MaChucVu], [TenChucVu], [TrachNhiem])
                       VALUES (@MaChucVu, @TenChucVu, @TrachNhiem)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ChucVu_Update",
                 p => new
-                {
-                    MaChucVu = p.String(maxLength: 20, unicode: false),
-                    TenChucVu = p.String(maxLength: 50),
-                    TrachNhiem = p.String(maxLength: 50),
-                },
+                    {
+                        MaChucVu = p.String(maxLength: 20, unicode: false),
+                        TenChucVu = p.String(maxLength: 50),
+                        TrachNhiem = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[CHUCVU]
                       SET [TenChucVu] = @TenChucVu, [TrachNhiem] = @TrachNhiem
                       WHERE ([MaChucVu] = @MaChucVu)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ChucVu_Delete",
                 p => new
-                {
-                    MaChucVu = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaChucVu = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CHUCVU]
                       WHERE ([MaChucVu] = @MaChucVu)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuChi_Insert",
                 p => new
-                {
-                    MaPhieuChi = p.String(maxLength: 20, unicode: false),
-                    MaNhanVienChi = p.String(maxLength: 20, unicode: false),
-                    NgayChi = p.DateTime(storeType: "date"),
-                    NguoiNhan = p.String(maxLength: 50),
-                    SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    LyDo = p.String(maxLength: 50),
-                },
+                    {
+                        MaPhieuChi = p.String(maxLength: 20, unicode: false),
+                        MaNhanVienChi = p.String(maxLength: 20, unicode: false),
+                        NgayChi = p.DateTime(storeType: "date"),
+                        NguoiNhan = p.String(maxLength: 50),
+                        SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        LyDo = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[PHIEUCHI]([MaPhieuChi], [MaNhanVienChi], [NgayChi], [NguoiNhan], [SoTien], [LyDo])
                       VALUES (@MaPhieuChi, @MaNhanVienChi, @NgayChi, @NguoiNhan, @SoTien, @LyDo)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuChi_Update",
                 p => new
-                {
-                    MaPhieuChi = p.String(maxLength: 20, unicode: false),
-                    MaNhanVienChi = p.String(maxLength: 20, unicode: false),
-                    NgayChi = p.DateTime(storeType: "date"),
-                    NguoiNhan = p.String(maxLength: 50),
-                    SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    LyDo = p.String(maxLength: 50),
-                },
+                    {
+                        MaPhieuChi = p.String(maxLength: 20, unicode: false),
+                        MaNhanVienChi = p.String(maxLength: 20, unicode: false),
+                        NgayChi = p.DateTime(storeType: "date"),
+                        NguoiNhan = p.String(maxLength: 50),
+                        SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        LyDo = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[PHIEUCHI]
                       SET [MaNhanVienChi] = @MaNhanVienChi, [NgayChi] = @NgayChi, [NguoiNhan] = @NguoiNhan, [SoTien] = @SoTien, [LyDo] = @LyDo
                       WHERE ([MaPhieuChi] = @MaPhieuChi)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuChi_Delete",
                 p => new
-                {
-                    MaPhieuChi = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuChi = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[PHIEUCHI]
                       WHERE ([MaPhieuChi] = @MaPhieuChi)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuDatMua_Insert",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    NgayDatMua = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        NgayDatMua = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
                     @"INSERT [dbo].[PHIEUDATMUA]([MaPhieuDatMua], [NgayDatMua], [MaNhanVien], [MaNhaCungCap], [TongSoLuong], [TinhTrang])
                       VALUES (@MaPhieuDatMua, @NgayDatMua, @MaNhanVien, @MaNhaCungCap, @TongSoLuong, @TinhTrang)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuDatMua_Update",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    NgayDatMua = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        NgayDatMua = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
                     @"UPDATE [dbo].[PHIEUDATMUA]
                       SET [NgayDatMua] = @NgayDatMua, [MaNhanVien] = @MaNhanVien, [MaNhaCungCap] = @MaNhaCungCap, [TongSoLuong] = @TongSoLuong, [TinhTrang] = @TinhTrang
                       WHERE ([MaPhieuDatMua] = @MaPhieuDatMua)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuDatMua_Delete",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[PHIEUDATMUA]
                       WHERE ([MaPhieuDatMua] = @MaPhieuDatMua)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuDatMua_Insert",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    DonGia = p.Double(),
-                    SoLuong = p.Double(),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        DonGia = p.Double(),
+                        SoLuong = p.Double(),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
                     @"INSERT [dbo].[CT_PhieuDatMua]([MaPhieuDatMua], [MaSanPham], [DonGia], [SoLuong], [TinhTrang])
                       VALUES (@MaPhieuDatMua, @MaSanPham, @DonGia, @SoLuong, @TinhTrang)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuDatMua_Update",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    DonGia = p.Double(),
-                    SoLuong = p.Double(),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        DonGia = p.Double(),
+                        SoLuong = p.Double(),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
                     @"UPDATE [dbo].[CT_PhieuDatMua]
                       SET [DonGia] = @DonGia, [SoLuong] = @SoLuong, [TinhTrang] = @TinhTrang
                       WHERE (([MaPhieuDatMua] = @MaPhieuDatMua) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuDatMua_Delete",
                 p => new
-                {
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CT_PhieuDatMua]
                       WHERE (([MaPhieuDatMua] = @MaPhieuDatMua) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.SanPham_Insert",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
-                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong])
-                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong)"
+                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong], [MaQuayHang])
+                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong, @MaQuayHang)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.SanPham_Update",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"UPDATE [dbo].[SANPHAM]
-                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong
+                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong, [MaQuayHang] = @MaQuayHang
                       WHERE ([MaSanPham] = @MaSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.SanPham_Delete",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[SANPHAM]
                       WHERE ([MaSanPham] = @MaSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DoDungHocTap_Insert",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                    MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
-                    MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
-                    NamSanXuat = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                        MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
+                        MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
+                        NamSanXuat = p.Int(),
+                    },
                 body:
-                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong])
-                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong)
+                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong], [MaQuayHang])
+                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong, @MaQuayHang)
                       
                       INSERT [dbo].[DODUNGHOCTAP]([MaSanPham], [MaLoaiDDHT], [MaNhaSanXuat], [NamSanXuat])
                       VALUES (@MaSanPham, @MaLoaiDDHT, @MaNhaSanXuat, @NamSanXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DoDungHocTap_Update",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                    MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
-                    MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
-                    NamSanXuat = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                        MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
+                        MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
+                        NamSanXuat = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[DODUNGHOCTAP]
                       SET [MaLoaiDDHT] = @MaLoaiDDHT, [MaNhaSanXuat] = @MaNhaSanXuat, [NamSanXuat] = @NamSanXuat
                       WHERE ([MaSanPham] = @MaSanPham)
                       
                       UPDATE [dbo].[SANPHAM]
-                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong
+                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong, [MaQuayHang] = @MaQuayHang
                       WHERE ([MaSanPham] = @MaSanPham)
                       AND @@ROWCOUNT > 0"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DoDungHocTap_Delete",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[DODUNGHOCTAP]
                       WHERE ([MaSanPham] = @MaSanPham)
@@ -875,62 +878,64 @@ namespace QLNS.Migrations
                       WHERE ([MaSanPham] = @MaSanPham)
                       AND @@ROWCOUNT > 0"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.Sach_Insert",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                    MaDauSach = p.String(maxLength: 20, unicode: false),
-                    MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
-                    NamXuatBan = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                        MaDauSach = p.String(maxLength: 20, unicode: false),
+                        MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
+                        NamXuatBan = p.Int(),
+                    },
                 body:
-                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong])
-                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong)
+                    @"INSERT [dbo].[SANPHAM]([MaSanPham], [MaLoaiSanPham], [MaNhaCungCap], [MaDVT], [TenSanPham], [DonGia], [SoLuong], [MaQuayHang])
+                      VALUES (@MaSanPham, @MaLoaiSanPham, @MaNhaCungCap, @MaDVT, @TenSanPham, @DonGia, @SoLuong, @MaQuayHang)
                       
                       INSERT [dbo].[SACH]([MaSanPham], [MaDauSach], [MaNhaXuatBan], [NamXuatBan])
                       VALUES (@MaSanPham, @MaDauSach, @MaNhaXuatBan, @NamXuatBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.Sach_Update",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenSanPham = p.String(maxLength: 50),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                    MaDauSach = p.String(maxLength: 20, unicode: false),
-                    MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
-                    NamXuatBan = p.Int(),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenSanPham = p.String(maxLength: 50),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                        MaQuayHang = p.String(maxLength: 20, unicode: false),
+                        MaDauSach = p.String(maxLength: 20, unicode: false),
+                        MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
+                        NamXuatBan = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[SACH]
                       SET [MaDauSach] = @MaDauSach, [MaNhaXuatBan] = @MaNhaXuatBan, [NamXuatBan] = @NamXuatBan
                       WHERE ([MaSanPham] = @MaSanPham)
                       
                       UPDATE [dbo].[SANPHAM]
-                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong
+                      SET [MaLoaiSanPham] = @MaLoaiSanPham, [MaNhaCungCap] = @MaNhaCungCap, [MaDVT] = @MaDVT, [TenSanPham] = @TenSanPham, [DonGia] = @DonGia, [SoLuong] = @SoLuong, [MaQuayHang] = @MaQuayHang
                       WHERE ([MaSanPham] = @MaSanPham)
                       AND @@ROWCOUNT > 0"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.Sach_Delete",
                 p => new
-                {
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[SACH]
                       WHERE ([MaSanPham] = @MaSanPham)
@@ -939,939 +944,935 @@ namespace QLNS.Migrations
                       WHERE ([MaSanPham] = @MaSanPham)
                       AND @@ROWCOUNT > 0"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DonViTinh_Insert",
                 p => new
-                {
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenDVT = p.String(maxLength: 50),
-                },
+                    {
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenDVT = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[DONVITINH]([MaDVT], [TenDVT])
                       VALUES (@MaDVT, @TenDVT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DonViTinh_Update",
                 p => new
-                {
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                    TenDVT = p.String(maxLength: 50),
-                },
+                    {
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                        TenDVT = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[DONVITINH]
                       SET [TenDVT] = @TenDVT
                       WHERE ([MaDVT] = @MaDVT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DonViTinh_Delete",
                 p => new
-                {
-                    MaDVT = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaDVT = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[DONVITINH]
                       WHERE ([MaDVT] = @MaDVT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuNhapKho_Insert",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                    },
                 body:
                     @"INSERT [dbo].[CT_PhieuNhapKho]([MaPhieuNhap], [MaSanPham], [DonGia], [SoLuong])
                       VALUES (@MaPhieuNhap, @MaSanPham, @DonGia, @SoLuong)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuNhapKho_Update",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        DonGia = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuong = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[CT_PhieuNhapKho]
                       SET [DonGia] = @DonGia, [SoLuong] = @SoLuong
                       WHERE (([MaPhieuNhap] = @MaPhieuNhap) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuNhapKho_Delete",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CT_PhieuNhapKho]
                       WHERE (([MaPhieuNhap] = @MaPhieuNhap) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuNhapKho_Insert",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                    NgayNhap = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                        NgayNhap = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                    },
                 body:
                     @"INSERT [dbo].[PHIEUNHAPKHO]([MaPhieuNhap], [NgayNhap], [MaNhanVien], [MaPhieuDatMua], [TongSoLuong])
                       VALUES (@MaPhieuNhap, @NgayNhap, @MaNhanVien, @MaPhieuDatMua, @TongSoLuong)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuNhapKho_Update",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                    NgayNhap = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                        NgayNhap = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        MaPhieuDatMua = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[PHIEUNHAPKHO]
                       SET [NgayNhap] = @NgayNhap, [MaNhanVien] = @MaNhanVien, [MaPhieuDatMua] = @MaPhieuDatMua, [TongSoLuong] = @TongSoLuong
                       WHERE ([MaPhieuNhap] = @MaPhieuNhap)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuNhapKho_Delete",
                 p => new
-                {
-                    MaPhieuNhap = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuNhap = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[PHIEUNHAPKHO]
                       WHERE ([MaPhieuNhap] = @MaPhieuNhap)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuXuatKho_Insert",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaQuayHang = p.String(maxLength: 20, unicode: false),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        SoLuong = p.Int(),
+                    },
                 body:
-                    @"INSERT [dbo].[CT_PhieuXuatKho]([MaPhieuXuat], [MaSanPham], [MaQuayHang], [SoLuong])
-                      VALUES (@MaPhieuXuat, @MaSanPham, @MaQuayHang, @SoLuong)"
+                    @"INSERT [dbo].[CT_PhieuXuatKho]([MaPhieuXuat], [MaSanPham], [SoLuong])
+                      VALUES (@MaPhieuXuat, @MaSanPham, @SoLuong)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuXuatKho_Update",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaQuayHang = p.String(maxLength: 20, unicode: false),
-                    SoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        SoLuong = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[CT_PhieuXuatKho]
-                      SET [MaQuayHang] = @MaQuayHang, [SoLuong] = @SoLuong
+                      SET [SoLuong] = @SoLuong
                       WHERE (([MaPhieuXuat] = @MaPhieuXuat) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_PhieuXuatKho_Delete",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CT_PhieuXuatKho]
                       WHERE (([MaPhieuXuat] = @MaPhieuXuat) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuXuatKho_Insert",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                    NgayXuat = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                        NgayXuat = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                    },
                 body:
                     @"INSERT [dbo].[PHIEUXUATKHO]([MaPhieuXuat], [NgayXuat], [MaNhanVien], [TongSoLuong])
                       VALUES (@MaPhieuXuat, @NgayXuat, @MaNhanVien, @TongSoLuong)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuXuatKho_Update",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                    NgayXuat = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    TongSoLuong = p.Int(),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                        NgayXuat = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        TongSoLuong = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[PHIEUXUATKHO]
                       SET [NgayXuat] = @NgayXuat, [MaNhanVien] = @MaNhanVien, [TongSoLuong] = @TongSoLuong
                       WHERE ([MaPhieuXuat] = @MaPhieuXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuXuatKho_Delete",
                 p => new
-                {
-                    MaPhieuXuat = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuXuat = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[PHIEUXUATKHO]
                       WHERE ([MaPhieuXuat] = @MaPhieuXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_SanPham_Insert",
                 p => new
-                {
-                    MaCTSanPham = p.String(maxLength: 20),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaQuay = p.String(maxLength: 20, unicode: false),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaCTSanPham = p.String(maxLength: 20),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
-                    @"INSERT [dbo].[CT_SANPHAM]([MaCTSanPham], [MaSanPham], [MaQuay], [TinhTrang])
-                      VALUES (@MaCTSanPham, @MaSanPham, @MaQuay, @TinhTrang)"
+                    @"INSERT [dbo].[CT_SANPHAM]([MaCTSanPham], [MaSanPham], [TinhTrang])
+                      VALUES (@MaCTSanPham, @MaSanPham, @TinhTrang)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_SanPham_Update",
                 p => new
-                {
-                    MaCTSanPham = p.String(maxLength: 20),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    MaQuay = p.String(maxLength: 20, unicode: false),
-                    TinhTrang = p.Boolean(),
-                },
+                    {
+                        MaCTSanPham = p.String(maxLength: 20),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        TinhTrang = p.Boolean(),
+                    },
                 body:
                     @"UPDATE [dbo].[CT_SANPHAM]
-                      SET [MaSanPham] = @MaSanPham, [MaQuay] = @MaQuay, [TinhTrang] = @TinhTrang
+                      SET [MaSanPham] = @MaSanPham, [TinhTrang] = @TinhTrang
                       WHERE ([MaCTSanPham] = @MaCTSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_SanPham_Delete",
                 p => new
-                {
-                    MaCTSanPham = p.String(maxLength: 20),
-                },
+                    {
+                        MaCTSanPham = p.String(maxLength: 20),
+                    },
                 body:
                     @"DELETE [dbo].[CT_SANPHAM]
                       WHERE ([MaCTSanPham] = @MaCTSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_HDBanHang_Insert",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                    MaCTSanPham = p.String(maxLength: 20),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                        MaCTSanPham = p.String(maxLength: 20),
+                    },
                 body:
                     @"INSERT [dbo].[CT_HDBanHang]([MaHoaDon], [MaCTSanPham])
                       VALUES (@MaHoaDon, @MaCTSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_HDBanHang_Update",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                    MaCTSanPham = p.String(maxLength: 20),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                        MaCTSanPham = p.String(maxLength: 20),
+                    },
                 body:
                     @"RETURN"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_HDBanHang_Delete",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                    MaCTSanPham = p.String(maxLength: 20),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                        MaCTSanPham = p.String(maxLength: 20),
+                    },
                 body:
                     @"DELETE [dbo].[CT_HDBanHang]
                       WHERE (([MaHoaDon] = @MaHoaDon) AND ([MaCTSanPham] = @MaCTSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.HoaDonBanHang_Insert",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                    NgayBan = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    TenKhachHang = p.String(maxLength: 50),
-                    TongThanhTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                        NgayBan = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        TenKhachHang = p.String(maxLength: 50),
+                        TongThanhTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"INSERT [dbo].[HOADONBANHANG]([MaHoaDon], [NgayBan], [MaNhanVien], [TenKhachHang], [TongThanhTien])
                       VALUES (@MaHoaDon, @NgayBan, @MaNhanVien, @TenKhachHang, @TongThanhTien)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.HoaDonBanHang_Update",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                    NgayBan = p.DateTime(storeType: "date"),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                    TenKhachHang = p.String(maxLength: 50),
-                    TongThanhTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                        NgayBan = p.DateTime(storeType: "date"),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                        TenKhachHang = p.String(maxLength: 50),
+                        TongThanhTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"UPDATE [dbo].[HOADONBANHANG]
                       SET [NgayBan] = @NgayBan, [MaNhanVien] = @MaNhanVien, [TenKhachHang] = @TenKhachHang, [TongThanhTien] = @TongThanhTien
                       WHERE ([MaHoaDon] = @MaHoaDon)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.HoaDonBanHang_Delete",
                 p => new
-                {
-                    MaHoaDon = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaHoaDon = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[HOADONBANHANG]
                       WHERE ([MaHoaDon] = @MaHoaDon)"
             );
-
-            CreateStoredProcedure(
-                "dbo.QuayHang_Insert",
-                p => new
-                {
-                    MaQuay = p.String(maxLength: 20, unicode: false),
-                    TenQuay = p.String(maxLength: 50),
-                    ViTri = p.String(maxLength: 20, unicode: false),
-                },
-                body:
-                    @"INSERT [dbo].[QUAYHANG]([MaQuay], [TenQuay], [ViTri])
-                      VALUES (@MaQuay, @TenQuay, @ViTri)"
-            );
-
-            CreateStoredProcedure(
-                "dbo.QuayHang_Update",
-                p => new
-                {
-                    MaQuay = p.String(maxLength: 20, unicode: false),
-                    TenQuay = p.String(maxLength: 50),
-                    ViTri = p.String(maxLength: 20, unicode: false),
-                },
-                body:
-                    @"UPDATE [dbo].[QUAYHANG]
-                      SET [TenQuay] = @TenQuay, [ViTri] = @ViTri
-                      WHERE ([MaQuay] = @MaQuay)"
-            );
-
-            CreateStoredProcedure(
-                "dbo.QuayHang_Delete",
-                p => new
-                {
-                    MaQuay = p.String(maxLength: 20, unicode: false),
-                },
-                body:
-                    @"DELETE [dbo].[QUAYHANG]
-                      WHERE ([MaQuay] = @MaQuay)"
-            );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_TKBanHang_Insert",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    TonDau = p.Int(),
-                    SoLuongNhap = p.Int(),
-                    TienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuongXuat = p.Int(),
-                    TonCuoi = p.Int(),
-                    SoLuongBan = p.Int(),
-                    TienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        TonDau = p.Int(),
+                        SoLuongNhap = p.Int(),
+                        TienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuongXuat = p.Int(),
+                        TonCuoi = p.Int(),
+                        SoLuongBan = p.Int(),
+                        TienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"INSERT [dbo].[CT_TKBanHang]([Thang], [Nam], [MaSanPham], [TonDau], [SoLuongNhap], [TienNhap], [SoLuongXuat], [TonCuoi], [SoLuongBan], [TienBan])
                       VALUES (@Thang, @Nam, @MaSanPham, @TonDau, @SoLuongNhap, @TienNhap, @SoLuongXuat, @TonCuoi, @SoLuongBan, @TienBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_TKBanHang_Update",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                    TonDau = p.Int(),
-                    SoLuongNhap = p.Int(),
-                    TienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    SoLuongXuat = p.Int(),
-                    TonCuoi = p.Int(),
-                    SoLuongBan = p.Int(),
-                    TienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                        TonDau = p.Int(),
+                        SoLuongNhap = p.Int(),
+                        TienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        SoLuongXuat = p.Int(),
+                        TonCuoi = p.Int(),
+                        SoLuongBan = p.Int(),
+                        TienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"UPDATE [dbo].[CT_TKBanHang]
                       SET [TonDau] = @TonDau, [SoLuongNhap] = @SoLuongNhap, [TienNhap] = @TienNhap, [SoLuongXuat] = @SoLuongXuat, [TonCuoi] = @TonCuoi, [SoLuongBan] = @SoLuongBan, [TienBan] = @TienBan
                       WHERE ((([Thang] = @Thang) AND ([Nam] = @Nam)) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.CT_TKBanHang_Delete",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                    MaSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                        MaSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[CT_TKBanHang]
                       WHERE ((([Thang] = @Thang) AND ([Nam] = @Nam)) AND ([MaSanPham] = @MaSanPham))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ThongKeBanHang_Insert",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                    TongTonDau = p.Int(),
-                    TongSoLuongNhap = p.Int(),
-                    TongTienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    TongSoLuongXuat = p.Int(),
-                    TongTonCuoi = p.Int(),
-                    TongSoLuongBan = p.Int(),
-                    TongTienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                        TongTonDau = p.Int(),
+                        TongSoLuongNhap = p.Int(),
+                        TongTienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        TongSoLuongXuat = p.Int(),
+                        TongTonCuoi = p.Int(),
+                        TongSoLuongBan = p.Int(),
+                        TongTienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"INSERT [dbo].[THONGKEBANHANG]([Thang], [Nam], [TongTonDau], [TongSoLuongNhap], [TongTienNhap], [TongSoLuongXuat], [TongTonCuoi], [TongSoLuongBan], [TongTienBan])
                       VALUES (@Thang, @Nam, @TongTonDau, @TongSoLuongNhap, @TongTienNhap, @TongSoLuongXuat, @TongTonCuoi, @TongSoLuongBan, @TongTienBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ThongKeBanHang_Update",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                    TongTonDau = p.Int(),
-                    TongSoLuongNhap = p.Int(),
-                    TongTienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    TongSoLuongXuat = p.Int(),
-                    TongTonCuoi = p.Int(),
-                    TongSoLuongBan = p.Int(),
-                    TongTienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                        TongTonDau = p.Int(),
+                        TongSoLuongNhap = p.Int(),
+                        TongTienNhap = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        TongSoLuongXuat = p.Int(),
+                        TongTonCuoi = p.Int(),
+                        TongSoLuongBan = p.Int(),
+                        TongTienBan = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                    },
                 body:
                     @"UPDATE [dbo].[THONGKEBANHANG]
                       SET [TongTonDau] = @TongTonDau, [TongSoLuongNhap] = @TongSoLuongNhap, [TongTienNhap] = @TongTienNhap, [TongSoLuongXuat] = @TongSoLuongXuat, [TongTonCuoi] = @TongTonCuoi, [TongSoLuongBan] = @TongSoLuongBan, [TongTienBan] = @TongTienBan
                       WHERE (([Thang] = @Thang) AND ([Nam] = @Nam))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.ThongKeBanHang_Delete",
                 p => new
-                {
-                    Thang = p.Int(),
-                    Nam = p.Int(),
-                },
+                    {
+                        Thang = p.Int(),
+                        Nam = p.Int(),
+                    },
                 body:
                     @"DELETE [dbo].[THONGKEBANHANG]
                       WHERE (([Thang] = @Thang) AND ([Nam] = @Nam))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.LoaiSanPham_Insert",
                 p => new
-                {
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    TenLoaiSanPham = p.String(maxLength: 50),
-                },
+                    {
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        TenLoaiSanPham = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[LOAISANPHAM]([MaLoaiSanPham], [TenLoaiSanPham])
                       VALUES (@MaLoaiSanPham, @TenLoaiSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.LoaiSanPham_Update",
                 p => new
-                {
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                    TenLoaiSanPham = p.String(maxLength: 50),
-                },
+                    {
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                        TenLoaiSanPham = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[LOAISANPHAM]
                       SET [TenLoaiSanPham] = @TenLoaiSanPham
                       WHERE ([MaLoaiSanPham] = @MaLoaiSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.LoaiSanPham_Delete",
                 p => new
-                {
-                    MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaLoaiSanPham = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[LOAISANPHAM]
                       WHERE ([MaLoaiSanPham] = @MaLoaiSanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaCungCap_Insert",
                 p => new
-                {
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    TenNhaCungCap = p.String(maxLength: 50),
-                    DiaChi = p.String(maxLength: 100),
-                    SoDienThoai = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        TenNhaCungCap = p.String(maxLength: 50),
+                        DiaChi = p.String(maxLength: 100),
+                        SoDienThoai = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"INSERT [dbo].[NHACUNGCAP]([MaNhaCungCap], [TenNhaCungCap], [DiaChi], [SoDienThoai])
                       VALUES (@MaNhaCungCap, @TenNhaCungCap, @DiaChi, @SoDienThoai)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaCungCap_Update",
                 p => new
-                {
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                    TenNhaCungCap = p.String(maxLength: 50),
-                    DiaChi = p.String(maxLength: 100),
-                    SoDienThoai = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                        TenNhaCungCap = p.String(maxLength: 50),
+                        DiaChi = p.String(maxLength: 100),
+                        SoDienThoai = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"UPDATE [dbo].[NHACUNGCAP]
                       SET [TenNhaCungCap] = @TenNhaCungCap, [DiaChi] = @DiaChi, [SoDienThoai] = @SoDienThoai
                       WHERE ([MaNhaCungCap] = @MaNhaCungCap)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaCungCap_Delete",
                 p => new
-                {
-                    MaNhaCungCap = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhaCungCap = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[NHACUNGCAP]
                       WHERE ([MaNhaCungCap] = @MaNhaCungCap)"
             );
-
+            
+            CreateStoredProcedure(
+                "dbo.QuayHang_Insert",
+                p => new
+                    {
+                        MaQuay = p.String(maxLength: 20, unicode: false),
+                        TenQuay = p.String(maxLength: 50),
+                        ViTri = p.String(maxLength: 20, unicode: false),
+                    },
+                body:
+                    @"INSERT [dbo].[QUAYHANG]([MaQuay], [TenQuay], [ViTri])
+                      VALUES (@MaQuay, @TenQuay, @ViTri)"
+            );
+            
+            CreateStoredProcedure(
+                "dbo.QuayHang_Update",
+                p => new
+                    {
+                        MaQuay = p.String(maxLength: 20, unicode: false),
+                        TenQuay = p.String(maxLength: 50),
+                        ViTri = p.String(maxLength: 20, unicode: false),
+                    },
+                body:
+                    @"UPDATE [dbo].[QUAYHANG]
+                      SET [TenQuay] = @TenQuay, [ViTri] = @ViTri
+                      WHERE ([MaQuay] = @MaQuay)"
+            );
+            
+            CreateStoredProcedure(
+                "dbo.QuayHang_Delete",
+                p => new
+                    {
+                        MaQuay = p.String(maxLength: 20, unicode: false),
+                    },
+                body:
+                    @"DELETE [dbo].[QUAYHANG]
+                      WHERE ([MaQuay] = @MaQuay)"
+            );
+            
             CreateStoredProcedure(
                 "dbo.LoaiDDHT_Insert",
                 p => new
-                {
-                    MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
-                    TenLoaiDDHT = p.String(maxLength: 50),
-                },
+                    {
+                        MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
+                        TenLoaiDDHT = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[LOAIDDHT]([MaLoaiDDHT], [TenLoaiDDHT])
                       VALUES (@MaLoaiDDHT, @TenLoaiDDHT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.LoaiDDHT_Update",
                 p => new
-                {
-                    MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
-                    TenLoaiDDHT = p.String(maxLength: 50),
-                },
+                    {
+                        MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
+                        TenLoaiDDHT = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[LOAIDDHT]
                       SET [TenLoaiDDHT] = @TenLoaiDDHT
                       WHERE ([MaLoaiDDHT] = @MaLoaiDDHT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.LoaiDDHT_Delete",
                 p => new
-                {
-                    MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaLoaiDDHT = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[LOAIDDHT]
                       WHERE ([MaLoaiDDHT] = @MaLoaiDDHT)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaSanXuat_Insert",
                 p => new
-                {
-                    MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
-                    TenNhaSanXuat = p.String(maxLength: 50),
-                },
+                    {
+                        MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
+                        TenNhaSanXuat = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[NHASANXUAT]([MaNhaSanXuat], [TenNhaSanXuat])
                       VALUES (@MaNhaSanXuat, @TenNhaSanXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaSanXuat_Update",
                 p => new
-                {
-                    MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
-                    TenNhaSanXuat = p.String(maxLength: 50),
-                },
+                    {
+                        MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
+                        TenNhaSanXuat = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[NHASANXUAT]
                       SET [TenNhaSanXuat] = @TenNhaSanXuat
                       WHERE ([MaNhaSanXuat] = @MaNhaSanXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaSanXuat_Delete",
                 p => new
-                {
-                    MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhaSanXuat = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[NHASANXUAT]
                       WHERE ([MaNhaSanXuat] = @MaNhaSanXuat)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DauSach_Insert",
                 p => new
-                {
-                    MaDauSach = p.String(maxLength: 20, unicode: false),
-                    MaTheLoai = p.String(maxLength: 20, unicode: false),
-                    TenDauSach = p.String(maxLength: 50),
-                },
+                    {
+                        MaDauSach = p.String(maxLength: 20, unicode: false),
+                        MaTheLoai = p.String(maxLength: 20, unicode: false),
+                        TenDauSach = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[DAUSACH]([MaDauSach], [MaTheLoai], [TenDauSach])
                       VALUES (@MaDauSach, @MaTheLoai, @TenDauSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DauSach_Update",
                 p => new
-                {
-                    MaDauSach = p.String(maxLength: 20, unicode: false),
-                    MaTheLoai = p.String(maxLength: 20, unicode: false),
-                    TenDauSach = p.String(maxLength: 50),
-                },
+                    {
+                        MaDauSach = p.String(maxLength: 20, unicode: false),
+                        MaTheLoai = p.String(maxLength: 20, unicode: false),
+                        TenDauSach = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[DAUSACH]
                       SET [MaTheLoai] = @MaTheLoai, [TenDauSach] = @TenDauSach
                       WHERE ([MaDauSach] = @MaDauSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.DauSach_Delete",
                 p => new
-                {
-                    MaDauSach = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaDauSach = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[DAUSACH]
                       WHERE ([MaDauSach] = @MaDauSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TacGia_Insert",
                 p => new
-                {
-                    MaTacGia = p.String(maxLength: 20, unicode: false),
-                    TenTacGia = p.String(maxLength: 50),
-                },
+                    {
+                        MaTacGia = p.String(maxLength: 20, unicode: false),
+                        TenTacGia = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[TACGIA]([MaTacGia], [TenTacGia])
                       VALUES (@MaTacGia, @TenTacGia)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TacGia_Update",
                 p => new
-                {
-                    MaTacGia = p.String(maxLength: 20, unicode: false),
-                    TenTacGia = p.String(maxLength: 50),
-                },
+                    {
+                        MaTacGia = p.String(maxLength: 20, unicode: false),
+                        TenTacGia = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[TACGIA]
                       SET [TenTacGia] = @TenTacGia
                       WHERE ([MaTacGia] = @MaTacGia)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TacGia_Delete",
                 p => new
-                {
-                    MaTacGia = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaTacGia = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[TACGIA]
                       WHERE ([MaTacGia] = @MaTacGia)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TheLoaiSach_Insert",
                 p => new
-                {
-                    MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
-                    TenTheLoaiSach = p.String(maxLength: 50),
-                },
+                    {
+                        MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
+                        TenTheLoaiSach = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[THELOAISACH]([MaTheLoaiSach], [TenTheLoaiSach])
                       VALUES (@MaTheLoaiSach, @TenTheLoaiSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TheLoaiSach_Update",
                 p => new
-                {
-                    MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
-                    TenTheLoaiSach = p.String(maxLength: 50),
-                },
+                    {
+                        MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
+                        TenTheLoaiSach = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[THELOAISACH]
                       SET [TenTheLoaiSach] = @TenTheLoaiSach
                       WHERE ([MaTheLoaiSach] = @MaTheLoaiSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.TheLoaiSach_Delete",
                 p => new
-                {
-                    MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaTheLoaiSach = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[THELOAISACH]
                       WHERE ([MaTheLoaiSach] = @MaTheLoaiSach)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaXuatBan_Insert",
                 p => new
-                {
-                    MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
-                    TenNhaXuatBan = p.String(maxLength: 50),
-                },
+                    {
+                        MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
+                        TenNhaXuatBan = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[NHAXUATBAN]([MaNhaXuatBan], [TenNhaXuatBan])
                       VALUES (@MaNhaXuatBan, @TenNhaXuatBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaXuatBan_Update",
                 p => new
-                {
-                    MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
-                    TenNhaXuatBan = p.String(maxLength: 50),
-                },
+                    {
+                        MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
+                        TenNhaXuatBan = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[NHAXUATBAN]
                       SET [TenNhaXuatBan] = @TenNhaXuatBan
                       WHERE ([MaNhaXuatBan] = @MaNhaXuatBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NhaXuatBan_Delete",
                 p => new
-                {
-                    MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaNhaXuatBan = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[NHAXUATBAN]
                       WHERE ([MaNhaXuatBan] = @MaNhaXuatBan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuThu_Insert",
                 p => new
-                {
-                    MaPhieuThu = p.String(maxLength: 20, unicode: false),
-                    MaNhanVienThu = p.String(maxLength: 20, unicode: false),
-                    NgayThu = p.DateTime(storeType: "date"),
-                    SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    LyDo = p.String(maxLength: 50),
-                },
+                    {
+                        MaPhieuThu = p.String(maxLength: 20, unicode: false),
+                        MaNhanVienThu = p.String(maxLength: 20, unicode: false),
+                        NgayThu = p.DateTime(storeType: "date"),
+                        SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        LyDo = p.String(maxLength: 50),
+                    },
                 body:
                     @"INSERT [dbo].[PHIEUTHU]([MaPhieuThu], [MaNhanVienThu], [NgayThu], [SoTien], [LyDo])
                       VALUES (@MaPhieuThu, @MaNhanVienThu, @NgayThu, @SoTien, @LyDo)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuThu_Update",
                 p => new
-                {
-                    MaPhieuThu = p.String(maxLength: 20, unicode: false),
-                    MaNhanVienThu = p.String(maxLength: 20, unicode: false),
-                    NgayThu = p.DateTime(storeType: "date"),
-                    SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
-                    LyDo = p.String(maxLength: 50),
-                },
+                    {
+                        MaPhieuThu = p.String(maxLength: 20, unicode: false),
+                        MaNhanVienThu = p.String(maxLength: 20, unicode: false),
+                        NgayThu = p.DateTime(storeType: "date"),
+                        SoTien = p.Decimal(precision: 19, scale: 4, storeType: "money"),
+                        LyDo = p.String(maxLength: 50),
+                    },
                 body:
                     @"UPDATE [dbo].[PHIEUTHU]
                       SET [MaNhanVienThu] = @MaNhanVienThu, [NgayThu] = @NgayThu, [SoTien] = @SoTien, [LyDo] = @LyDo
                       WHERE ([MaPhieuThu] = @MaPhieuThu)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.PhieuThu_Delete",
                 p => new
-                {
-                    MaPhieuThu = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        MaPhieuThu = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[PHIEUTHU]
                       WHERE ([MaPhieuThu] = @MaPhieuThu)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.BoDem_Insert",
                 p => new
-                {
-                    BangChamCong = p.Int(),
-                    CaLamViec = p.Int(),
-                    ChucVu = p.Int(),
-                    DauSach = p.Int(),
-                    DonViTinh = p.Int(),
-                    HoaDonBanHang = p.Int(),
-                    LoaiDDHT = p.Int(),
-                    LoaiSanPham = p.Int(),
-                    NhaCungCap = p.Int(),
-                    NhanVien = p.Int(),
-                    NhaSanXuat = p.Int(),
-                    NhaXuatBan = p.Int(),
-                    PhieuChi = p.Int(),
-                    PhieuDatMua = p.Int(),
-                    PhieuNhapKho = p.Int(),
-                    PhieuThu = p.Int(),
-                    PhieuXuatKho = p.Int(),
-                    QuayHang = p.Int(),
-                    SanPham = p.Int(),
-                    TacGia = p.Int(),
-                    TheLoaiSach = p.Int(),
-                    CT_SanPham = p.Int(),
-                },
+                    {
+                        BangChamCong = p.Int(),
+                        CaLamViec = p.Int(),
+                        ChucVu = p.Int(),
+                        DauSach = p.Int(),
+                        DonViTinh = p.Int(),
+                        HoaDonBanHang = p.Int(),
+                        LoaiDDHT = p.Int(),
+                        LoaiSanPham = p.Int(),
+                        NhaCungCap = p.Int(),
+                        NhanVien = p.Int(),
+                        NhaSanXuat = p.Int(),
+                        NhaXuatBan = p.Int(),
+                        PhieuChi = p.Int(),
+                        PhieuDatMua = p.Int(),
+                        PhieuNhapKho = p.Int(),
+                        PhieuThu = p.Int(),
+                        PhieuXuatKho = p.Int(),
+                        QuayHang = p.Int(),
+                        SanPham = p.Int(),
+                        TacGia = p.Int(),
+                        TheLoaiSach = p.Int(),
+                        CT_SanPham = p.Int(),
+                    },
                 body:
                     @"INSERT [dbo].[BODEM]([BangChamCong], [CaLamViec], [ChucVu], [DauSach], [DonViTinh], [HoaDonBanHang], [LoaiDDHT], [LoaiSanPham], [NhaCungCap], [NhanVien], [NhaSanXuat], [NhaXuatBan], [PhieuChi], [PhieuDatMua], [PhieuNhapKho], [PhieuThu], [PhieuXuatKho], [QuayHang], [SanPham], [TacGia], [TheLoaiSach], [CT_SanPham])
                       VALUES (@BangChamCong, @CaLamViec, @ChucVu, @DauSach, @DonViTinh, @HoaDonBanHang, @LoaiDDHT, @LoaiSanPham, @NhaCungCap, @NhanVien, @NhaSanXuat, @NhaXuatBan, @PhieuChi, @PhieuDatMua, @PhieuNhapKho, @PhieuThu, @PhieuXuatKho, @QuayHang, @SanPham, @TacGia, @TheLoaiSach, @CT_SanPham)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.BoDem_Update",
                 p => new
-                {
-                    BangChamCong = p.Int(),
-                    CaLamViec = p.Int(),
-                    ChucVu = p.Int(),
-                    DauSach = p.Int(),
-                    DonViTinh = p.Int(),
-                    HoaDonBanHang = p.Int(),
-                    LoaiDDHT = p.Int(),
-                    LoaiSanPham = p.Int(),
-                    NhaCungCap = p.Int(),
-                    NhanVien = p.Int(),
-                    NhaSanXuat = p.Int(),
-                    NhaXuatBan = p.Int(),
-                    PhieuChi = p.Int(),
-                    PhieuDatMua = p.Int(),
-                    PhieuNhapKho = p.Int(),
-                    PhieuThu = p.Int(),
-                    PhieuXuatKho = p.Int(),
-                    QuayHang = p.Int(),
-                    SanPham = p.Int(),
-                    TacGia = p.Int(),
-                    TheLoaiSach = p.Int(),
-                    CT_SanPham = p.Int(),
-                },
+                    {
+                        BangChamCong = p.Int(),
+                        CaLamViec = p.Int(),
+                        ChucVu = p.Int(),
+                        DauSach = p.Int(),
+                        DonViTinh = p.Int(),
+                        HoaDonBanHang = p.Int(),
+                        LoaiDDHT = p.Int(),
+                        LoaiSanPham = p.Int(),
+                        NhaCungCap = p.Int(),
+                        NhanVien = p.Int(),
+                        NhaSanXuat = p.Int(),
+                        NhaXuatBan = p.Int(),
+                        PhieuChi = p.Int(),
+                        PhieuDatMua = p.Int(),
+                        PhieuNhapKho = p.Int(),
+                        PhieuThu = p.Int(),
+                        PhieuXuatKho = p.Int(),
+                        QuayHang = p.Int(),
+                        SanPham = p.Int(),
+                        TacGia = p.Int(),
+                        TheLoaiSach = p.Int(),
+                        CT_SanPham = p.Int(),
+                    },
                 body:
                     @"UPDATE [dbo].[BODEM]
                       SET [CT_SanPham] = @CT_SanPham
                       WHERE ((((((((((((((((((((([BangChamCong] = @BangChamCong) AND ([CaLamViec] = @CaLamViec)) AND ([ChucVu] = @ChucVu)) AND ([DauSach] = @DauSach)) AND ([DonViTinh] = @DonViTinh)) AND ([HoaDonBanHang] = @HoaDonBanHang)) AND ([LoaiDDHT] = @LoaiDDHT)) AND ([LoaiSanPham] = @LoaiSanPham)) AND ([NhaCungCap] = @NhaCungCap)) AND ([NhanVien] = @NhanVien)) AND ([NhaSanXuat] = @NhaSanXuat)) AND ([NhaXuatBan] = @NhaXuatBan)) AND ([PhieuChi] = @PhieuChi)) AND ([PhieuDatMua] = @PhieuDatMua)) AND ([PhieuNhapKho] = @PhieuNhapKho)) AND ([PhieuThu] = @PhieuThu)) AND ([PhieuXuatKho] = @PhieuXuatKho)) AND ([QuayHang] = @QuayHang)) AND ([SanPham] = @SanPham)) AND ([TacGia] = @TacGia)) AND ([TheLoaiSach] = @TheLoaiSach))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.BoDem_Delete",
                 p => new
-                {
-                    BangChamCong = p.Int(),
-                    CaLamViec = p.Int(),
-                    ChucVu = p.Int(),
-                    DauSach = p.Int(),
-                    DonViTinh = p.Int(),
-                    HoaDonBanHang = p.Int(),
-                    LoaiDDHT = p.Int(),
-                    LoaiSanPham = p.Int(),
-                    NhaCungCap = p.Int(),
-                    NhanVien = p.Int(),
-                    NhaSanXuat = p.Int(),
-                    NhaXuatBan = p.Int(),
-                    PhieuChi = p.Int(),
-                    PhieuDatMua = p.Int(),
-                    PhieuNhapKho = p.Int(),
-                    PhieuThu = p.Int(),
-                    PhieuXuatKho = p.Int(),
-                    QuayHang = p.Int(),
-                    SanPham = p.Int(),
-                    TacGia = p.Int(),
-                    TheLoaiSach = p.Int(),
-                },
+                    {
+                        BangChamCong = p.Int(),
+                        CaLamViec = p.Int(),
+                        ChucVu = p.Int(),
+                        DauSach = p.Int(),
+                        DonViTinh = p.Int(),
+                        HoaDonBanHang = p.Int(),
+                        LoaiDDHT = p.Int(),
+                        LoaiSanPham = p.Int(),
+                        NhaCungCap = p.Int(),
+                        NhanVien = p.Int(),
+                        NhaSanXuat = p.Int(),
+                        NhaXuatBan = p.Int(),
+                        PhieuChi = p.Int(),
+                        PhieuDatMua = p.Int(),
+                        PhieuNhapKho = p.Int(),
+                        PhieuThu = p.Int(),
+                        PhieuXuatKho = p.Int(),
+                        QuayHang = p.Int(),
+                        SanPham = p.Int(),
+                        TacGia = p.Int(),
+                        TheLoaiSach = p.Int(),
+                    },
                 body:
                     @"DELETE [dbo].[BODEM]
                       WHERE ((((((((((((((((((((([BangChamCong] = @BangChamCong) AND ([CaLamViec] = @CaLamViec)) AND ([ChucVu] = @ChucVu)) AND ([DauSach] = @DauSach)) AND ([DonViTinh] = @DonViTinh)) AND ([HoaDonBanHang] = @HoaDonBanHang)) AND ([LoaiDDHT] = @LoaiDDHT)) AND ([LoaiSanPham] = @LoaiSanPham)) AND ([NhaCungCap] = @NhaCungCap)) AND ([NhanVien] = @NhanVien)) AND ([NhaSanXuat] = @NhaSanXuat)) AND ([NhaXuatBan] = @NhaXuatBan)) AND ([PhieuChi] = @PhieuChi)) AND ([PhieuDatMua] = @PhieuDatMua)) AND ([PhieuNhapKho] = @PhieuNhapKho)) AND ([PhieuThu] = @PhieuThu)) AND ([PhieuXuatKho] = @PhieuXuatKho)) AND ([QuayHang] = @QuayHang)) AND ([SanPham] = @SanPham)) AND ([TacGia] = @TacGia)) AND ([TheLoaiSach] = @TheLoaiSach))"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NguoiDung_Insert",
                 p => new
-                {
-                    TaiKhoan = p.String(maxLength: 20, unicode: false),
-                    MatKhau = p.String(maxLength: 32, unicode: false),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        TaiKhoan = p.String(maxLength: 20, unicode: false),
+                        MatKhau = p.String(maxLength: 32, unicode: false),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"INSERT [dbo].[NGUOIDUNG]([TaiKhoan], [MatKhau], [MaNhanVien])
                       VALUES (@TaiKhoan, @MatKhau, @MaNhanVien)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NguoiDung_Update",
                 p => new
-                {
-                    TaiKhoan = p.String(maxLength: 20, unicode: false),
-                    MatKhau = p.String(maxLength: 32, unicode: false),
-                    MaNhanVien = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        TaiKhoan = p.String(maxLength: 20, unicode: false),
+                        MatKhau = p.String(maxLength: 32, unicode: false),
+                        MaNhanVien = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"UPDATE [dbo].[NGUOIDUNG]
                       SET [MatKhau] = @MatKhau, [MaNhanVien] = @MaNhanVien
                       WHERE ([TaiKhoan] = @TaiKhoan)"
             );
-
+            
             CreateStoredProcedure(
                 "dbo.NguoiDung_Delete",
                 p => new
-                {
-                    TaiKhoan = p.String(maxLength: 20, unicode: false),
-                },
+                    {
+                        TaiKhoan = p.String(maxLength: 20, unicode: false),
+                    },
                 body:
                     @"DELETE [dbo].[NGUOIDUNG]
                       WHERE ([TaiKhoan] = @TaiKhoan)"
             );
-
+            
         }
-
+        
         public override void Down()
         {
             DropStoredProcedure("dbo.NguoiDung_Delete");
@@ -1901,6 +1902,9 @@ namespace QLNS.Migrations
             DropStoredProcedure("dbo.LoaiDDHT_Delete");
             DropStoredProcedure("dbo.LoaiDDHT_Update");
             DropStoredProcedure("dbo.LoaiDDHT_Insert");
+            DropStoredProcedure("dbo.QuayHang_Delete");
+            DropStoredProcedure("dbo.QuayHang_Update");
+            DropStoredProcedure("dbo.QuayHang_Insert");
             DropStoredProcedure("dbo.NhaCungCap_Delete");
             DropStoredProcedure("dbo.NhaCungCap_Update");
             DropStoredProcedure("dbo.NhaCungCap_Insert");
@@ -1913,9 +1917,6 @@ namespace QLNS.Migrations
             DropStoredProcedure("dbo.CT_TKBanHang_Delete");
             DropStoredProcedure("dbo.CT_TKBanHang_Update");
             DropStoredProcedure("dbo.CT_TKBanHang_Insert");
-            DropStoredProcedure("dbo.QuayHang_Delete");
-            DropStoredProcedure("dbo.QuayHang_Update");
-            DropStoredProcedure("dbo.QuayHang_Insert");
             DropStoredProcedure("dbo.HoaDonBanHang_Delete");
             DropStoredProcedure("dbo.HoaDonBanHang_Update");
             DropStoredProcedure("dbo.HoaDonBanHang_Insert");
@@ -1988,13 +1989,13 @@ namespace QLNS.Migrations
             DropForeignKey("dbo.DAUSACH", "MaTheLoai", "dbo.THELOAISACH");
             DropForeignKey("dbo.CT_DAUSACH", "MaTacGia", "dbo.TACGIA");
             DropForeignKey("dbo.CT_DAUSACH", "MaDauSach", "dbo.DAUSACH");
+            DropForeignKey("dbo.SANPHAM", "MaQuayHang", "dbo.QUAYHANG");
             DropForeignKey("dbo.SANPHAM", "MaNhaCungCap", "dbo.NHACUNGCAP");
             DropForeignKey("dbo.PHIEUDATMUA", "MaNhaCungCap", "dbo.NHACUNGCAP");
             DropForeignKey("dbo.SANPHAM", "MaLoaiSanPham", "dbo.LOAISANPHAM");
             DropForeignKey("dbo.CT_TKBanHang", "MaSanPham", "dbo.SANPHAM");
             DropForeignKey("dbo.CT_TKBanHang", new[] { "Thang", "Nam" }, "dbo.THONGKEBANHANG");
             DropForeignKey("dbo.CT_SANPHAM", "MaSanPham", "dbo.SANPHAM");
-            DropForeignKey("dbo.CT_SANPHAM", "MaQuay", "dbo.QUAYHANG");
             DropForeignKey("dbo.CT_HDBanHang", "MaCTSanPham", "dbo.CT_SANPHAM");
             DropForeignKey("dbo.CT_HDBanHang", "MaHoaDon", "dbo.HOADONBANHANG");
             DropForeignKey("dbo.CT_PhieuXuatKho", "MaSanPham", "dbo.SANPHAM");
@@ -2024,7 +2025,6 @@ namespace QLNS.Migrations
             DropIndex("dbo.CT_TKBanHang", new[] { "Thang", "Nam" });
             DropIndex("dbo.CT_HDBanHang", new[] { "MaCTSanPham" });
             DropIndex("dbo.CT_HDBanHang", new[] { "MaHoaDon" });
-            DropIndex("dbo.CT_SANPHAM", new[] { "MaQuay" });
             DropIndex("dbo.CT_SANPHAM", new[] { "MaSanPham" });
             DropIndex("dbo.PHIEUXUATKHO", new[] { "MaNhanVien" });
             DropIndex("dbo.CT_PhieuXuatKho", new[] { "MaSanPham" });
@@ -2033,6 +2033,7 @@ namespace QLNS.Migrations
             DropIndex("dbo.PHIEUNHAPKHO", new[] { "MaNhanVien" });
             DropIndex("dbo.CT_PhieuNhapKho", new[] { "MaSanPham" });
             DropIndex("dbo.CT_PhieuNhapKho", new[] { "MaPhieuNhap" });
+            DropIndex("dbo.SANPHAM", new[] { "MaQuayHang" });
             DropIndex("dbo.SANPHAM", new[] { "MaDVT" });
             DropIndex("dbo.SANPHAM", new[] { "MaNhaCungCap" });
             DropIndex("dbo.SANPHAM", new[] { "MaLoaiSanPham" });
@@ -2057,11 +2058,11 @@ namespace QLNS.Migrations
             DropTable("dbo.DAUSACH");
             DropTable("dbo.NHASANXUAT");
             DropTable("dbo.LOAIDDHT");
+            DropTable("dbo.QUAYHANG");
             DropTable("dbo.NHACUNGCAP");
             DropTable("dbo.LOAISANPHAM");
             DropTable("dbo.THONGKEBANHANG");
             DropTable("dbo.CT_TKBanHang");
-            DropTable("dbo.QUAYHANG");
             DropTable("dbo.HOADONBANHANG");
             DropTable("dbo.CT_HDBanHang");
             DropTable("dbo.CT_SANPHAM");

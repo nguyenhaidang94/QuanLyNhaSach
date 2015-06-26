@@ -14,10 +14,6 @@ namespace QuanLyNhaSach.DTO
         public CT_SanPham()
         {
             DSCT_HDBanHang = new HashSet<CT_HDBanHang>();
-            //DSCT_PhieuDatMua = new HashSet<CT_PhieuDatMua>();
-            //DSCT_PhieuNhapKho = new HashSet<CT_PhieuNhapKho>();
-            //DSCT_PhieuXuatKho = new HashSet<CT_PhieuXuatKho>();
-            //DSCT_TKBanHang = new HashSet<CT_TKBanHang>();
         }
 
         [Key]
@@ -28,22 +24,9 @@ namespace QuanLyNhaSach.DTO
         [StringLength(20)]
         public string MaSanPham { get; set; }
 
-        [StringLength(20)]
-        public string MaQuay { get; set; }
-
         public bool? TinhTrang { get; set; }
 
         public virtual ICollection<CT_HDBanHang> DSCT_HDBanHang { get; set; }
-
-        //public virtual ICollection<CT_PhieuDatMua> DSCT_PhieuDatMua { get; set; }
-
-        //public virtual ICollection<CT_PhieuNhapKho> DSCT_PhieuNhapKho { get; set; }
-
-        //public virtual ICollection<CT_PhieuXuatKho> DSCT_PhieuXuatKho { get; set; }
-
-        //public virtual ICollection<CT_TKBanHang> DSCT_TKBanHang { get; set; }
-
-        public virtual QuayHang QuayHang { get; set; }
 
         public virtual SanPham SanPham { get; set; }
     }

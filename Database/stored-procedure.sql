@@ -53,8 +53,8 @@ BEGIN TRANSACTION
 				NHACUNGCAP ncc,
 				DONVITINH dvt
 			WHERE(ctsp.TinhTrang = 1
-				AND ctsp.MaQuay = quay.MaQuay
 				AND ctsp.MaSanPham = sp.MaSanPham
+				AND sp.MaQuayHang = quay.MaQuay
 				AND sp.MaLoaiSanPham = lsp.MaLoaiSanPham
 				AND sp.MaNhaCungCap = ncc.MaNhaCungCap
 				AND sp.MaDVT = dvt.MaDVT)
@@ -141,5 +141,17 @@ BEGIN TRANSACTION
 	update SANPHAM 
 	set SoLuong = SoLuong - @SoLuong
 	where MaSanPham = @MaSanPham
+COMMIT TRANSACTION
+GO
+
+ALTER PROCEDURE [dbo].[CT_SanPham_Insert]
+    @MaCTSanPham [nvarchar](20),
+    @MaSanPham [varchar](20),
+    @TinhTrang [bit]
+AS
+BEGIN TRANSACTION
+    INSERT [dbo].[CT_SANPHAM]([MaCTSanPham], [MaSanPham], [TinhTrang])
+    VALUES (@MaCTSanPham, @MaSanPham, @TinhTrang)
+	update BODEM set CT_SanPham = CT_SanPham + 1
 COMMIT TRANSACTION
 GO

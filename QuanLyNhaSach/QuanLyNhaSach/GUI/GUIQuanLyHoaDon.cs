@@ -45,7 +45,6 @@ namespace QuanLyNhaSach.GUI
             { 
                 case FORMSTATE.LIST_STATE:
                     btnThem.Enabled = true;
-                    btnXoa.Enabled = true;
                     btnLuu.Enabled = false;
                     btnTimKiem.Enabled = true;
                     btnXemChiTiet.Enabled = true;
@@ -59,7 +58,6 @@ namespace QuanLyNhaSach.GUI
                     break;
                 case FORMSTATE.ADD_SATE:
                     btnThem.Enabled = false;
-                    btnXoa.Enabled = false;
                     btnLuu.Enabled = true;
                     btnTimKiem.Enabled = false;
                     btnXemChiTiet.Enabled = false;
@@ -71,7 +69,6 @@ namespace QuanLyNhaSach.GUI
                     break;
                 case FORMSTATE.DETAILED_STATE:
                     btnThem.Enabled = false;
-                    btnXoa.Enabled = false;
                     btnLuu.Enabled = false;
                     btnTimKiem.Enabled = false;
                     btnXemChiTiet.Enabled = false;
@@ -97,10 +94,12 @@ namespace QuanLyNhaSach.GUI
                 case FORMSTATE.LIST_STATE:
                     if (!_IsListLoaded)
                         LoadDSHoaDon();
+
                     break;
                 case FORMSTATE.ADD_SATE:
                     if (UserManager.User != null)
                         txt2NhanVien.Text = UserManager.User.MaNhanVien;
+                    dt2NgayLap.Value = DateTime.Today;
                     break;
                 case FORMSTATE.DETAILED_STATE:
                     break;
@@ -168,6 +167,7 @@ namespace QuanLyNhaSach.GUI
         {
             _State = FORMSTATE.ADD_SATE;
             LoadComponent();
+            LoadData();
         }
 
         ///sự kiện click button Trở lại
@@ -245,7 +245,13 @@ namespace QuanLyNhaSach.GUI
                     else
                     {
                         if (BLLHoaDonBanHang.Instance.LapHoaDon(hoadon, dsCTHoaDon))
+                        {
                             MessageBox.Show("Lập hóa đơn thành công");
+                            dgwDSHoaDon.Rows.Add(hoadon.MaHoaDon, hoadon.NgayBan, hoadon.MaNhanVien,
+                                hoadon.TenKhachHang, hoadon.TongThanhTien);
+                            dgw2DSSanPham.Rows.Clear();
+                            txt2TongTien.Value = 0;
+                        }
                         else
                             MessageBox.Show("Lập hóa đơn thất bại");
                     }
@@ -344,7 +350,7 @@ namespace QuanLyNhaSach.GUI
             foreach (var maCTSanPham in selectedProducts)
             {
                 CT_SanPham ctSanPham = BLLCT_SanPham.Instance.Search(maCTSanPham);
-                if (ctSanPham != null && !KiemTraTonTai(ctSanPham.MaCTSanPham))
+                if (ctSanPham != null && !KiemTraTonTai(ctSanPham.MaCTSanPham) && ctSanPham.TinhTrang == true)
                 {
                     try
                     {
@@ -367,6 +373,14 @@ namespace QuanLyNhaSach.GUI
             GUITimKiemSanPham formTimKiem = new GUITimKiemSanPham(TIMKIEM_STATE.DETAIL_PRODUCT);
             formTimKiem.Show();
             formTimKiem.SelectDetailEvent += new GUITimKiemSanPham.SelectDetailProductEventHandler(SelectEvent_Handler);
+        }
+
+        ///sự kiện click button Tìm kiếm
+        ///chức năng: Tìm kiếm hóa đơn và hiển thị lên lưới
+        ///mô tả:
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
