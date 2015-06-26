@@ -402,8 +402,9 @@ namespace QuanLyNhaSach.DTO
                 .IsUnicode(false);
 
             modelBuilder.Entity<QuayHang>()
-                .HasMany(e => e.DSCT_SanPham)
+                .HasMany(e => e.DS_SanPham)
                 .WithRequired(e => e.QuayHang)
+                .HasForeignKey(e => e.MaQuayHang)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SanPham>()
@@ -418,10 +419,6 @@ namespace QuanLyNhaSach.DTO
                 .Property(e => e.MaNhaCungCap)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CT_SanPham>()
-                .Property(e => e.MaQuay)
-                .IsUnicode(false);
-
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.MaDVT)
                 .IsUnicode(false);
@@ -429,6 +426,10 @@ namespace QuanLyNhaSach.DTO
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.DonGia)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<SanPham>()
+                .Property(e => e.MaQuayHang)
+                .IsUnicode(false);
 
             modelBuilder.Entity<CT_SanPham>()
                .HasMany(e => e.DSCT_HDBanHang)

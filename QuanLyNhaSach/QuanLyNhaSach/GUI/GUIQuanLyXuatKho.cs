@@ -153,9 +153,9 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnThem_Click(object sender, EventArgs e)
         {
-
             _State = FORMSTATE.ADD_SATE;
             LoadComponent();
+            LoadData();
         }
 
         ///sự kiện click button Thoát
@@ -289,7 +289,12 @@ namespace QuanLyNhaSach.GUI
                 else
                 {
                     if (BLLPhieuXuatKho.Instance.LapPhieuXuatKho(phieuxuat, dsCTPhieuXuat))
+                    {
                         MessageBox.Show("Lập phiếu xuất kho thành công");
+                        dgwDSPhieuXuatKho.Rows.Add(phieuxuat.MaPhieuXuat, phieuxuat.MaNhanVien, phieuxuat.NgayXuat);
+                        dgw2DSSanPham.Rows.Clear();
+                        txt2TongSoLuong.Value = 0;
+                    }
                     else
                         MessageBox.Show("Lập phiếu xuất kho thất bại");
                 }

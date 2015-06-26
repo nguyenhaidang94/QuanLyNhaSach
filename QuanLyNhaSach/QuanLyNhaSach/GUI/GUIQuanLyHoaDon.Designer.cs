@@ -1117,6 +1117,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.SubItemsExpandWidth = 14;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Visible = false;
             // 
             // btnLuu
             // 
@@ -1136,6 +1137,7 @@
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.SubItemsExpandWidth = 14;
             this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnXemChiTiet
             // 

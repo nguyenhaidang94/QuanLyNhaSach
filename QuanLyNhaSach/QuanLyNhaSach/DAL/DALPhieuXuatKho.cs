@@ -86,8 +86,22 @@ namespace QuanLyNhaSach.DAL
                 using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
                 {
                     db.DbPhieuXuatKho.Add(phieuXuatKho);
+                    int soCtSanPham = db.DbBoDem.First().CT_SanPham;
                     for (int i = 0; i < dsCTPhieuXuatKho.Count; i++)
+                    {
                         phieuXuatKho.DSCT_PhieuXuatKho.Add(dsCTPhieuXuatKho[i]);
+                        SanPham sanpham = db.DbSanPham.Find(dsCTPhieuXuatKho[i].MaSanPham);
+                        for (int j = 0; j < dsCTPhieuXuatKho[i].SoLuong; j++)
+                        {
+                            ++soCtSanPham;
+                            CT_SanPham ctSanPham = new CT_SanPham();
+                            ctSanPham.MaCTSanPham = "CTSP" + soCtSanPham.ToString("d6");
+                            ctSanPham.TinhTrang = false;
+                            ctSanPham.SanPham = sanpham;
+                            db.DbCT_SanPham.Add(ctSanPham);
+                            db.Entry(sanpham).State = System.Data.Entity.EntityState.Unchanged;
+                        }
+                    }
                     db.SaveChanges();
                     return true;
                 }

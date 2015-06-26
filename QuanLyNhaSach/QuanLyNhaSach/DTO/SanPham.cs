@@ -41,6 +41,10 @@ namespace QuanLyNhaSach.DTO
 
         public int? SoLuong { get; set; }
 
+        [Required]
+        [StringLength(20)]
+        public string MaQuayHang { get; set; }
+
         public virtual ICollection<CT_PhieuDatMua> DSCT_PhieuDatMua { get; set; }
 
         public virtual ICollection<CT_PhieuNhapKho> DSCT_PhieuNhapKho { get; set; }
@@ -57,5 +61,6 @@ namespace QuanLyNhaSach.DTO
 
         public virtual NhaCungCap NhaCungCap { get; set; }
 
+        public virtual QuayHang QuayHang { get; set; }
     }
 }

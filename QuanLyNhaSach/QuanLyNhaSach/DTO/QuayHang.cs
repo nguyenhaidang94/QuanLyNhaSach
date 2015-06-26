@@ -11,7 +11,6 @@ namespace QuanLyNhaSach.DTO
     {
         public QuayHang()
         {
-            DSCT_SanPham = new HashSet<CT_SanPham>();
         }
 
         [Key]
@@ -24,6 +23,6 @@ namespace QuanLyNhaSach.DTO
         [StringLength(20)]
         public string ViTri { get; set; }
 
-        public virtual ICollection<CT_SanPham> DSCT_SanPham { get; set; }
+        public virtual ICollection<SanPham> DS_SanPham { get; set; }
     }
 }

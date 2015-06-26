@@ -387,5 +387,21 @@ namespace QuanLyNhaSach.GUI
                 lblDangXuat.Enabled = false;
             }
         }
+
+        ///sự kiện click button DsBangChamCong
+        ///chức năng: Hiển thị màn hình Bảng chấm công
+        ///mô tả:
+        private void btnDsBangChamCong_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyChamCong(FORMSTATE.LIST_STATE).Show();
+        }
+
+        ///sự kiện click button LapBangChamCong
+        ///chức năng: Hiển thị màn hình Lập Bảng chấm công
+        ///mô tả:
+        private void rbtnLapBangChamCong_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyChamCong(FORMSTATE.ADD_SATE).Show();
+        }
     }
 }
