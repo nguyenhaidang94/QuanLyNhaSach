@@ -30,7 +30,7 @@ namespace QuanLyNhaSach.DAL
         {
             try
             {
-                using (var db = new QLNSContext())
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
                 {
                     return db.DbNguoiDung
                         .Where(e => (e.TaiKhoan.Equals(taikhoan) && e.MatKhau.Equals(matkhau)))
@@ -41,6 +41,35 @@ namespace QuanLyNhaSach.DAL
             {
                 return null;
                 Debug.WriteLine(ex.Message);
+            }
+        }
+
+        ///lấy mã chức vụ theo tài khoản người dùng
+        ///chức năng:
+        ///mô tả:
+        public string LayMaChucVu(string taikhoan)
+        {
+            try
+            {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {
+                    NguoiDung nguoidung = db.DbNguoiDung.Find(taikhoan);
+                    if (nguoidung == null)
+                        return null;
+                    else
+                    {
+                        db.Entry(nguoidung).Reference(e => e.NhanVien).Load();
+                        if (nguoidung.NhanVien != null)
+                            return nguoidung.NhanVien.MaChucVu;
+                        else
+                            return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
     }

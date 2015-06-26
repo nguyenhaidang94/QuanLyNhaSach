@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaSach.BLL;
+using System.Diagnostics;
+using QuanLyNhaSach.SqlHelper;
 
 namespace QuanLyNhaSach.GUI
 {
@@ -20,9 +23,241 @@ namespace QuanLyNhaSach.GUI
 
     public partial class GUIQuanLyNhaSach : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        ///constructor 
+        ///chức năng: khởi tạo cho các components
+        ///mô tả:
         public GUIQuanLyNhaSach()
         {
             InitializeComponent();
+        }
+
+        #region BAT/TAT CHUC NANG
+
+        ///tắt các hết các chức năng chính
+        ///chức năng: ẩn một số control
+        ///mô tả:
+        private void TatHetChucNang()
+        {
+            rbarQuanTri.Enabled = false;
+            lblPhanQuyen.Enabled = false;
+            lblSaoLuuDL.Enabled = false;
+
+            ribpnlBanHang.Enabled = false;
+
+            ribpnlDatMua.Enabled = false;
+            ribpnlNhapXuatKho.Enabled = false;
+
+            ribpnlThuChi.Enabled = false;
+
+            ribpnlNhanVien.Enabled = false;
+
+            ribpnlBaoCao.Enabled = false;
+        }
+
+        ///show chức năng cho nv bán hàng
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangBanHang()
+        {
+            ribpnlBanHang.Enabled = true;
+        }
+        ///tắt chức năng cho nv bán hàng
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangBanHang()
+        {
+            ribpnlBanHang.Enabled = false;
+        }
+
+        ///show chức năng cho nv kế toán
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangKeToan()
+        {
+            ribpnlThuChi.Enabled = true;
+        }
+        ///tắt chức năng cho nv kế toán
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangKeToan()
+        {
+            ribpnlThuChi.Enabled = false;
+        }
+
+        ///show chức năng cho nv thủ kho
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangThuKho()
+        {
+            ribpnlDatMua.Enabled = true;
+            ribpnlNhapXuatKho.Enabled = true;
+        }
+        ///tắt chức năng cho nv thủ kho
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangThuKho()
+        {
+            ribpnlDatMua.Enabled = false;
+            ribpnlNhapXuatKho.Enabled = false;
+        }
+
+        ///show chức năng cho nv quản lý
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangQuanLy()
+        {
+            ribpnlNhanVien.Enabled = true;
+        }
+        ///tắt chức năng cho nv quản lý
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangQuanLy()
+        {
+            ribpnlNhanVien.Enabled = false;
+        }
+
+        ///show chức năng cho giám đốc
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangGiamDoc()
+        {
+            ribpnlBaoCao.Enabled = true;
+        }
+        ///tắt chức năng cho giám đốc
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangGiamDoc()
+        {
+            ribpnlBaoCao.Enabled = false;
+        }
+
+        ///show chức năng cho quản trị
+        ///chức năng:
+        ///mô tả:
+        private void ShowChucNangQuanTri()
+        {
+            rbarQuanTri.Enabled = true;
+
+            lblSaoLuuDL.Enabled = true;
+            lblPhanQuyen.Enabled = true;
+        }
+        ///tắt chức năng cho nv quản trị
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangQuanTri()
+        {
+            rbarQuanTri.Enabled = false;
+
+            lblSaoLuuDL.Enabled = false;
+            lblPhanQuyen.Enabled = false;
+        }
+
+        #endregion
+
+        ///tắt các chức năng của người dùng cũ
+        ///chức năng:
+        ///mô tả:
+        private void TatChucNangCu(CHUCVU chucvu)
+        {
+            switch (chucvu)
+            { 
+                case CHUCVU.BAN_HANG:
+                    TatChucNangBanHang();
+                    break;
+                case CHUCVU.KE_TOAN:
+                    TatChucNangKeToan();
+                    break;
+                case CHUCVU.THU_KHO:
+                    TatChucNangThuKho();
+                    break;
+                case CHUCVU.QUAN_LY:
+                    TatChucNangQuanLy();
+                    break;
+                case CHUCVU.GIAM_DOC:
+                    TatChucNangGiamDoc();
+                    break;
+                case CHUCVU.QUAN_TRI:
+                    TatChucNangQuanTri();
+                    break;
+                default:
+                    TatHetChucNang();
+                    break;
+            }
+        }
+
+        ///bật các chức năng cho người dùng mới
+        ///chức năng:
+        ///mô tả:
+        private void BatChucNangMoi(CHUCVU chucvu)
+        {
+            if (chucvu != CHUCVU.NONE)
+            {
+                if (!rbtnDangXuat.Enabled)
+                    rbtnDangXuat.Enabled = true;
+                if (!lblDangXuat.Enabled)
+                    lblDangXuat.Enabled = true;
+            }
+            else
+            {
+                if (rbtnDangXuat.Enabled)
+                    rbtnDangXuat.Enabled = false;
+                if (lblDangXuat.Enabled)
+                    lblDangXuat.Enabled = false;
+            }
+            switch (chucvu)
+            {
+                case CHUCVU.BAN_HANG:
+                    ShowChucNangBanHang();
+                    break;
+                case CHUCVU.KE_TOAN:
+                    ShowChucNangKeToan();
+                    break;
+                case CHUCVU.THU_KHO:
+                    ShowChucNangThuKho();
+                    break;
+                case CHUCVU.QUAN_LY:
+                    ShowChucNangQuanLy();
+                    break;
+                case CHUCVU.GIAM_DOC:
+                    ShowChucNangGiamDoc();
+                    break;
+                case CHUCVU.QUAN_TRI:
+                    ShowChucNangQuanTri();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        ///xử lý sự kiện TurnOff
+        ///chức năng:
+        ///mô tả:
+        private void TurnOffEventHandler(CHUCVU sender)
+        {
+            try
+            {
+                TatChucNangCu(sender);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                TatHetChucNang();
+            }
+        }
+
+        ///xử lý sự kiện TurnOn
+        ///chức năng:
+        ///mô tả:
+        private void TurnOnEventHandler(CHUCVU sender)
+        {
+            try
+            {
+                BatChucNangMoi(sender);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         ///sự kiện click lable Thoát
@@ -97,6 +332,8 @@ namespace QuanLyNhaSach.GUI
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             GUIDangNhap formDangNhap = new GUIDangNhap();
+            formDangNhap.TurnOffEvent += new GUIDangNhap.TurnOffFeatureEventHandler(TurnOffEventHandler);
+            formDangNhap.TurnOnEvent += new GUIDangNhap.TurnOnFeatureEventHandler(TurnOnEventHandler);
             formDangNhap.ShowDialog();
         }
 
@@ -122,6 +359,33 @@ namespace QuanLyNhaSach.GUI
         private void btnSaoLuuPhucHoi_Click(object sender, EventArgs e)
         {
             new GUISaoLuuPhucHoi().Show();
+        }
+
+        ///sự kiện load form
+        ///chức năng: tắt các chức năng chính
+        ///mô tả:
+        private void GUIQuanLyNhaSach_Load(object sender, EventArgs e)
+        {
+            TatHetChucNang();
+            rbtnDangXuat.Enabled = false;
+            lblDangXuat.Enabled = false;
+        }
+
+        ///sự kiện click button Đăng Xuất
+        ///chức năng: thoát tài khoản người dùng
+        ///mô tả:
+        private void rbtnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Nhắc nhở", MessageBoxButtons.YesNo)
+                == System.Windows.Forms.DialogResult.Yes)
+            if (UserManager.User != null)
+            {
+                CHUCVU chucvu = BLLNguoiDung.Instance.LayLoaiNguoiDung(UserManager.User.TaiKhoan);
+                TatChucNangCu(chucvu);
+                UserManager.User = null;
+                rbtnDangXuat.Enabled = false;
+                lblDangXuat.Enabled = false;
+            }
         }
     }
 }
