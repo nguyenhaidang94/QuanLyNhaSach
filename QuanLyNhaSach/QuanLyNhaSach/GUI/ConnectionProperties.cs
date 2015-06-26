@@ -135,6 +135,7 @@ namespace QuanLyNhaSach.GUI
                                 DatabaseManager.IsConnected = true;
                                 Settings.Default.MasterConnectionString = _ConnectionString.GetMasterConnectionString();
                                 Settings.Default.ConnectionString = _ConnectionString.GetConnectionString();
+                                Settings.Default.EntityConnectionString = _ConnectionString.GetEntityConnectionString();
                                 Settings.Default.Save();
                                 this.Close();
                             }

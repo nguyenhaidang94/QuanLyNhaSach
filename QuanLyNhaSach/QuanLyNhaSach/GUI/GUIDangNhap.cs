@@ -15,12 +15,39 @@ namespace QuanLyNhaSach.GUI
 {
     public partial class GUIDangNhap : DevComponents.DotNetBar.Office2007Form
     {
+        ///khai báo sự kiện bật/tắt tính năng của firm Main
+        ///chức năng:
+        ///mô tả:
+        public delegate void TurnOffFeatureEventHandler(CHUCVU sender);
+        public event TurnOffFeatureEventHandler TurnOffEvent;
+
+        public delegate void TurnOnFeatureEventHandler(CHUCVU sender);
+        public event TurnOnFeatureEventHandler TurnOnEvent;
+
         ///constructor
         ///chức năng: khởi tạo cho các components
         ///mô tả:
         public GUIDangNhap()
         {
             InitializeComponent();
+        }
+
+        ///ném sự kiện TurnOff
+        ///chức năng:
+        ///mô tả: kiểm tra trước khi ném
+        private void FireTurnOffEvent(CHUCVU sender)
+        {
+            if (TurnOffEvent != null)
+                TurnOffEvent(sender);
+        }
+
+        ///ném sự kiện TurnOn
+        ///chức năng:
+        ///mô tả: kiểm tra trước khi ném
+        private void FireTurnOnEvent(CHUCVU sender)
+        {
+            if (TurnOnEvent != null)
+                TurnOnEvent(sender);
         }
 
         ///sự kiện click nút đăng nhập
@@ -53,6 +80,13 @@ namespace QuanLyNhaSach.GUI
             {
                 MessageBox.Show("Đăng nhập thành công");
                 UserManager.User = newUser;
+                if (lastUser != null)
+                {
+                    CHUCVU chucvucu = BLLNguoiDung.Instance.LayLoaiNguoiDung(lastUser.TaiKhoan);
+                    FireTurnOffEvent(chucvucu);
+                }
+                CHUCVU chucvumoi = BLLNguoiDung.Instance.LayLoaiNguoiDung(newUser.TaiKhoan);
+                FireTurnOnEvent(chucvumoi);
                 this.Close();
             }
             else
