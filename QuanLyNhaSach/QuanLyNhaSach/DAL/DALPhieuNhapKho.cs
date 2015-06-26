@@ -11,6 +11,17 @@ namespace QuanLyNhaSach.DAL
 {
     public class DALPhieuNhapKho
     {
+        private static DALPhieuNhapKho _Instance = null;
+        public static DALPhieuNhapKho Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new DALPhieuNhapKho();
+                return DALPhieuNhapKho._Instance;
+            }
+        }
+
         ///phương thức lấy danh sách phiếu nhập kho
         ///chức năng:
         ///mô tả:
@@ -33,7 +44,7 @@ namespace QuanLyNhaSach.DAL
         ///phương thức lấy thông tin 1 phiếu nhập kho
         ///chức năng:
         ///mô tả:
-        public PhieuNhapKho GetReceiptsWithDetailedProducts(String maPhieuNhapKho)
+        public PhieuNhapKho LayPhieuNhap(String maPhieuNhapKho)
         {
             try
             {

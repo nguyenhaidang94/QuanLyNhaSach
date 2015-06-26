@@ -13,9 +13,24 @@ using System.Diagnostics;
 
 namespace QuanLyNhaSach.GUI
 {
+    public enum TIMKIEM_STATE 
+    { 
+        DETAIL_PRODUCT,
+        PRODUCT,
+        NONE
+    }
+
     public partial class GUITimKiemSanPham : DevComponents.DotNetBar.Office2007Form
     {
-        ///khai báo sự kiện và delegate cho sự kiện
+        private TIMKIEM_STATE _FormState;
+
+        ///khai báo sự kiện và delegate cho sự kiện chọn CTSanPham
+        ///chức năng:
+        ///mô tả:
+        public delegate void SelectDetailProductEventHandler(Object sender);
+        public event SelectDetailProductEventHandler SelectDetailEvent;
+
+        ///khai báo sự kiện và delegate cho sự kiện chọn SanPham
         ///chức năng:
         ///mô tả:
         public delegate void SelectProductEventHandler(Object sender);
@@ -24,12 +39,81 @@ namespace QuanLyNhaSach.GUI
         ///constructor
         ///chức năng:
         ///mô tả:
-        public GUITimKiemSanPham()
+        public GUITimKiemSanPham(TIMKIEM_STATE state)
         {
             InitializeComponent();
+            _FormState = state;
         }
 
-        ///ném sự kiện Select
+        ///load các components phù hợp
+        ///chức năng:
+        ///mô tả:
+        private void LoadComponents()
+        {
+            switch (_FormState)
+            { 
+                case TIMKIEM_STATE.NONE:
+                    rbtn1TrenQuay.Visible = true;
+                    rbtn1TrongKho.Visible = true;
+                    btnChonSanPham.Visible = false;
+                    break;
+                case TIMKIEM_STATE.DETAIL_PRODUCT:
+                    rbtn1TrenQuay.Visible = true;
+                    rbtn1TrenQuay.Checked = true;
+                    rbtn1TrongKho.Visible = false;
+                    btnChonSanPham.Visible = true;
+                    break;
+                case TIMKIEM_STATE.PRODUCT:
+                    rbtn1TrenQuay.Visible = false;
+                    rbtn1TrongKho.Visible = true;
+                    rbtn1TrongKho.Checked = true;
+                    btnChonSanPham.Visible = true;
+                    break;
+            }
+        }
+
+        ///load dữ liệu để tìm kiếm
+        ///chức năng:
+        ///mô tả:
+        private void LoadData() 
+        {
+            BLLLoaiSanPham bll = new BLLLoaiSanPham();
+            List<LoaiSanPham> dsLoaiSP = bll.GetList();
+
+            try
+            {
+                for (int i = 0; i < dsLoaiSP.Count; i++)
+                    cbo1LoaiSanPham.Items.Add(dsLoaiSP[i]);
+                cbo1LoaiSanPham.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            try
+            {
+                cbo1DonGia.Items.Add("0----100.000");
+                cbo1DonGia.Items.Add("100.000----500.000");
+                cbo1DonGia.Items.Add("500.000 trở lên");
+                cbo1DonGia.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        ///ném sự kiện SelectDetailProduct
+        ///chức năng: kiểm tra sự kiện trước khi ném ra
+        ///mô tả:
+        private void SelectDetailProduct(Object sender)
+        {
+            if (SelectDetailEvent != null)
+                SelectDetailEvent(sender);
+        }
+
+        ///ném sự kiện SelectProduct
         ///chức năng: kiểm tra sự kiện trước khi ném ra
         ///mô tả:
         private void SelectProduct(Object sender)
@@ -220,31 +304,8 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void GUITimKiemSanPham_Load(object sender, EventArgs e)
         {
-            BLLLoaiSanPham bll = new BLLLoaiSanPham();
-            List<LoaiSanPham> dsLoaiSP = bll.GetList();
-
-            try
-            {
-                for (int i = 0; i < dsLoaiSP.Count; i++)
-                    cbo1LoaiSanPham.Items.Add(dsLoaiSP[i]);
-                cbo1LoaiSanPham.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-
-            try
-            {
-                cbo1DonGia.Items.Add("0----100.000");
-                cbo1DonGia.Items.Add("100.000----500.000");
-                cbo1DonGia.Items.Add("500.000 trở lên");
-                cbo1DonGia.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
+            LoadComponents();
+            LoadData();
         }
 
         ///sự kiện click btnClose
@@ -273,7 +334,19 @@ namespace QuanLyNhaSach.GUI
                     Debug.WriteLine(ex.Message);
                 }
             }
-            SelectProduct((Object)selectedProducts);
+            switch (_FormState)
+            { 
+                case TIMKIEM_STATE.DETAIL_PRODUCT:
+                    SelectDetailProduct((Object)selectedProducts);
+                    break;
+                case TIMKIEM_STATE.PRODUCT:
+                    SelectProduct((Object)selectedProducts);
+                    break;
+                default:
+                    break;
+            }
+            
+            
         }
     }
 }

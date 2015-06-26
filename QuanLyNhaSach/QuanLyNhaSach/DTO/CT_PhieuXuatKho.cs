@@ -18,15 +18,11 @@ namespace QuanLyNhaSach.DTO
         [StringLength(20)]
         public string MaSanPham { get; set; }
 
-        [StringLength(20)]
-        public string MaQuayHang { get; set; }
-
         public int? SoLuong { get; set; }
 
         public virtual PhieuXuatKho PhieuXuatKho { get; set; }
 
         public virtual SanPham SanPham { get; set; }
-
-        public virtual QuayHang QuayHang { get; set; }
+        
     }
 }

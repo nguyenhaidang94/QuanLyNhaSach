@@ -114,8 +114,7 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void LoadDSHoaDon()
         {
-            BLLHoaDonBanHang bll = new BLLHoaDonBanHang();
-            List<HoaDonBanHang> dsHoaDon = bll.GetList();
+            List<HoaDonBanHang> dsHoaDon = BLLHoaDonBanHang.Instance.GetList();
             if (dsHoaDon == null)
                 MessageBox.Show("Không có hóa đơn nào.");
             else
@@ -245,8 +244,7 @@ namespace QuanLyNhaSach.GUI
                         MessageBox.Show("Chưa chọn sản phẩm");
                     else
                     {
-                        BLLHoaDonBanHang bllHoaDon = new BLLHoaDonBanHang();
-                        if (bllHoaDon.LapHoaDon(hoadon, dsCTHoaDon))
+                        if (BLLHoaDonBanHang.Instance.LapHoaDon(hoadon, dsCTHoaDon))
                             MessageBox.Show("Lập hóa đơn thành công");
                         else
                             MessageBox.Show("Lập hóa đơn thất bại");
@@ -287,8 +285,7 @@ namespace QuanLyNhaSach.GUI
                     MessageBox.Show("Dòng này không có dữ liệu");
                 else
                 {
-                    BLLHoaDonBanHang bll = new BLLHoaDonBanHang();
-                    HoaDonBanHang hoadon = bll.GetReceipts(maHoaDon);
+                    HoaDonBanHang hoadon = BLLHoaDonBanHang.Instance.GetReceipts(maHoaDon);
                     if (hoadon == null)
                         MessageBox.Show("Hóa đơn không tồn tại");
                     else
@@ -346,8 +343,7 @@ namespace QuanLyNhaSach.GUI
             List<String> selectedProducts = (List<String>)sender;
             foreach (var maCTSanPham in selectedProducts)
             {
-                BLLCT_SanPham bll = new BLLCT_SanPham();
-                CT_SanPham ctSanPham = bll.Search(maCTSanPham);
+                CT_SanPham ctSanPham = BLLCT_SanPham.Instance.Search(maCTSanPham);
                 if (ctSanPham != null && !KiemTraTonTai(ctSanPham.MaCTSanPham))
                 {
                     try
@@ -368,77 +364,9 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnTimSanPham_Click(object sender, EventArgs e)
         {
-            GUITimKiemSanPham formTimKiem = new GUITimKiemSanPham();
+            GUITimKiemSanPham formTimKiem = new GUITimKiemSanPham(TIMKIEM_STATE.DETAIL_PRODUCT);
             formTimKiem.Show();
-            formTimKiem.SelectEvent += new GUITimKiemSanPham.SelectProductEventHandler(SelectEvent_Handler);
-        }
-
-        ///sự kiện khi kết thúc nhập dữ liệu cho ô
-        ///chức năng: cập nhật lại thông tin dòng
-        ///mô tả:
-        private void dgw2DSSanPham_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            //switch (e.ColumnIndex)
-            //{ 
-            //    case 0:
-            //        String maCTSanPham = null;
-            //        try
-            //        {
-            //            maCTSanPham = dgw2DSSanPham.Rows[e.RowIndex].Cells[e.ColumnIndex].Value
-            //                as String;                       
-            //        }
-            //        catch(Exception ex)
-            //        {
-            //            Debug.WriteLine(ex.Message);
-            //        }
-            //        if (!String.IsNullOrEmpty(maCTSanPham))
-            //        {
-            //            BLLCT_SanPham bll = new BLLCT_SanPham();
-            //            CT_SanPham ctSanPham = bll.LayCTSanPham(maCTSanPham);
-            //            if (ctSanPham == null)
-            //            {
-            //                MessageBox.Show("Sản phẩm không tồn tại");
-            //                dgw2DSSanPham.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
-            //            }
-            //            else
-            //            {
-            //                if (ctSanPham.TinhTrang != true)
-            //                {
-            //                    MessageBox.Show("Sản phẩm đã bán");
-            //                    dgw2DSSanPham.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
-            //                }
-            //                else
-            //                {
-            //                    try
-            //                    {
-            //                        dgw2DSSanPham.Rows[e.RowIndex].Cells[1].Value = ctSanPham.SanPham.DonGia;
-            //                        dgw2DSSanPham.Rows[e.RowIndex].Cells[3].Value = ctSanPham.SanPham.DonGia
-            //                            * (int)dgw2DSSanPham.Rows[e.RowIndex].Cells[2].Value;
-            //                    }
-            //                    catch (Exception ex)
-            //                    {
-            //                        Debug.WriteLine(ex.Message);
-            //                    }
-            //                }
-            //            }
-                        
-            //        }
-            //        break;
-            //    case 2:
-            //        try
-            //        {
-            //            dgw2DSSanPham.Rows[e.RowIndex].Cells[3].Value =
-            //                (Double)dgw2DSSanPham.Rows[e.RowIndex].Cells[1].Value
-            //                * (int)dgw2DSSanPham.Rows[e.RowIndex].Cells[2].Value;
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Debug.WriteLine(ex.Message);
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
+            formTimKiem.SelectDetailEvent += new GUITimKiemSanPham.SelectDetailProductEventHandler(SelectEvent_Handler);
         }
     }
 }

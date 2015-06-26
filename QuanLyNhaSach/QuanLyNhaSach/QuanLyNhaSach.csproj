@@ -54,6 +54,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Microsoft SQL Server\120\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server\120\SDK\Assemblies\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -73,7 +77,9 @@
     <Compile Include="BLL\BLLHoaDonBanHang.cs" />
     <Compile Include="BLL\BLLLoaiSanPham.cs" />
     <Compile Include="BLL\BLLNguoiDung.cs" />
+    <Compile Include="BLL\BLLNhanVien.cs" />
     <Compile Include="BLL\BLLPhieuNhapKho.cs" />
+    <Compile Include="BLL\BLLPhieuXuatKho.cs" />
     <Compile Include="BLL\BLLSanPham.cs" />
     <Compile Include="DAL\DALCT_SanPham.cs" />
     <Compile Include="DAL\DALHoaDonBanHang.cs" />
@@ -81,6 +87,7 @@
     <Compile Include="DAL\DALNguoiDung.cs" />
     <Compile Include="DAL\DALNhanVien.cs" />
     <Compile Include="DAL\DALPhieuNhapKho.cs" />
+    <Compile Include="DAL\DALPhieuXuatKho.cs" />
     <Compile Include="DAL\DALSanPham.cs" />
     <Compile Include="DTO\BangChamCong.cs" />
     <Compile Include="DTO\BoDem.cs" />
@@ -162,6 +169,12 @@
     <Compile Include="GUI\GUIQuanLyXuatKho.designer.cs">
       <DependentUpon>GUIQuanLyXuatKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUISaoLuuPhucHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUISaoLuuPhucHoi.Designer.cs">
+      <DependentUpon>GUISaoLuuPhucHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUITimKiemSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,26 +185,6 @@
     <Compile Include="Migrations\201505260146327_Initial.Designer.cs">
       <DependentUpon>201505260146327_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505261852193_delete_attribute_cthoadonbanhang.cs" />
-    <Compile Include="Migrations\201505261852193_delete_attribute_cthoadonbanhang.Designer.cs">
-      <DependentUpon>201505261852193_delete_attribute_cthoadonbanhang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs" />
-    <Compile Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.Designer.cs">
-      <DependentUpon>201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506240204155_add_table_NguoiDung.cs" />
-    <Compile Include="Migrations\201506240204155_add_table_NguoiDung.Designer.cs">
-      <DependentUpon>201506240204155_add_table_NguoiDung.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506240208166_add_storedproc.cs" />
-    <Compile Include="Migrations\201506240208166_add_storedproc.Designer.cs">
-      <DependentUpon>201506240208166_add_storedproc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506240316503_change_password_length.cs" />
-    <Compile Include="Migrations\201506240316503_change_password_length.Designer.cs">
-      <DependentUpon>201506240316503_change_password_length.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +194,9 @@
     <Compile Include="SqlHelper\MyDatabaseConnection.cs" />
     <Compile Include="SqlHelper\UserManager.cs" />
     <Compile Include="SqlHelper\Utilities.cs" />
+    <EmbeddedResource Include="GUI\ConnectionProperties.resx">
+      <DependentUpon>ConnectionProperties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIDangNhap.resx">
       <DependentUpon>GUIDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,26 +218,14 @@
     <EmbeddedResource Include="GUI\GUIQuanLyXuatKho.resx">
       <DependentUpon>GUIQuanLyXuatKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUISaoLuuPhucHoi.resx">
+      <DependentUpon>GUISaoLuuPhucHoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUITimKiemSanPham.resx">
       <DependentUpon>GUITimKiemSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505260146327_Initial.resx">
       <DependentUpon>201505260146327_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505261852193_delete_attribute_cthoadonbanhang.resx">
-      <DependentUpon>201505261852193_delete_attribute_cthoadonbanhang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506041051498_add_attribute_tinhtrang_to_phieudatmua.resx">
-      <DependentUpon>201506041051498_add_attribute_tinhtrang_to_phieudatmua.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506240204155_add_table_NguoiDung.resx">
-      <DependentUpon>201506240204155_add_table_NguoiDung.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506240208166_add_storedproc.resx">
-      <DependentUpon>201506240208166_add_storedproc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506240316503_change_password_length.resx">
-      <DependentUpon>201506240316503_change_password_length.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -272,6 +256,9 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="GUI\Icon\icon 48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database\script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,7 +25,5 @@ namespace QuanLyNhaSach.DTO
         public string ViTri { get; set; }
 
         public virtual ICollection<CT_SanPham> DSCT_SanPham { get; set; }
-
-        public virtual ICollection<CT_PhieuXuatKho> DSCT_PhieuXuatKho { get; set; } 
     }
 }

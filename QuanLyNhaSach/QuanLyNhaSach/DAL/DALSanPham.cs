@@ -14,6 +14,17 @@ namespace QuanLyNhaSach.DAL
 {
     public partial class DALSanPham
     {
+        private static DALSanPham _Instance = null;
+        public static DALSanPham Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new DALSanPham();
+                return DALSanPham._Instance;
+            }
+        }
+
         ///tìm kiếm sản phẩm
         ///chức năng:
         ///mô tả: chạy stored procedure và lấy dữ liệu
@@ -33,6 +44,48 @@ namespace QuanLyNhaSach.DAL
                 return DatabaseManager.DbConnection.ExecuteStoredProcedure(spName, sqlprMaSanPham, sqlprTenSanPham,
                     sqlprMaLoaiSanPham, sqlprDonGiaMin, sqlprDonGiaMax, sqlprTrongKho);
                
+            }
+        }
+
+        ///tìm kiếm sản phẩm theo mã
+        ///chức năng:
+        ///mô tả: truy vấn linq để lấy dữ liệu
+        public SanPham Search(string maSanPham)
+        {
+            try
+            {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {
+                    return db.DbSanPham.Find(maSanPham);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        ///lấy số lượng sản phẩm theo mã
+        ///chức năng:
+        ///mô tả: truy vấn linq để lấy dữ liệu
+        public int? LaySoLuong(string maSanPham) 
+        {
+            try
+            {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {
+                    SanPham sp = db.DbSanPham.Find(maSanPham);
+                    if (sp != null)
+                        return sp.SoLuong;
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
     }

@@ -11,13 +11,23 @@ namespace QuanLyNhaSach.BLL
 {
     public partial class BLLCT_SanPham
     {
+        private static BLLCT_SanPham _Instance = null;
+        public static BLLCT_SanPham Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new BLLCT_SanPham();
+                return BLLCT_SanPham._Instance;
+            }
+        }
+
         ///lấy chi tiết sản phẩm dựa theo mã
         ///chức năng:
         ///mô tả: gọi đến hàm lấy sản phẩm ở lớp DAL_CTSanPham
         public CT_SanPham GetDetailedProducts(String maCTSanPham)
         {
-            DALCT_SanPham dal = new DALCT_SanPham();
-            return dal.GetDetailedProducts(maCTSanPham);
+            return DALCT_SanPham.Instance.GetDetailedProducts(maCTSanPham);
         }
 
         ///tìm kiếm chi tiết sản phẩm
@@ -25,8 +35,7 @@ namespace QuanLyNhaSach.BLL
         ///mô tả: gọi đến hàm tìm kiếm của lớp DALCT_SanPham
         public DataTable Search(string maCtSanPham, string tenSanPham, string maLoai, double? donGiaMin, double? donGiaMax)
         {
-            DALCT_SanPham dal = new DALCT_SanPham();
-            return dal.Search(maCtSanPham, tenSanPham, maLoai, donGiaMin, donGiaMax);
+            return DALCT_SanPham.Instance.Search(maCtSanPham, tenSanPham, maLoai, donGiaMin, donGiaMax);
         }
 
         ///tìm kiếm ct sản phẩm theo mã CTSanPham
@@ -34,8 +43,7 @@ namespace QuanLyNhaSach.BLL
         ///mô tả: gọi đến hàm tìm kiếm của lớp DALCT_SanPham
         public CT_SanPham Search(string maCTSanPham)
         {
-            DALCT_SanPham dal = new DALCT_SanPham();
-            return dal.Search(maCTSanPham);
+            return DALCT_SanPham.Instance.Search(maCTSanPham);
         }
     }
 }

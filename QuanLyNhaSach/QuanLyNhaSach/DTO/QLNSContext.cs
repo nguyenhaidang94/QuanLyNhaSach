@@ -10,7 +10,7 @@ namespace QuanLyNhaSach.DTO
         public QLNSContext()
             : base("QLNSContext")
         {
-            //this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
             Debug.WriteLine(this.Database.Log);
         }
 
@@ -164,10 +164,6 @@ namespace QuanLyNhaSach.DTO
 
             modelBuilder.Entity<CT_PhieuXuatKho>()
                 .Property(e => e.MaSanPham)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CT_PhieuXuatKho>()
-                .Property(e => e.MaQuayHang)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CT_TKBanHang>()
@@ -407,11 +403,6 @@ namespace QuanLyNhaSach.DTO
 
             modelBuilder.Entity<QuayHang>()
                 .HasMany(e => e.DSCT_SanPham)
-                .WithRequired(e => e.QuayHang)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<QuayHang>()
-                .HasMany(e => e.DSCT_PhieuXuatKho)
                 .WithRequired(e => e.QuayHang)
                 .WillCascadeOnDelete(false);
 

@@ -69,5 +69,34 @@ namespace QuanLyNhaSach.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CREATE PROCEDURE [dbo].[BangChamCong_Delete]
+        ///    @MaBCC [varchar](20)
+        ///AS
+        ///BEGIN
+        ///    DELETE [dbo].[BANGCHAMCONG]
+        ///    WHERE ([MaBCC] = @MaBCC)
+        ///END
+        ///GO
+        ////****** Object:  StoredProcedure [dbo].[BangChamCong_Insert]    Script Date: 26/06/2015 09:07:41 ******/
+        ///SET ANSI_NULLS ON
+        ///GO
+        ///SET QUOTED_IDENTIFIER ON
+        ///GO
+        ///CREATE PROCEDURE [dbo].[BangChamCong_Insert]
+        ///    @MaBCC [varchar](20),
+        ///    @MaCaLamViec [varchar](20),
+        ///    @NgayChamCong [date],
+        ///    @NguoiChamCong [varchar](20)
+        ///AS
+        ///BEGIN
+        ///    INSERT [dbo].[BA [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string script {
+            get {
+                return ResourceManager.GetString("script", resourceCulture);
+            }
+        }
     }
 }

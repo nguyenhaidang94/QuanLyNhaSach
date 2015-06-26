@@ -11,22 +11,24 @@ namespace QuanLyNhaSach.BLL
 {
     class BLLPhieuNhapKho
     {
+        private static BLLPhieuNhapKho _Instance = null;
+        public static BLLPhieuNhapKho Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new BLLPhieuNhapKho();
+                return BLLPhieuNhapKho._Instance;
+            }
+        }
+
         ///phương thức lấy danh sách phiếu Nhập Kho
         ///chức năng:
         ///mô tả:
         public List<PhieuNhapKho> GetList()
         {
-            DALPhieuNhapKho dal = new DALPhieuNhapKho();
-            return dal.GetList();
+            return DALPhieuNhapKho.Instance.GetList();
         }
 
-        ///phương thức lấy thông tin 1 phiếu nhập kho
-        ///chức năng:
-        ///mô tả:
-        public PhieuNhapKho GetReceipts(String maPhieuNhapKho)
-        {
-            DALPhieuNhapKho dal = new DALPhieuNhapKho();
-            return dal.GetReceiptsWithDetailedProducts(maPhieuNhapKho);
-        }
     }
 }

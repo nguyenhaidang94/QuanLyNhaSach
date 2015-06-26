@@ -13,9 +13,20 @@ using QuanLyNhaSach.DTO;
 
 namespace QuanLyNhaSach.DAL
 {
-    public partial class DALCT_SanPham
+    public class DALCT_SanPham
     {
-        ///lấy ct sản phẩm dựa vào mã sản phẩm
+        private static DALCT_SanPham _Instance = null;
+        public static DALCT_SanPham Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new DALCT_SanPham();
+                return DALCT_SanPham._Instance; 
+            }
+        }
+
+        ///lấy ct sản phẩm dựa vào mã ct sản phẩm
         ///chức năng:
         ///mô tả:
         public CT_SanPham GetDetailedProducts(String maCTSanPham)
