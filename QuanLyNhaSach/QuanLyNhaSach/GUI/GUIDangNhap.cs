@@ -47,10 +47,8 @@ namespace QuanLyNhaSach.GUI
                 && !String.IsNullOrEmpty(UserManager.User.MatKhau))
                 lastUser = UserManager.User;
 
-            BLLNguoiDung bllNguoiDung = new BLLNguoiDung();
-
             this.Cursor = Cursors.WaitCursor;
-            NguoiDung newUser = bllNguoiDung.LayThongTin(_txtTaiKhoan.Text, Utilities.Instance.MaHoa(_txtMatKhau.Text));
+            NguoiDung newUser = BLLNguoiDung.Instance.LayThongTin(_txtTaiKhoan.Text, Utilities.Instance.MaHoa(_txtMatKhau.Text));
             if (newUser != null)
             {
                 MessageBox.Show("Đăng nhập thành công");

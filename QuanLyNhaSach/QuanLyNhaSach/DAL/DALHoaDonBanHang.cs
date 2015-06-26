@@ -15,6 +15,17 @@ namespace QuanLyNhaSach.DAL
 {
     public class DALHoaDonBanHang
     {
+        private static DALHoaDonBanHang _Instance = null;
+        public static DALHoaDonBanHang Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new DALHoaDonBanHang();
+                return DALHoaDonBanHang._Instance;
+            }
+        }
+
         ///phương thức lấy danh sách HoaDon
         ///chức năng:
         ///mô tả:

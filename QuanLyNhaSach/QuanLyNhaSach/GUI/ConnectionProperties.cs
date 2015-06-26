@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
 using System.Diagnostics;
-using QuanLyNhaSach.SqlHelper;
 using System.IO;
 using Settings = QuanLyNhaSach.Properties.Settings;
+using QuanLyNhaSach.SqlHelper;
 
 namespace QuanLyNhaSach.GUI
 {
@@ -119,7 +119,7 @@ namespace QuanLyNhaSach.GUI
             {
                 if (!_ConnectionString.ActiveDatabase)
                     MessageBox.Show("Please choose a database and test it.");
-                else
+                else 
                 {
                     DatabaseManager.MasterConnection = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
                     DatabaseManager.DbConnection = new MyDatabaseConnection(_ConnectionString.GetConnectionString());
@@ -135,7 +135,6 @@ namespace QuanLyNhaSach.GUI
                                 DatabaseManager.IsConnected = true;
                                 Settings.Default.MasterConnectionString = _ConnectionString.GetMasterConnectionString();
                                 Settings.Default.ConnectionString = _ConnectionString.GetConnectionString();
-                                Settings.Default.EntityConnectionString = _ConnectionString.GetEntityConnectionString();
                                 Settings.Default.Save();
                                 this.Close();
                             }
@@ -321,40 +320,15 @@ namespace QuanLyNhaSach.GUI
             }
         }
 
-        ///sự kiện click nút Browse
-        ///chức năng: dẫn đến file script csdl
-        ///mô tả:
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "File script (*.sql)|*.sql;";
-            dialog.ShowDialog();
-            if (dialog.FileName != "")
-                txtFileScript.Text = dialog.FileName;
-        }
-
         ///sự kiện click nút CreateDb
         ///chức năng: tạo csdl từ file script
         ///mô tả:
         private void btnCreateDb_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtFileScript.Text) || String.IsNullOrEmpty(txtDatabaseName.Text))
+            if (String.IsNullOrEmpty(txtDatabaseName.Text))
             {
-                MessageBox.Show("You have not selected file script or entered database name");
+                MessageBox.Show("You have not entered the database name");
                 return;
-            }
-            else
-            {
-                try
-                {
-                    string[] words = txtFileScript.Text.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries);
-                    if (words[words.Length - 1].ToLower() != "sql")
-                    {
-                        MessageBox.Show("File script is not in format");
-                        return;
-                    }
-                }
-                catch { return; }
             }
 
             MyDatabaseConnection dbConn = new MyDatabaseConnection(_ConnectionString.GetMasterConnectionString());
@@ -371,21 +345,8 @@ namespace QuanLyNhaSach.GUI
                 return;
             }
 
-            FileInfo file = null;
-            string script = null;
-            try
-            {
-                file = new FileInfo(txtFileScript.Text);
-                script = file.OpenText().ReadToEnd();
-            }
-            catch
-            {
-                MessageBox.Show("Reading file script fails");
-                return;
-            }
-
             this.Cursor = Cursors.WaitCursor;
-            bool isTrue = DatabaseManager.CreateDatabase(dbConn, script, databaseName);
+            bool isTrue = DatabaseManager.CreateDatabase(dbConn, Properties.Resources.script, databaseName);
             this.Cursor = Cursors.Arrow;
             if (isTrue)
             {
@@ -397,6 +358,28 @@ namespace QuanLyNhaSach.GUI
             {
                 _ConnectionString.ActiveDatabase = true;
                 MessageBox.Show("Creating database failed");
+            }
+        }
+
+        ///sự kiện nhập trên textbox txtDatabaseName
+        ///chức năng: chặn các ký tự đặc biệt
+        ///mô tả:
+        private void txtDatabaseName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                int keyCode = (int)e.KeyChar;
+                if ((keyCode >= 48 && keyCode <= 57)
+                    || (keyCode >= 65 && keyCode <= 90)
+                    || (keyCode >= 97 && keyCode <= 122)
+                    || (keyCode == 8))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
             }
         }
     }

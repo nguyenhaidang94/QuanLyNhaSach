@@ -12,6 +12,17 @@ namespace QuanLyNhaSach.DAL
 {
     public class DALNguoiDung
     {
+        private static DALNguoiDung _Instance = null;
+        public static DALNguoiDung Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new DALNguoiDung();
+                return DALNguoiDung._Instance;
+            }
+        }
+
         ///lấy thông tin người dùng theo tài khoản và mật khẩu
         ///chức năng:
         ///mô tả:

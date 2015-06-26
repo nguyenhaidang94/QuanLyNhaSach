@@ -1,5 +1,5 @@
 
-ALTER PROCEDURE [dbo].[SanPham_Search]
+CREATE PROCEDURE [dbo].[SanPham_Search]
 @MaSanPham varchar(20) = NULL,
 @TenSanPham nvarchar(50) = NULL,
 @MaLoaiSanPham varchar(20) = NULL,
@@ -70,7 +70,7 @@ COMMIT TRANSACTION
 
 GO
 
-ALTER PROCEDURE [dbo].[HoaDonBanHang_PhatSinhMa]
+CREATE PROCEDURE [dbo].[HoaDonBanHang_PhatSinhMa]
     @MaHoadon varchar(20) output
 AS
 BEGIN TRANSACTION
@@ -105,3 +105,41 @@ BEGIN TRANSACTION
 	SET [TinhTrang] = 0
 	WHERE [MaCTSanPham] = @MaCTSanPham
 COMMIT TRANSACTION
+GO
+
+CREATE PROCEDURE [dbo].[PhieuXuatKho_PhatSinhMa]
+@MaPhieuXuat varchar(20) output
+AS
+BEGIN TRANSACTION
+	declare @count int
+	set @count = (select PhieuXuatKho from BODEM) + 1
+	set @MaPhieuXuat = 'PXK' + (select right('000000' + CAST(@count as varchar(6)), 6))
+COMMIT TRANSACTION
+GO
+
+ALTER PROCEDURE [dbo].[PhieuXuatKho_Insert]
+    @MaPhieuXuat [varchar](20),
+    @NgayXuat [date],
+    @MaNhanVien [varchar](20),
+    @TongSoLuong [int]
+AS
+BEGIN TRANSACTION
+    INSERT [dbo].[PHIEUXUATKHO]([MaPhieuXuat], [NgayXuat], [MaNhanVien], [TongSoLuong])
+    VALUES (@MaPhieuXuat, @NgayXuat, @MaNhanVien, @TongSoLuong)
+	update BODEM set PhieuXuatKho = PhieuXuatKho + 1
+COMMIT TRANSACTION
+GO
+
+ALTER PROCEDURE [dbo].[CT_PhieuXuatKho_Insert]
+    @MaPhieuXuat [varchar](20),
+    @MaSanPham [varchar](20),
+    @SoLuong [int]
+AS
+BEGIN TRANSACTION
+    INSERT [dbo].[CT_PhieuXuatKho]([MaPhieuXuat], [MaSanPham], [SoLuong])
+    VALUES (@MaPhieuXuat, @MaSanPham, @SoLuong)
+	update SANPHAM 
+	set SoLuong = SoLuong - @SoLuong
+	where MaSanPham = @MaSanPham
+COMMIT TRANSACTION
+GO

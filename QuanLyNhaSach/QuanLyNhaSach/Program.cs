@@ -39,7 +39,6 @@ namespace QuanLyNhaSach
                 Application.Run(new ConnectionProperties());
             if (DatabaseManager.IsConnected)
                 Application.Run(new GUIQuanLyNhaSach());
-		//test chuc nang tach nhanh
         }
     }
 }

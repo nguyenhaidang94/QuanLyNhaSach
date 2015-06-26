@@ -56,7 +56,7 @@ namespace QuanLyNhaSach.GUI
         ///mô tả:
         private void btnSanPham_Click(object sender, EventArgs e)
         {
-            new GUITimKiemSanPham().Show();
+            new GUITimKiemSanPham(TIMKIEM_STATE.NONE).Show();
         }
 
         ///sự kiện click button Ds phiếu nhập kho
@@ -98,6 +98,30 @@ namespace QuanLyNhaSach.GUI
         {
             GUIDangNhap formDangNhap = new GUIDangNhap();
             formDangNhap.ShowDialog();
+        }
+
+        ///sự kiện click button Ds phiếu xuất kho
+        ///chức năng: Hiển thị màn hình Ql danh sách phiếu xuất kho
+        ///mô tả:
+        private void btnDSPhieuXuatKho_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyXuatKho(FORMSTATE.LIST_STATE).Show();
+        }
+
+        ///sự kiện click nút Lập phiếu xuất kho
+        ///chức năng: Hiển thị màn hình Lập phiếu xuất kho
+        ///mô tả:
+        private void btnLapPhieuXuatKho_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyXuatKho(FORMSTATE.ADD_SATE).Show();
+        }
+
+        ///sự kiện click nút Sao lưu, phục hồi dữ liệu
+        ///chức năng: Hiển thị màn hình Sao lưu, phục hồi dữ liệu
+        ///mô tả:
+        private void btnSaoLuuPhucHoi_Click(object sender, EventArgs e)
+        {
+            new GUISaoLuuPhucHoi().Show();
         }
     }
 }

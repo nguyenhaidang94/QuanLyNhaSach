@@ -244,6 +244,9 @@
             // 
             // dgw3DSSanPham
             // 
+            this.dgw3DSSanPham.AllowUserToAddRows = false;
+            this.dgw3DSSanPham.AllowUserToDeleteRows = false;
+            this.dgw3DSSanPham.AllowUserToResizeRows = false;
             this.dgw3DSSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -552,6 +555,9 @@
             // 
             // dgw2DSSanPham
             // 
+            this.dgw2DSSanPham.AllowUserToAddRows = false;
+            this.dgw2DSSanPham.AllowUserToDeleteRows = false;
+            this.dgw2DSSanPham.AllowUserToResizeRows = false;
             this.dgw2DSSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -590,12 +596,12 @@
             this.dgw2DSSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgw2DSSanPham.Size = new System.Drawing.Size(762, 270);
             this.dgw2DSSanPham.TabIndex = 12;
-            this.dgw2DSSanPham.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw2DSSanPham_CellEndEdit);
             // 
             // cl2MaCTSanPham
             // 
             this.cl2MaCTSanPham.HeaderText = "Mã CT Sản Phẩm";
             this.cl2MaCTSanPham.Name = "cl2MaCTSanPham";
+            this.cl2MaCTSanPham.ReadOnly = true;
             // 
             // cl2TenSanPham
             // 
@@ -804,6 +810,9 @@
             // 
             // dgwDSHoaDon
             // 
+            this.dgwDSHoaDon.AllowUserToAddRows = false;
+            this.dgwDSHoaDon.AllowUserToDeleteRows = false;
+            this.dgwDSHoaDon.AllowUserToResizeRows = false;
             this.dgwDSHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1244,10 +1253,10 @@
         private DevComponents.DotNetBar.LabelX lbl3TongTien;
         private DevComponents.DotNetBar.LabelX lbl3NhanVien;
         private DevComponents.DotNetBar.ButtonX btnTimSanPham;
+        private DevComponents.Editors.DoubleInput txt2TongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl2MaCTSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl2TenSanPham;
         private DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn cl2GiaBan;
-        private DevComponents.Editors.DoubleInput txt2TongTien;
 
     }
 }

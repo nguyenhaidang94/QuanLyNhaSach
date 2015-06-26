@@ -66,9 +66,9 @@
             this.lbl1MaSanPham = new DevComponents.DotNetBar.LabelX();
             this.pnlCenter = new System.Windows.Forms.Panel();
             this.pnlButton = new System.Windows.Forms.Panel();
+            this.btnChonSanPham = new DevComponents.DotNetBar.ButtonX();
             this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.lvwSanPham = new DevComponents.DotNetBar.Controls.ListViewEx();
-            this.btnChonSanPham = new DevComponents.DotNetBar.ButtonX();
             this.pnlTitle.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.expnlTimNangCao.SuspendLayout();
@@ -134,11 +134,13 @@
             this.expnlTimNangCao.Controls.Add(this.lbl2MaSanPham);
             this.expnlTimNangCao.DisabledBackColor = System.Drawing.Color.Empty;
             this.expnlTimNangCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expnlTimNangCao.Expanded = false;
+            this.expnlTimNangCao.ExpandedBounds = new System.Drawing.Rectangle(0, 260, 320, 231);
             this.expnlTimNangCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expnlTimNangCao.HideControlsWhenCollapsed = true;
-            this.expnlTimNangCao.Location = new System.Drawing.Point(0, 26);
+            this.expnlTimNangCao.Location = new System.Drawing.Point(0, 260);
             this.expnlTimNangCao.Name = "expnlTimNangCao";
-            this.expnlTimNangCao.Size = new System.Drawing.Size(320, 465);
+            this.expnlTimNangCao.Size = new System.Drawing.Size(320, 231);
             this.expnlTimNangCao.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expnlTimNangCao.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expnlTimNangCao.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
@@ -153,6 +155,7 @@
             this.expnlTimNangCao.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.expnlTimNangCao.TitleStyle.GradientAngle = 90;
             this.expnlTimNangCao.TitleText = "Tìm Kiếm Nâng Cao";
+            this.expnlTimNangCao.Visible = false;
             // 
             // pnlSach
             // 
@@ -162,7 +165,7 @@
             this.pnlSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.pnlSach.Location = new System.Drawing.Point(0, 209);
             this.pnlSach.Name = "pnlSach";
-            this.pnlSach.Size = new System.Drawing.Size(320, 208);
+            this.pnlSach.Size = new System.Drawing.Size(320, 0);
             this.pnlSach.TabIndex = 16;
             // 
             // rbtn2TrenQuay
@@ -262,7 +265,7 @@
             this.btnTimNangCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTimNangCao.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnTimNangCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimNangCao.Location = new System.Drawing.Point(105, 423);
+            this.btnTimNangCao.Location = new System.Drawing.Point(105, 189);
             this.btnTimNangCao.Name = "btnTimNangCao";
             this.btnTimNangCao.Size = new System.Drawing.Size(100, 30);
             this.btnTimNangCao.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -406,13 +409,11 @@
             this.expnlTimLuot.Controls.Add(this.lbl1MaSanPham);
             this.expnlTimLuot.DisabledBackColor = System.Drawing.Color.Empty;
             this.expnlTimLuot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.expnlTimLuot.Expanded = false;
-            this.expnlTimLuot.ExpandedBounds = new System.Drawing.Rectangle(0, 0, 320, 260);
             this.expnlTimLuot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expnlTimLuot.HideControlsWhenCollapsed = true;
             this.expnlTimLuot.Location = new System.Drawing.Point(0, 0);
             this.expnlTimLuot.Name = "expnlTimLuot";
-            this.expnlTimLuot.Size = new System.Drawing.Size(320, 26);
+            this.expnlTimLuot.Size = new System.Drawing.Size(320, 260);
             this.expnlTimLuot.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expnlTimLuot.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expnlTimLuot.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
@@ -669,6 +670,20 @@
             this.pnlButton.Size = new System.Drawing.Size(564, 60);
             this.pnlButton.TabIndex = 2;
             // 
+            // btnChonSanPham
+            // 
+            this.btnChonSanPham.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChonSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChonSanPham.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChonSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChonSanPham.Location = new System.Drawing.Point(75, 18);
+            this.btnChonSanPham.Name = "btnChonSanPham";
+            this.btnChonSanPham.Size = new System.Drawing.Size(115, 30);
+            this.btnChonSanPham.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnChonSanPham.TabIndex = 10;
+            this.btnChonSanPham.Text = "Chọn Sản Phẩm";
+            this.btnChonSanPham.Click += new System.EventHandler(this.btnChonSanPham_Click);
+            // 
             // btnClose
             // 
             this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -700,20 +715,6 @@
             this.lvwSanPham.TabIndex = 1;
             this.lvwSanPham.UseCompatibleStateImageBehavior = false;
             this.lvwSanPham.View = System.Windows.Forms.View.Details;
-            // 
-            // btnChonSanPham
-            // 
-            this.btnChonSanPham.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnChonSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnChonSanPham.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChonSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonSanPham.Location = new System.Drawing.Point(75, 18);
-            this.btnChonSanPham.Name = "btnChonSanPham";
-            this.btnChonSanPham.Size = new System.Drawing.Size(115, 30);
-            this.btnChonSanPham.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnChonSanPham.TabIndex = 10;
-            this.btnChonSanPham.Text = "Chọn Sản Phẩm";
-            this.btnChonSanPham.Click += new System.EventHandler(this.btnChonSanPham_Click);
             // 
             // GUITimKiemSanPham
             // 

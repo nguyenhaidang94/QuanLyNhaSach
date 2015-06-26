@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -126,48 +129,75 @@ namespace QuanLyNhaSach.SqlHelper
         //-----------------------------------------
         //Desc: Sao lưu cơ sở dữ liệu
         //-----------------------------------------
-        public static bool BackupDatabase(string folderPath, string databaseName)
+        public static bool BackupDatabase(MyDatabaseConnection dbConn, string fileName, string databaseName)
         {
-            if (DatabaseManager.MasterConnection == null)
+            if (dbConn == null)
                 return false;
-
-            int i = 1;
-            string fileName = folderPath + "\\" + databaseName + i.ToString("D3") + ".bak";
-            //xem thư mục có tên đã được tạo chưa, nếu đã được tạo thì thay đổi tên
-            while (File.Exists(fileName))
-            {
-                i++;
-                fileName = folderPath + "\\" + databaseName + i.ToString("D3") + ".bak";
-            }
-
             string sql = "BACKUP DATABASE " + databaseName
                        + " TO DISK ='" + fileName + "'";
-            if (DatabaseManager.MasterConnection.ExecuteNonQuery(sql))
+            if (dbConn.ExecuteNonQuery(sql))
                 return true;
             else
                 return false;
         }
 
-        public static bool RestoreDatabase(string fileName, string databaseName)
+        //-----------------------------------------
+        //Desc: Phục hồi dữ liệu
+        //-----------------------------------------
+        public static bool RestoreDatabase(MyDatabaseConnection dbConn, string databaseName, string fileName)
         {
-            if (DatabaseManager.MasterConnection == null)
+            if (dbConn == null)
                 return false;
+            try
+            {
+                Server srv;
+                ServerConnection srvConn;
+                srvConn = new ServerConnection();
+                srvConn.ServerInstance = dbConn.SqlConn.DataSource;
+                srv = new Server(srvConn);
+                Restore res = new Restore();
+                res.Devices.AddDevice(fileName, DeviceType.File);
 
-            int dbExist = CheckDatabaseExist(MasterConnection, databaseName);
-            string sql = "";
-            if (dbExist > 0)
-            {
-                sql += "Alter Database " + databaseName + " SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
-                sql += "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH REPLACE;";
-                return DatabaseManager.MasterConnection.ExecuteNonQuery(sql);
+                DataTable fileList = res.ReadFileList(srv);
+                string dataLogicalName = fileList.Rows[0][0].ToString();
+                string dataPhysicalName = fileList.Rows[0][1].ToString();
+                string logLogicalName = fileList.Rows[1][0].ToString();
+                string logPhysicalName = fileList.Rows[1][1].ToString();
+
+                string sql = String.Empty;
+                if (File.Exists(dataPhysicalName) && File.Exists(logPhysicalName))
+                {
+                    string newDataPhysicalName = String.Empty;
+                    string newLogPhysicalName = String.Empty;
+
+                    string folderPath = new FileInfo(fileName).DirectoryName;
+                    DriveInfo driveInfo = new DriveInfo(folderPath);
+                    if (driveInfo != null && String.Compare(driveInfo.Name, folderPath, true) == 0)
+                    {
+                        newDataPhysicalName = folderPath + databaseName + ".mdf";
+                        newLogPhysicalName = folderPath + databaseName + "_Log.ldf";
+                    }
+                    else
+                    {
+                        newDataPhysicalName = folderPath + "\\" + databaseName + ".mdf";
+                        newLogPhysicalName = folderPath + "\\" + databaseName + "_Log.ldf";
+                    }
+
+                    sql = "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH RECOVERY"
+                        + ", MOVE '" + dataLogicalName + "' TO '" + newDataPhysicalName + "'"
+                        + ", MOVE '" + logLogicalName + "' TO '" + newLogPhysicalName + "';";
+                }
+                else
+                {
+                    sql = "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH REPLACE;";
+                }
+                return dbConn.ExecuteNonQuery(sql);
             }
-            else if (dbExist == 0)
+            catch (Exception ex)
             {
-                sql += "Restore Database " + databaseName + " FROM DISK = '" + fileName + "' WITH REPLACE;";
-                return DatabaseManager.MasterConnection.ExecuteNonQuery(sql);
-            }
-            else
+                Debug.WriteLine(ex.Message);
                 return false;
+            }
         }
     }
 }

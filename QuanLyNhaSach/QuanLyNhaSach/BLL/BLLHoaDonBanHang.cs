@@ -10,13 +10,23 @@ namespace QuanLyNhaSach.BLL
 {
     class BLLHoaDonBanHang
     {
+        private static BLLHoaDonBanHang _Instance = null;
+        public static BLLHoaDonBanHang Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new BLLHoaDonBanHang();
+                return BLLHoaDonBanHang._Instance;
+            }
+        }
+
         ///phương thức lấy danh sách HoaDon
         ///chức năng:
         ///mô tả:
         public List<HoaDonBanHang> GetList()
         {
-            DALHoaDonBanHang dal = new DALHoaDonBanHang();
-            return dal.GetList();
+            return DALHoaDonBanHang.Instance.GetList();
         }
 
         ///phương thức lấy thông tin 1 hóa đơn
@@ -24,8 +34,7 @@ namespace QuanLyNhaSach.BLL
         ///mô tả:
         public HoaDonBanHang GetReceipts(String maHoaDon) 
         {
-            DALHoaDonBanHang dal = new DALHoaDonBanHang();
-            return dal.GetReceiptsWithDetailedProducts(maHoaDon);
+            return DALHoaDonBanHang.Instance.GetReceiptsWithDetailedProducts(maHoaDon);
         }
 
         ///lập hóa đơn
@@ -33,13 +42,11 @@ namespace QuanLyNhaSach.BLL
         ///mô tả:
         public bool LapHoaDon(HoaDonBanHang hoadon, List<CT_HDBanHang> dsCTHoaDon)
         {
-            DALHoaDonBanHang dalHoaDon = new DALHoaDonBanHang();
-            DALCT_SanPham dalCT_SanPham = new DALCT_SanPham();
-            hoadon.MaHoaDon = dalHoaDon.PhatSinhMa();
+            hoadon.MaHoaDon = DALHoaDonBanHang.Instance.PhatSinhMa();
             if (hoadon.MaHoaDon == null)
                 return false;
             else
-                return dalHoaDon.LuuHoaDon(hoadon, dsCTHoaDon);
+                return DALHoaDonBanHang.Instance.LuuHoaDon(hoadon, dsCTHoaDon);
         }
     }
 }
