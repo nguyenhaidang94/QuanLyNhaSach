@@ -291,7 +291,7 @@ namespace QuanLyNhaSach.GUI
                     if (BLLPhieuXuatKho.Instance.LapPhieuXuatKho(phieuxuat, dsCTPhieuXuat))
                     {
                         MessageBox.Show("Lập phiếu xuất kho thành công");
-                        dgwDSPhieuXuatKho.Rows.Add(phieuxuat.MaPhieuXuat, phieuxuat.MaNhanVien, phieuxuat.NgayXuat);
+                        dgwDSPhieuXuatKho.Rows.Add(phieuxuat.MaPhieuXuat, phieuxuat.MaNhanVien, phieuxuat.NgayXuat, phieuxuat.TongSoLuong);
                         dgw2DSSanPham.Rows.Clear();
                         txt2TongSoLuong.Value = 0;
                     }

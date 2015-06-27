@@ -1066,6 +1066,7 @@
             this.Controls.Add(this.pnlTile);
             this.DoubleBuffered = true;
             this.Name = "GUIQuanLyDatMua";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUIQuanLyDatMua";
             this.Load += new System.EventHandler(this.GUIQuanLyDatMua_Load);
             this.pnlTile.ResumeLayout(false);

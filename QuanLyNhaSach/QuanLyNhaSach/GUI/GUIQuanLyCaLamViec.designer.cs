@@ -363,6 +363,7 @@
             this.Controls.Add(this.pnlTile);
             this.DoubleBuffered = true;
             this.Name = "GUIQuanLyCaLamViec";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ CA LÀM VIỆC";
             this.pnlTile.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);

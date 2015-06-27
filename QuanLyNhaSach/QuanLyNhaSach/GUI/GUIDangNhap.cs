@@ -118,5 +118,10 @@ namespace QuanLyNhaSach.GUI
                 == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
+
+        private void _txtMatKhau_Leave(object sender, EventArgs e)
+        {
+            _btnDangNhap.Focus();
+        }
     }
 }
