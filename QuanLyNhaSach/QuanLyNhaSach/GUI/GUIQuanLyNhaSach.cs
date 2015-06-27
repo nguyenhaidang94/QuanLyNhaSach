@@ -52,6 +52,16 @@ namespace QuanLyNhaSach.GUI
             ribpnlNhanVien.Enabled = false;
 
             ribpnlBaoCao.Enabled = false;
+
+            lblNguoiDangNhap.Text = "";
+        }
+
+        private void TatHetNghiepVu()
+        {
+            pnlNvBanHang.Enabled = false;
+            pnlNghiepVuNhapXuatKho.Enabled = false;
+            pnlNghiepVuNhanVien.Enabled = false;
+            pnlNghiepVuBaoCao.Enabled = false;
         }
 
         ///show chức năng cho nv bán hàng
@@ -163,24 +173,29 @@ namespace QuanLyNhaSach.GUI
             { 
                 case CHUCVU.BAN_HANG:
                     TatChucNangBanHang();
+                    pnlNvBanHang.Enabled = false;
                     break;
                 case CHUCVU.KE_TOAN:
                     TatChucNangKeToan();
                     break;
                 case CHUCVU.THU_KHO:
                     TatChucNangThuKho();
+                    pnlNghiepVuNhapXuatKho.Enabled = false;
                     break;
                 case CHUCVU.QUAN_LY:
                     TatChucNangQuanLy();
+                    pnlNghiepVuNhanVien.Enabled = false;
                     break;
                 case CHUCVU.GIAM_DOC:
                     TatChucNangGiamDoc();
+                    pnlNghiepVuBaoCao.Enabled = false;
                     break;
                 case CHUCVU.QUAN_TRI:
                     TatChucNangQuanTri();
                     break;
                 default:
                     TatHetChucNang();
+                    TatHetNghiepVu();
                     break;
             }
         }
@@ -196,6 +211,9 @@ namespace QuanLyNhaSach.GUI
                     rbtnDangXuat.Enabled = true;
                 if (!lblDangXuat.Enabled)
                     lblDangXuat.Enabled = true;
+                string tennguoidung = BLLNguoiDung.Instance.LayTenNguoiDung(UserManager.User.TaiKhoan);
+                if (tennguoidung != null)
+                    lblNguoiDangNhap.Text = "Tên Người Dùng: " + tennguoidung;
             }
             else
             {
@@ -203,23 +221,28 @@ namespace QuanLyNhaSach.GUI
                     rbtnDangXuat.Enabled = false;
                 if (lblDangXuat.Enabled)
                     lblDangXuat.Enabled = false;
+                lblNguoiDangNhap.Text = "";
             }
             switch (chucvu)
             {
                 case CHUCVU.BAN_HANG:
                     ShowChucNangBanHang();
+                    pnlNvBanHang.Enabled = true;
                     break;
                 case CHUCVU.KE_TOAN:
                     ShowChucNangKeToan();
                     break;
                 case CHUCVU.THU_KHO:
                     ShowChucNangThuKho();
+                    pnlNghiepVuNhapXuatKho.Enabled = true;
                     break;
                 case CHUCVU.QUAN_LY:
                     ShowChucNangQuanLy();
+                    pnlNghiepVuNhanVien.Enabled = true;
                     break;
                 case CHUCVU.GIAM_DOC:
                     ShowChucNangGiamDoc();
+                    pnlNghiepVuBaoCao.Enabled = true;
                     break;
                 case CHUCVU.QUAN_TRI:
                     ShowChucNangQuanTri();
@@ -227,6 +250,57 @@ namespace QuanLyNhaSach.GUI
                 default:
                     break;
             }
+        }
+
+        private void ShowNghiepVuBanHang()
+        {
+            pnlNvBanHang.Visible = true;
+
+            pnlNghiepVuNhapXuatKho.Visible = false;
+            pnlNghiepVuNhanVien.Visible = false;
+            pnlNghiepVuBaoCao.Visible = false;
+            metropnlNghiepVu.Visible = false;
+        }
+
+        private void ShowNghiepVuNhapXuatKho()
+        {
+            pnlNghiepVuNhapXuatKho.Visible = true;
+
+            pnlNvBanHang.Visible = false;
+            pnlNghiepVuNhanVien.Visible = false;
+            pnlNghiepVuBaoCao.Visible = false;
+            metropnlNghiepVu.Visible = false;
+        }
+
+        private void ShowNghiepVuNhanVien()
+        {
+            pnlNghiepVuNhanVien.Visible = true;
+
+            pnlNvBanHang.Visible = false;
+            pnlNghiepVuNhapXuatKho.Visible = false;
+            pnlNghiepVuBaoCao.Visible = false;
+            metropnlNghiepVu.Visible = false;
+        }
+
+        private void ShowNghiepVuBaoCao()
+        {
+            pnlNghiepVuBaoCao.Visible = true;
+
+            pnlNghiepVuNhanVien.Visible = false;
+            pnlNvBanHang.Visible = false;
+            pnlNghiepVuNhapXuatKho.Visible = false;
+            metropnlNghiepVu.Visible = false;
+        }
+
+        private void ShowNghiepVu()
+        {
+            metropnlNghiepVu.Visible = true;
+
+            pnlNghiepVuNhanVien.Visible = false;
+            pnlNvBanHang.Visible = false;
+            pnlNghiepVuNhapXuatKho.Visible = false;
+            pnlNghiepVuBaoCao.Visible = false;
+            
         }
 
         ///xử lý sự kiện TurnOff
@@ -367,8 +441,11 @@ namespace QuanLyNhaSach.GUI
         private void GUIQuanLyNhaSach_Load(object sender, EventArgs e)
         {
             TatHetChucNang();
+            TatHetNghiepVu();
             rbtnDangXuat.Enabled = false;
             lblDangXuat.Enabled = false;
+            lblNgayHienTai.Text = "Hôm nay là: " + DateTime.Today.ToShortDateString() + "              ";
+            lblNguoiDangNhap.Text = "";
         }
 
         ///sự kiện click button Đăng Xuất
@@ -403,5 +480,72 @@ namespace QuanLyNhaSach.GUI
         {
             new GUIQuanLyChamCong(FORMSTATE.ADD_SATE).Show();
         }
+
+        ///sự kiện click button LapPhieuThu
+        ///chức năng: Hiển thị màn hình LapPhieuThu
+        ///mô tả:
+        private void rbtnLapPhieuThu_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyThu().Show();
+        }
+
+        ///sự kiện click button LapPhieuChi
+        ///chức năng: Hiển thị màn hình LapPhieuChi
+        ///mô tả:
+        private void rbtnLapPhieuChi_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyChi().Show();
+        }
+
+        ///sự kiện click button DSNhanVien
+        ///chức năng: Hiển thị màn hình DsNhanVein
+        ///mô tả:
+        private void rbtnDsNhanVien_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyNhanVien().Show();
+        }
+
+        ///sự kiện click button CaLamViec
+        ///chức năng: Hiển thị màn hình DsCaLamViec
+        ///mô tả:
+        private void rbtnDsCaLamViec_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyCaLamViec().Show();
+        }
+
+        ///sự kiện click button ChucVu
+        ///chức năng: Hiển thị màn hình DsChucVu
+        ///mô tả:
+        private void rbtnDsChucVu_Click(object sender, EventArgs e)
+        {
+            new GUIQuanLyChucVu().Show();
+        }
+
+
+        private void btnTrangChu_Click(object sender, EventArgs e)
+        {
+            ShowNghiepVu();
+        }
+
+        private void btnBanHang_Click(object sender, EventArgs e)
+        {
+            ShowNghiepVuBanHang();
+        }
+
+        private void btnNhapXuatKho_Click(object sender, EventArgs e)
+        {
+            ShowNghiepVuNhapXuatKho();
+        }
+
+        private void btnQLNhanVien_Click(object sender, EventArgs e)
+        {
+            ShowNghiepVuNhanVien();
+        }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            ShowNghiepVuBaoCao();
+        }
+
     }
 }

@@ -133,11 +133,29 @@
     <Compile Include="GUI\GUIDangNhap.Designer.cs">
       <DependentUpon>GUIDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUIQuanLyCaLamViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyCaLamViec.designer.cs">
+      <DependentUpon>GUIQuanLyCaLamViec.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUIQuanLyChamCong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\GUIQuanLyChamCong.designer.cs">
       <DependentUpon>GUIQuanLyChamCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyChi.designer.cs">
+      <DependentUpon>GUIQuanLyChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyChucVu.designer.cs">
+      <DependentUpon>GUIQuanLyChucVu.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\GUIQuanLyDatMua.cs">
       <SubType>Form</SubType>
@@ -151,6 +169,12 @@
     <Compile Include="GUI\GUIQuanLyHoaDon.designer.cs">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GUIQuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyNhanVien.designer.cs">
+      <DependentUpon>GUIQuanLyNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUIQuanLyNhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +186,12 @@
     </Compile>
     <Compile Include="GUI\GUIQuanLyNhaSach.designer.cs">
       <DependentUpon>GUIQuanLyNhaSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GUIQuanLyThu.designer.cs">
+      <DependentUpon>GUIQuanLyThu.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\GUIQuanLyXuatKho.cs">
       <SubType>Form</SubType>
@@ -200,8 +230,17 @@
     <EmbeddedResource Include="GUI\GUIDangNhap.resx">
       <DependentUpon>GUIDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyCaLamViec.resx">
+      <DependentUpon>GUIQuanLyCaLamViec.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyChamCong.resx">
       <DependentUpon>GUIQuanLyChamCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyChi.resx">
+      <DependentUpon>GUIQuanLyChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyChucVu.resx">
+      <DependentUpon>GUIQuanLyChucVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyDatMua.resx">
       <DependentUpon>GUIQuanLyDatMua.cs</DependentUpon>
@@ -209,11 +248,17 @@
     <EmbeddedResource Include="GUI\GUIQuanLyHoaDon.resx">
       <DependentUpon>GUIQuanLyHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyNhanVien.resx">
+      <DependentUpon>GUIQuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyNhapKho.resx">
       <DependentUpon>GUIQuanLyNhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyNhaSach.resx">
       <DependentUpon>GUIQuanLyNhaSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GUIQuanLyThu.resx">
+      <DependentUpon>GUIQuanLyThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GUIQuanLyXuatKho.resx">
       <DependentUpon>GUIQuanLyXuatKho.cs</DependentUpon>
@@ -324,6 +369,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI\Icon\Chart-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\provider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\producer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\unit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\publisher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\writer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\books-genre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI\Icon\counters.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

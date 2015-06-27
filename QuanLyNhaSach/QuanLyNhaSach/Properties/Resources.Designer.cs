@@ -93,6 +93,16 @@ namespace QuanLyNhaSach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap books_genre {
+            get {
+                object obj = ResourceManager.GetObject("books-genre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chart_icon {
             get {
                 object obj = ResourceManager.GetObject("Chart-icon", resourceCulture);
@@ -116,6 +126,26 @@ namespace QuanLyNhaSach.Properties {
         internal static System.Drawing.Bitmap Close_icon {
             get {
                 object obj = ResourceManager.GetObject("Close-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contact {
+            get {
+                object obj = ResourceManager.GetObject("contact", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap counters {
+            get {
+                object obj = ResourceManager.GetObject("counters", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +263,39 @@ namespace QuanLyNhaSach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap producer {
+            get {
+                object obj = ResourceManager.GetObject("producer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap product_icon {
             get {
                 object obj = ResourceManager.GetObject("product-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap provider {
+            get {
+                object obj = ResourceManager.GetObject("provider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap publisher {
+            get {
+                object obj = ResourceManager.GetObject("publisher", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -312,9 +372,29 @@ namespace QuanLyNhaSach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap unit {
+            get {
+                object obj = ResourceManager.GetObject("unit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_group_icon {
             get {
                 object obj = ResourceManager.GetObject("user-group-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap writer {
+            get {
+                object obj = ResourceManager.GetObject("writer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

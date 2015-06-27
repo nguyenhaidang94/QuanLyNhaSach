@@ -72,5 +72,35 @@ namespace QuanLyNhaSach.DAL
                 return null;
             }
         }
+
+
+        ///lấy tên người dùng theo tài khoản người dùng
+        ///chức năng:
+        ///mô tả:
+        public string LayTenNguoiDung(string taikhoan)
+        {
+            try
+            {
+                using (var db = new QLNSContext(Settings.Default.EntityConnectionString))
+                {
+                    NguoiDung nguoidung = db.DbNguoiDung.Find(taikhoan);
+                    if (nguoidung == null)
+                        return null;
+                    else
+                    {
+                        db.Entry(nguoidung).Reference(e => e.NhanVien).Load();
+                        if (nguoidung.NhanVien != null)
+                            return nguoidung.NhanVien.TenNhanVien;
+                        else
+                            return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }
