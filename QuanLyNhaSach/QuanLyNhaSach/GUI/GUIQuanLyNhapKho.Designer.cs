@@ -1268,6 +1268,7 @@
             this.Controls.Add(this.pnlTile);
             this.DoubleBuffered = true;
             this.Name = "GUIQuanLyNhapKho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ NHẬP KHO";
             this.Load += new System.EventHandler(this.GUIQuanLyNhapKho_Load);
             this.pnlTile.ResumeLayout(false);

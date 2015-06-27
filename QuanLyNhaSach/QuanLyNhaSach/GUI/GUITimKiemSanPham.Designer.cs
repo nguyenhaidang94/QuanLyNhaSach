@@ -726,6 +726,7 @@
             this.Controls.Add(this.pnlTitle);
             this.DoubleBuffered = true;
             this.Name = "GUITimKiemSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUITimKiemSanPham";
             this.Load += new System.EventHandler(this.GUITimKiemSanPham_Load);
             this.pnlTitle.ResumeLayout(false);

@@ -274,7 +274,7 @@
             this.dgw3DSSanPham.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgw3DSSanPham.EnableHeadersVisualStyles = false;
             this.dgw3DSSanPham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgw3DSSanPham.Location = new System.Drawing.Point(10, 120);
+            this.dgw3DSSanPham.Location = new System.Drawing.Point(8, 120);
             this.dgw3DSSanPham.Name = "dgw3DSSanPham";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -284,7 +284,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgw3DSSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgw3DSSanPham.Size = new System.Drawing.Size(762, 436);
+            this.dgw3DSSanPham.Size = new System.Drawing.Size(762, 387);
             this.dgw3DSSanPham.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn1
@@ -584,7 +584,7 @@
             this.dgw2DSSanPham.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgw2DSSanPham.EnableHeadersVisualStyles = false;
             this.dgw2DSSanPham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgw2DSSanPham.Location = new System.Drawing.Point(10, 145);
+            this.dgw2DSSanPham.Location = new System.Drawing.Point(8, 159);
             this.dgw2DSSanPham.Name = "dgw2DSSanPham";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -594,7 +594,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgw2DSSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgw2DSSanPham.Size = new System.Drawing.Size(762, 270);
+            this.dgw2DSSanPham.Size = new System.Drawing.Size(762, 356);
             this.dgw2DSSanPham.TabIndex = 12;
             // 
             // cl2MaCTSanPham
@@ -841,7 +841,7 @@
             this.dgwDSHoaDon.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgwDSHoaDon.EnableHeadersVisualStyles = false;
             this.dgwDSHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgwDSHoaDon.Location = new System.Drawing.Point(10, 120);
+            this.dgwDSHoaDon.Location = new System.Drawing.Point(20, 107);
             this.dgwDSHoaDon.MultiSelect = false;
             this.dgwDSHoaDon.Name = "dgwDSHoaDon";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -852,7 +852,7 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgwDSHoaDon.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgwDSHoaDon.Size = new System.Drawing.Size(762, 436);
+            this.dgwDSHoaDon.Size = new System.Drawing.Size(762, 411);
             this.dgwDSHoaDon.TabIndex = 12;
             // 
             // cl1MaHoaDon
@@ -1178,6 +1178,7 @@
             this.Controls.Add(this.pnlTile);
             this.DoubleBuffered = true;
             this.Name = "GUIQuanLyHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ HÓA ĐƠN";
             this.Load += new System.EventHandler(this.GUIQuanLyHoaDon_Load);
             this.pnlTile.ResumeLayout(false);

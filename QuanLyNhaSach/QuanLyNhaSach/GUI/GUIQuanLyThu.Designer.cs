@@ -774,6 +774,7 @@
             this.Controls.Add(this.pnlTile);
             this.DoubleBuffered = true;
             this.Name = "GUIQuanLyThu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ THU";
             this.pnlTile.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);

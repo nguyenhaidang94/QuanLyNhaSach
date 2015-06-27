@@ -311,6 +311,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GUISaoLuuPhucHoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sao Lưu - Phục Hồi Dữ Liệu";
             this.Load += new System.EventHandler(this.frmSaoLuuPhucHoi_Load);
             this.pnlPhucHoi.ResumeLayout(false);

@@ -94,6 +94,7 @@
             this._txtMatKhau.Size = new System.Drawing.Size(200, 26);
             this._txtMatKhau.TabIndex = 11;
             this._txtMatKhau.UseSystemPasswordChar = true;
+            this._txtMatKhau.Leave += new System.EventHandler(this._txtMatKhau_Leave);
             // 
             // _txtTaiKhoan
             // 
@@ -154,6 +155,7 @@
             this.Controls.Add(this._lblTaiKhoan);
             this.DoubleBuffered = true;
             this.Name = "GUIDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.ResumeLayout(false);
 
