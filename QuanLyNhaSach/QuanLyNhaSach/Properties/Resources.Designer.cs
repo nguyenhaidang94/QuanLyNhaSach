@@ -341,7 +341,8 @@ namespace QuanLyNhaSach.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE PROCEDURE [dbo].[BangChamCong_Delete]
+        ///   Looks up a localized string similar to GO
+        ///CREATE PROCEDURE [dbo].[BangChamCong_Delete]
         ///    @MaBCC [varchar](20)
         ///AS
         ///BEGIN
@@ -349,7 +350,7 @@ namespace QuanLyNhaSach.Properties {
         ///    WHERE ([MaBCC] = @MaBCC)
         ///END
         ///GO
-        ////****** Object:  StoredProcedure [dbo].[BangChamCong_Insert]    Script Date: 26/06/2015 09:07:41 ******/
+        ////****** Object:  StoredProcedure [dbo].[BangChamCong_Insert]    Script Date: 27/06/2015 13:58:49 ******/
         ///SET ANSI_NULLS ON
         ///GO
         ///SET QUOTED_IDENTIFIER ON
@@ -361,7 +362,7 @@ namespace QuanLyNhaSach.Properties {
         ///    @NguoiChamCong [varchar](20)
         ///AS
         ///BEGIN
-        ///    INSERT [dbo].[BA [rest of string was truncated]&quot;;.
+        ///    INSERT [dbo] [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string script {
             get {
