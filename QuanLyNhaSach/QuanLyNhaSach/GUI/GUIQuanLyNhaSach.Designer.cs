@@ -114,6 +114,15 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlCenter = new System.Windows.Forms.Panel();
             this.grpNgiepVu = new System.Windows.Forms.GroupBox();
+            this.pnlNvBanHang = new System.Windows.Forms.Panel();
+            this.btnNvInHoaDon = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvLapHoaDon = new DevComponents.DotNetBar.ButtonX();
+            this.pnlNghiepVuNhanVien = new System.Windows.Forms.Panel();
+            this.btnNvThongKeLuong = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvChamCong = new DevComponents.DotNetBar.ButtonX();
+            this.pnlNghiepVuBaoCao = new System.Windows.Forms.Panel();
+            this.btnNvTKTonKho = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvTKBanHang = new DevComponents.DotNetBar.ButtonX();
             this.pntSubButton = new System.Windows.Forms.Panel();
             this.pnlDanhMuc = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNhaCungCap = new DevComponents.DotNetBar.LabelX();
@@ -146,26 +155,17 @@
             this.lblSach = new DevComponents.DotNetBar.LabelX();
             this.lblSanPham = new DevComponents.DotNetBar.LabelX();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNvTinhToanTon = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvDatMua = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvNhapKho = new DevComponents.DotNetBar.ButtonX();
+            this.btnNvXuatKho = new DevComponents.DotNetBar.ButtonX();
+            this.pnlNghiepVuNhapXuatKho = new System.Windows.Forms.Panel();
             this.metropnlNghiepVu = new DevComponents.DotNetBar.Metro.MetroTilePanel();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.itemBanHang = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.itemKho = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.itemNhanVien = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.itemThongKe = new DevComponents.DotNetBar.Metro.MetroTileItem();
-            this.pnlNghiepVuBaoCao = new System.Windows.Forms.Panel();
-            this.btnNvTKTonKho = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvTKBanHang = new DevComponents.DotNetBar.ButtonX();
-            this.pnlNghiepVuNhanVien = new System.Windows.Forms.Panel();
-            this.btnNvThongKeLuong = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvChamCong = new DevComponents.DotNetBar.ButtonX();
-            this.pnlNvBanHang = new System.Windows.Forms.Panel();
-            this.btnNvInHoaDon = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvLapHoaDon = new DevComponents.DotNetBar.ButtonX();
-            this.pnlNghiepVuNhapXuatKho = new System.Windows.Forms.Panel();
-            this.btnNvXuatKho = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvNhapKho = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvDatMua = new DevComponents.DotNetBar.ButtonX();
-            this.btnNvTinhToanTon = new DevComponents.DotNetBar.ButtonX();
             this.ribMain.SuspendLayout();
             this.ribpnlHeThong.SuspendLayout();
             this.ribpnlTongHop.SuspendLayout();
@@ -178,6 +178,9 @@
             this.pnlMain.SuspendLayout();
             this.pnlCenter.SuspendLayout();
             this.grpNgiepVu.SuspendLayout();
+            this.pnlNvBanHang.SuspendLayout();
+            this.pnlNghiepVuNhanVien.SuspendLayout();
+            this.pnlNghiepVuBaoCao.SuspendLayout();
             this.pntSubButton.SuspendLayout();
             this.pnlDanhMuc.SuspendLayout();
             this.pnlTile.SuspendLayout();
@@ -185,9 +188,6 @@
             this.pnlButton.SuspendLayout();
             this.expnlHeThong.SuspendLayout();
             this.expnlXemTongHop.SuspendLayout();
-            this.pnlNghiepVuBaoCao.SuspendLayout();
-            this.pnlNghiepVuNhanVien.SuspendLayout();
-            this.pnlNvBanHang.SuspendLayout();
             this.pnlNghiepVuNhapXuatKho.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1448,11 +1448,11 @@
             // 
             // grpNgiepVu
             // 
+            this.grpNgiepVu.Controls.Add(this.metropnlNghiepVu);
             this.grpNgiepVu.Controls.Add(this.pnlNghiepVuNhapXuatKho);
             this.grpNgiepVu.Controls.Add(this.pnlNvBanHang);
             this.grpNgiepVu.Controls.Add(this.pnlNghiepVuNhanVien);
             this.grpNgiepVu.Controls.Add(this.pnlNghiepVuBaoCao);
-            this.grpNgiepVu.Controls.Add(this.metropnlNghiepVu);
             this.grpNgiepVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpNgiepVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpNgiepVu.ForeColor = System.Drawing.Color.Crimson;
@@ -1462,6 +1462,126 @@
             this.grpNgiepVu.TabIndex = 2;
             this.grpNgiepVu.TabStop = false;
             this.grpNgiepVu.Text = "Nghiệp Vụ";
+            // 
+            // pnlNvBanHang
+            // 
+            this.pnlNvBanHang.Controls.Add(this.btnNvInHoaDon);
+            this.pnlNvBanHang.Controls.Add(this.btnNvLapHoaDon);
+            this.pnlNvBanHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNvBanHang.Enabled = false;
+            this.pnlNvBanHang.Location = new System.Drawing.Point(3, 31);
+            this.pnlNvBanHang.Name = "pnlNvBanHang";
+            this.pnlNvBanHang.Size = new System.Drawing.Size(764, 267);
+            this.pnlNvBanHang.TabIndex = 15;
+            this.pnlNvBanHang.Visible = false;
+            // 
+            // btnNvInHoaDon
+            // 
+            this.btnNvInHoaDon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvInHoaDon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvInHoaDon.Location = new System.Drawing.Point(405, 51);
+            this.btnNvInHoaDon.Name = "btnNvInHoaDon";
+            this.btnNvInHoaDon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvInHoaDon.Size = new System.Drawing.Size(213, 159);
+            this.btnNvInHoaDon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvInHoaDon.TabIndex = 4;
+            this.btnNvInHoaDon.Text = "In Hóa Đơn";
+            // 
+            // btnNvLapHoaDon
+            // 
+            this.btnNvLapHoaDon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvLapHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNvLapHoaDon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvLapHoaDon.Location = new System.Drawing.Point(188, 51);
+            this.btnNvLapHoaDon.Name = "btnNvLapHoaDon";
+            this.btnNvLapHoaDon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvLapHoaDon.Size = new System.Drawing.Size(208, 159);
+            this.btnNvLapHoaDon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvLapHoaDon.TabIndex = 3;
+            this.btnNvLapHoaDon.Text = "Lập Hóa Đơn";
+            // 
+            // pnlNghiepVuNhanVien
+            // 
+            this.pnlNghiepVuNhanVien.Controls.Add(this.btnNvThongKeLuong);
+            this.pnlNghiepVuNhanVien.Controls.Add(this.btnNvChamCong);
+            this.pnlNghiepVuNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNghiepVuNhanVien.Enabled = false;
+            this.pnlNghiepVuNhanVien.Location = new System.Drawing.Point(3, 31);
+            this.pnlNghiepVuNhanVien.Name = "pnlNghiepVuNhanVien";
+            this.pnlNghiepVuNhanVien.Size = new System.Drawing.Size(764, 267);
+            this.pnlNghiepVuNhanVien.TabIndex = 14;
+            this.pnlNghiepVuNhanVien.Visible = false;
+            // 
+            // btnNvThongKeLuong
+            // 
+            this.btnNvThongKeLuong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvThongKeLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvThongKeLuong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvThongKeLuong.Location = new System.Drawing.Point(408, 42);
+            this.btnNvThongKeLuong.Name = "btnNvThongKeLuong";
+            this.btnNvThongKeLuong.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvThongKeLuong.Size = new System.Drawing.Size(192, 185);
+            this.btnNvThongKeLuong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvThongKeLuong.TabIndex = 4;
+            this.btnNvThongKeLuong.Text = "Thống Kê Lương";
+            // 
+            // btnNvChamCong
+            // 
+            this.btnNvChamCong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvChamCong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNvChamCong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvChamCong.Location = new System.Drawing.Point(197, 42);
+            this.btnNvChamCong.Name = "btnNvChamCong";
+            this.btnNvChamCong.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvChamCong.Size = new System.Drawing.Size(205, 185);
+            this.btnNvChamCong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvChamCong.TabIndex = 3;
+            this.btnNvChamCong.Text = "Chấm Công";
+            // 
+            // pnlNghiepVuBaoCao
+            // 
+            this.pnlNghiepVuBaoCao.Controls.Add(this.btnNvTKTonKho);
+            this.pnlNghiepVuBaoCao.Controls.Add(this.btnNvTKBanHang);
+            this.pnlNghiepVuBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNghiepVuBaoCao.Enabled = false;
+            this.pnlNghiepVuBaoCao.Location = new System.Drawing.Point(3, 31);
+            this.pnlNghiepVuBaoCao.Name = "pnlNghiepVuBaoCao";
+            this.pnlNghiepVuBaoCao.Size = new System.Drawing.Size(764, 267);
+            this.pnlNghiepVuBaoCao.TabIndex = 13;
+            this.pnlNghiepVuBaoCao.Visible = false;
+            // 
+            // btnNvTKTonKho
+            // 
+            this.btnNvTKTonKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvTKTonKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvTKTonKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvTKTonKho.Location = new System.Drawing.Point(402, 54);
+            this.btnNvTKTonKho.Name = "btnNvTKTonKho";
+            this.btnNvTKTonKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvTKTonKho.Size = new System.Drawing.Size(191, 163);
+            this.btnNvTKTonKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvTKTonKho.TabIndex = 6;
+            this.btnNvTKTonKho.Text = "Thống Kê Tồn Kho";
+            // 
+            // btnNvTKBanHang
+            // 
+            this.btnNvTKBanHang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvTKBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNvTKBanHang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvTKBanHang.Location = new System.Drawing.Point(191, 53);
+            this.btnNvTKBanHang.Name = "btnNvTKBanHang";
+            this.btnNvTKBanHang.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvTKBanHang.Size = new System.Drawing.Size(205, 163);
+            this.btnNvTKBanHang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvTKBanHang.TabIndex = 5;
+            this.btnNvTKBanHang.Text = "Thống Kê Bán Hàng";
             // 
             // pntSubButton
             // 
@@ -1993,6 +2113,76 @@
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 0;
             // 
+            // btnNvTinhToanTon
+            // 
+            this.btnNvTinhToanTon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvTinhToanTon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNvTinhToanTon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvTinhToanTon.Location = new System.Drawing.Point(160, 11);
+            this.btnNvTinhToanTon.Name = "btnNvTinhToanTon";
+            this.btnNvTinhToanTon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvTinhToanTon.Size = new System.Drawing.Size(150, 120);
+            this.btnNvTinhToanTon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvTinhToanTon.TabIndex = 1;
+            this.btnNvTinhToanTon.Text = "Tính Toán Tồn Kho";
+            // 
+            // btnNvDatMua
+            // 
+            this.btnNvDatMua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvDatMua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvDatMua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvDatMua.Location = new System.Drawing.Point(316, 11);
+            this.btnNvDatMua.Name = "btnNvDatMua";
+            this.btnNvDatMua.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvDatMua.Size = new System.Drawing.Size(153, 120);
+            this.btnNvDatMua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvDatMua.TabIndex = 2;
+            this.btnNvDatMua.Text = "Đặt Mua";
+            // 
+            // btnNvNhapKho
+            // 
+            this.btnNvNhapKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvNhapKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvNhapKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvNhapKho.Location = new System.Drawing.Point(316, 137);
+            this.btnNvNhapKho.Name = "btnNvNhapKho";
+            this.btnNvNhapKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvNhapKho.Size = new System.Drawing.Size(153, 120);
+            this.btnNvNhapKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvNhapKho.TabIndex = 3;
+            this.btnNvNhapKho.Text = "Nhập Kho";
+            // 
+            // btnNvXuatKho
+            // 
+            this.btnNvXuatKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNvXuatKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNvXuatKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNvXuatKho.Location = new System.Drawing.Point(475, 137);
+            this.btnNvXuatKho.Name = "btnNvXuatKho";
+            this.btnNvXuatKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
+            this.btnNvXuatKho.Size = new System.Drawing.Size(150, 120);
+            this.btnNvXuatKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNvXuatKho.TabIndex = 4;
+            this.btnNvXuatKho.Text = "Xuất Kho";
+            // 
+            // pnlNghiepVuNhapXuatKho
+            // 
+            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvXuatKho);
+            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvNhapKho);
+            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvDatMua);
+            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvTinhToanTon);
+            this.pnlNghiepVuNhapXuatKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNghiepVuNhapXuatKho.Enabled = false;
+            this.pnlNghiepVuNhapXuatKho.Location = new System.Drawing.Point(3, 31);
+            this.pnlNghiepVuNhapXuatKho.Name = "pnlNghiepVuNhapXuatKho";
+            this.pnlNghiepVuNhapXuatKho.Size = new System.Drawing.Size(764, 267);
+            this.pnlNghiepVuNhapXuatKho.TabIndex = 16;
+            this.pnlNghiepVuNhapXuatKho.Visible = false;
+            // 
             // metropnlNghiepVu
             // 
             this.metropnlNghiepVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
@@ -2012,7 +2202,7 @@
             this.metropnlNghiepVu.MultiLine = true;
             this.metropnlNghiepVu.Name = "metropnlNghiepVu";
             this.metropnlNghiepVu.Size = new System.Drawing.Size(764, 267);
-            this.metropnlNghiepVu.TabIndex = 1;
+            this.metropnlNghiepVu.TabIndex = 17;
             // 
             // itemContainer1
             // 
@@ -2090,196 +2280,6 @@
             // 
             this.itemThongKe.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // pnlNghiepVuBaoCao
-            // 
-            this.pnlNghiepVuBaoCao.Controls.Add(this.btnNvTKTonKho);
-            this.pnlNghiepVuBaoCao.Controls.Add(this.btnNvTKBanHang);
-            this.pnlNghiepVuBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNghiepVuBaoCao.Enabled = false;
-            this.pnlNghiepVuBaoCao.Location = new System.Drawing.Point(3, 31);
-            this.pnlNghiepVuBaoCao.Name = "pnlNghiepVuBaoCao";
-            this.pnlNghiepVuBaoCao.Size = new System.Drawing.Size(764, 267);
-            this.pnlNghiepVuBaoCao.TabIndex = 13;
-            this.pnlNghiepVuBaoCao.Visible = false;
-            // 
-            // btnNvTKTonKho
-            // 
-            this.btnNvTKTonKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvTKTonKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvTKTonKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvTKTonKho.Location = new System.Drawing.Point(402, 54);
-            this.btnNvTKTonKho.Name = "btnNvTKTonKho";
-            this.btnNvTKTonKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvTKTonKho.Size = new System.Drawing.Size(191, 163);
-            this.btnNvTKTonKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvTKTonKho.TabIndex = 6;
-            this.btnNvTKTonKho.Text = "Thống Kê Tồn Kho";
-            // 
-            // btnNvTKBanHang
-            // 
-            this.btnNvTKBanHang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvTKBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNvTKBanHang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvTKBanHang.Location = new System.Drawing.Point(191, 53);
-            this.btnNvTKBanHang.Name = "btnNvTKBanHang";
-            this.btnNvTKBanHang.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvTKBanHang.Size = new System.Drawing.Size(205, 163);
-            this.btnNvTKBanHang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvTKBanHang.TabIndex = 5;
-            this.btnNvTKBanHang.Text = "Thống Kê Bán Hàng";
-            // 
-            // pnlNghiepVuNhanVien
-            // 
-            this.pnlNghiepVuNhanVien.Controls.Add(this.btnNvThongKeLuong);
-            this.pnlNghiepVuNhanVien.Controls.Add(this.btnNvChamCong);
-            this.pnlNghiepVuNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNghiepVuNhanVien.Enabled = false;
-            this.pnlNghiepVuNhanVien.Location = new System.Drawing.Point(3, 31);
-            this.pnlNghiepVuNhanVien.Name = "pnlNghiepVuNhanVien";
-            this.pnlNghiepVuNhanVien.Size = new System.Drawing.Size(764, 267);
-            this.pnlNghiepVuNhanVien.TabIndex = 14;
-            this.pnlNghiepVuNhanVien.Visible = false;
-            // 
-            // btnNvThongKeLuong
-            // 
-            this.btnNvThongKeLuong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvThongKeLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvThongKeLuong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvThongKeLuong.Location = new System.Drawing.Point(408, 42);
-            this.btnNvThongKeLuong.Name = "btnNvThongKeLuong";
-            this.btnNvThongKeLuong.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvThongKeLuong.Size = new System.Drawing.Size(192, 185);
-            this.btnNvThongKeLuong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvThongKeLuong.TabIndex = 4;
-            this.btnNvThongKeLuong.Text = "Thống Kê Lương";
-            // 
-            // btnNvChamCong
-            // 
-            this.btnNvChamCong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvChamCong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNvChamCong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvChamCong.Location = new System.Drawing.Point(197, 42);
-            this.btnNvChamCong.Name = "btnNvChamCong";
-            this.btnNvChamCong.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvChamCong.Size = new System.Drawing.Size(205, 185);
-            this.btnNvChamCong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvChamCong.TabIndex = 3;
-            this.btnNvChamCong.Text = "Chấm Công";
-            // 
-            // pnlNvBanHang
-            // 
-            this.pnlNvBanHang.Controls.Add(this.btnNvInHoaDon);
-            this.pnlNvBanHang.Controls.Add(this.btnNvLapHoaDon);
-            this.pnlNvBanHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNvBanHang.Enabled = false;
-            this.pnlNvBanHang.Location = new System.Drawing.Point(3, 31);
-            this.pnlNvBanHang.Name = "pnlNvBanHang";
-            this.pnlNvBanHang.Size = new System.Drawing.Size(764, 267);
-            this.pnlNvBanHang.TabIndex = 15;
-            this.pnlNvBanHang.Visible = false;
-            // 
-            // btnNvInHoaDon
-            // 
-            this.btnNvInHoaDon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvInHoaDon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvInHoaDon.Location = new System.Drawing.Point(405, 51);
-            this.btnNvInHoaDon.Name = "btnNvInHoaDon";
-            this.btnNvInHoaDon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvInHoaDon.Size = new System.Drawing.Size(213, 159);
-            this.btnNvInHoaDon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvInHoaDon.TabIndex = 4;
-            this.btnNvInHoaDon.Text = "In Hóa Đơn";
-            // 
-            // btnNvLapHoaDon
-            // 
-            this.btnNvLapHoaDon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvLapHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNvLapHoaDon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvLapHoaDon.Location = new System.Drawing.Point(188, 51);
-            this.btnNvLapHoaDon.Name = "btnNvLapHoaDon";
-            this.btnNvLapHoaDon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvLapHoaDon.Size = new System.Drawing.Size(208, 159);
-            this.btnNvLapHoaDon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvLapHoaDon.TabIndex = 3;
-            this.btnNvLapHoaDon.Text = "Lập Hóa Đơn";
-            // 
-            // pnlNghiepVuNhapXuatKho
-            // 
-            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvXuatKho);
-            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvNhapKho);
-            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvDatMua);
-            this.pnlNghiepVuNhapXuatKho.Controls.Add(this.btnNvTinhToanTon);
-            this.pnlNghiepVuNhapXuatKho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNghiepVuNhapXuatKho.Enabled = false;
-            this.pnlNghiepVuNhapXuatKho.Location = new System.Drawing.Point(3, 31);
-            this.pnlNghiepVuNhapXuatKho.Name = "pnlNghiepVuNhapXuatKho";
-            this.pnlNghiepVuNhapXuatKho.Size = new System.Drawing.Size(764, 267);
-            this.pnlNghiepVuNhapXuatKho.TabIndex = 16;
-            this.pnlNghiepVuNhapXuatKho.Visible = false;
-            // 
-            // btnNvXuatKho
-            // 
-            this.btnNvXuatKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvXuatKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvXuatKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvXuatKho.Location = new System.Drawing.Point(475, 137);
-            this.btnNvXuatKho.Name = "btnNvXuatKho";
-            this.btnNvXuatKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvXuatKho.Size = new System.Drawing.Size(150, 120);
-            this.btnNvXuatKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvXuatKho.TabIndex = 4;
-            this.btnNvXuatKho.Text = "Xuất Kho";
-            // 
-            // btnNvNhapKho
-            // 
-            this.btnNvNhapKho.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvNhapKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvNhapKho.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvNhapKho.Location = new System.Drawing.Point(316, 137);
-            this.btnNvNhapKho.Name = "btnNvNhapKho";
-            this.btnNvNhapKho.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvNhapKho.Size = new System.Drawing.Size(153, 120);
-            this.btnNvNhapKho.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvNhapKho.TabIndex = 3;
-            this.btnNvNhapKho.Text = "Nhập Kho";
-            // 
-            // btnNvDatMua
-            // 
-            this.btnNvDatMua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvDatMua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNvDatMua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvDatMua.Location = new System.Drawing.Point(316, 11);
-            this.btnNvDatMua.Name = "btnNvDatMua";
-            this.btnNvDatMua.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvDatMua.Size = new System.Drawing.Size(153, 120);
-            this.btnNvDatMua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvDatMua.TabIndex = 2;
-            this.btnNvDatMua.Text = "Đặt Mua";
-            // 
-            // btnNvTinhToanTon
-            // 
-            this.btnNvTinhToanTon.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNvTinhToanTon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNvTinhToanTon.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNvTinhToanTon.Location = new System.Drawing.Point(160, 11);
-            this.btnNvTinhToanTon.Name = "btnNvTinhToanTon";
-            this.btnNvTinhToanTon.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(10);
-            this.btnNvTinhToanTon.Size = new System.Drawing.Size(150, 120);
-            this.btnNvTinhToanTon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNvTinhToanTon.TabIndex = 1;
-            this.btnNvTinhToanTon.Text = "Tính Toán Tồn Kho";
-            // 
             // GUIQuanLyNhaSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2307,6 +2307,9 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);
             this.grpNgiepVu.ResumeLayout(false);
+            this.pnlNvBanHang.ResumeLayout(false);
+            this.pnlNghiepVuNhanVien.ResumeLayout(false);
+            this.pnlNghiepVuBaoCao.ResumeLayout(false);
             this.pntSubButton.ResumeLayout(false);
             this.pnlDanhMuc.ResumeLayout(false);
             this.pnlTile.ResumeLayout(false);
@@ -2314,9 +2317,6 @@
             this.pnlButton.ResumeLayout(false);
             this.expnlHeThong.ResumeLayout(false);
             this.expnlXemTongHop.ResumeLayout(false);
-            this.pnlNghiepVuBaoCao.ResumeLayout(false);
-            this.pnlNghiepVuNhanVien.ResumeLayout(false);
-            this.pnlNvBanHang.ResumeLayout(false);
             this.pnlNghiepVuNhapXuatKho.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2440,6 +2440,15 @@
         private DevComponents.DotNetBar.LabelX lblTheLoaiSach;
         private DevComponents.DotNetBar.LabelX lblLienHe;
         private DevComponents.DotNetBar.LabelX lblQuayHang;
+        private System.Windows.Forms.Panel pnlNvBanHang;
+        private DevComponents.DotNetBar.ButtonX btnNvInHoaDon;
+        private DevComponents.DotNetBar.ButtonX btnNvLapHoaDon;
+        private System.Windows.Forms.Panel pnlNghiepVuNhanVien;
+        private DevComponents.DotNetBar.ButtonX btnNvThongKeLuong;
+        private DevComponents.DotNetBar.ButtonX btnNvChamCong;
+        private System.Windows.Forms.Panel pnlNghiepVuBaoCao;
+        private DevComponents.DotNetBar.ButtonX btnNvTKTonKho;
+        private DevComponents.DotNetBar.ButtonX btnNvTKBanHang;
         private DevComponents.DotNetBar.Metro.MetroTilePanel metropnlNghiepVu;
         private DevComponents.DotNetBar.ItemContainer itemContainer1;
         private DevComponents.DotNetBar.Metro.MetroTileItem itemBanHang;
@@ -2451,15 +2460,6 @@
         private DevComponents.DotNetBar.ButtonX btnNvNhapKho;
         private DevComponents.DotNetBar.ButtonX btnNvDatMua;
         private DevComponents.DotNetBar.ButtonX btnNvTinhToanTon;
-        private System.Windows.Forms.Panel pnlNvBanHang;
-        private DevComponents.DotNetBar.ButtonX btnNvInHoaDon;
-        private DevComponents.DotNetBar.ButtonX btnNvLapHoaDon;
-        private System.Windows.Forms.Panel pnlNghiepVuNhanVien;
-        private DevComponents.DotNetBar.ButtonX btnNvThongKeLuong;
-        private DevComponents.DotNetBar.ButtonX btnNvChamCong;
-        private System.Windows.Forms.Panel pnlNghiepVuBaoCao;
-        private DevComponents.DotNetBar.ButtonX btnNvTKTonKho;
-        private DevComponents.DotNetBar.ButtonX btnNvTKBanHang;
 
     }
 }
