@@ -947,6 +947,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.SubItemsExpandWidth = 14;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Visible = false;
             // 
             // btnLuu
             // 

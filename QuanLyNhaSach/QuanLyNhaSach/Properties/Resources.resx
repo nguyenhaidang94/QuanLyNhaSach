@@ -118,76 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="script" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Database\script.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="product-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\product-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Close-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\Close-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log-in" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\log-in.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="basket-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\basket-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\info-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add-receipt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\add-receipt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Inventory-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\Inventory-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="employers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\employers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\log-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="do-dung" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\do-dung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="database-process-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\database-process-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\salary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Help-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\Help-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="schedule-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\schedule-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon 48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\icon 48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user-group-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\user-group-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="report-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GUI\Icon\report-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Book-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\Book-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="receipts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\GUI\Icon\receipts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chuc-vu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GUI\Icon\chuc-vu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Chart-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\GUI\Icon\Chart-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon 48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\icon 48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basket-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\basket-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="product-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\product-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="script" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Database\script.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+  </data>
+  <data name="writer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\writer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="provider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\provider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\unit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Book-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\Book-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="log-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\log-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Inventory-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\Inventory-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\info-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\salary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="books-genre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\books-genre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-group-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\user-group-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="employers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\employers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="publisher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\publisher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\Help-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Close-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\Close-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="do-dung" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\do-dung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="database-process-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\database-process-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schedule-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\schedule-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="receipts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\receipts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="producer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\producer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="log-in" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\log-in.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-receipt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\add-receipt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="contact" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\contact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="counters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\GUI\Icon\counters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

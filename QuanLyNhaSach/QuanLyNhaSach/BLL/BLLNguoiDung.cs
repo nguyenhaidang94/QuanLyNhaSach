@@ -77,5 +77,13 @@ namespace QuanLyNhaSach.BLL
                 return chucvu;
             }
         }
+
+        ///lấy tên người dùng theo tài khoản người dùng
+        ///chức năng:
+        ///mô tả: gọi đến hàm LayTenNguoiDung ở lớp DAL_NguoiDung
+        public string LayTenNguoiDung(string taikhoan)
+        {
+            return DALNguoiDung.Instance.LayTenNguoiDung(taikhoan);
+        }
     }
 }

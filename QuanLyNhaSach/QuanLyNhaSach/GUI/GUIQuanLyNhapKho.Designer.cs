@@ -53,6 +53,10 @@
             this.txt2TongSoLuong = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.dt2NgayNhapKho = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.dgw2DSSanPham = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.cl2MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl2GiaBan = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
+            this.cl2SoLuong = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
+            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
             this.txt2MaNhanVien = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl2TongSoLuong = new DevComponents.DotNetBar.LabelX();
             this.lbl2NgayNhapKho = new DevComponents.DotNetBar.LabelX();
@@ -98,10 +102,6 @@
             this.btnXemChiTiet = new DevComponents.DotNetBar.ButtonItem();
             this.btnTroLai = new DevComponents.DotNetBar.ButtonItem();
             this.btnThoat = new DevComponents.DotNetBar.ButtonItem();
-            this.cl2MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl2GiaBan = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
-            this.cl2SoLuong = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
-            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
             this.pnlTile.SuspendLayout();
             this.pnlCenter.SuspendLayout();
             this.pnlLapPhieuNhapKho.SuspendLayout();
@@ -441,6 +441,71 @@
             this.dgw2DSSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgw2DSSanPham.Size = new System.Drawing.Size(769, 184);
             this.dgw2DSSanPham.TabIndex = 12;
+            // 
+            // cl2MaSanPham
+            // 
+            this.cl2MaSanPham.HeaderText = "Mã Sản Phẩm";
+            this.cl2MaSanPham.Name = "cl2MaSanPham";
+            this.cl2MaSanPham.ReadOnly = true;
+            // 
+            // cl2GiaBan
+            // 
+            // 
+            // 
+            // 
+            this.cl2GiaBan.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.cl2GiaBan.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.cl2GiaBan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cl2GiaBan.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
+            this.cl2GiaBan.ButtonClear.Tooltip = "";
+            this.cl2GiaBan.ButtonCustom.Tooltip = "";
+            this.cl2GiaBan.ButtonCustom2.Tooltip = "";
+            this.cl2GiaBan.ButtonDropDown.Tooltip = "";
+            this.cl2GiaBan.ButtonFreeText.Tooltip = "";
+            this.cl2GiaBan.HeaderText = "Giá Bán";
+            this.cl2GiaBan.Increment = 1D;
+            this.cl2GiaBan.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.cl2GiaBan.Name = "cl2GiaBan";
+            this.cl2GiaBan.ReadOnly = true;
+            this.cl2GiaBan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // cl2SoLuong
+            // 
+            // 
+            // 
+            // 
+            this.cl2SoLuong.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.cl2SoLuong.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.cl2SoLuong.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cl2SoLuong.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
+            this.cl2SoLuong.ButtonClear.Tooltip = "";
+            this.cl2SoLuong.ButtonCustom.Tooltip = "";
+            this.cl2SoLuong.ButtonCustom2.Tooltip = "";
+            this.cl2SoLuong.ButtonDropDown.Tooltip = "";
+            this.cl2SoLuong.ButtonFreeText.Tooltip = "";
+            this.cl2SoLuong.HeaderText = "Số Lượng Đặt Mua";
+            this.cl2SoLuong.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.cl2SoLuong.Name = "cl2SoLuong";
+            this.cl2SoLuong.ReadOnly = true;
+            this.cl2SoLuong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Column1
+            // 
+            // 
+            // 
+            // 
+            this.Column1.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.Column1.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.Column1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.Column1.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
+            this.Column1.ButtonClear.Tooltip = "";
+            this.Column1.ButtonCustom.Tooltip = "";
+            this.Column1.ButtonCustom2.Tooltip = "";
+            this.Column1.ButtonDropDown.Tooltip = "";
+            this.Column1.ButtonFreeText.Tooltip = "";
+            this.Column1.HeaderText = "Số Lượng Giao Hàng";
+            this.Column1.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.Column1.Name = "Column1";
             // 
             // txt2MaNhanVien
             // 
@@ -1147,6 +1212,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.SubItemsExpandWidth = 14;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Visible = false;
             // 
             // btnLuu
             // 
@@ -1194,71 +1260,6 @@
             this.btnThoat.SubItemsExpandWidth = 14;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // cl2MaSanPham
-            // 
-            this.cl2MaSanPham.HeaderText = "Mã Sản Phẩm";
-            this.cl2MaSanPham.Name = "cl2MaSanPham";
-            this.cl2MaSanPham.ReadOnly = true;
-            // 
-            // cl2GiaBan
-            // 
-            // 
-            // 
-            // 
-            this.cl2GiaBan.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.cl2GiaBan.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.cl2GiaBan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cl2GiaBan.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
-            this.cl2GiaBan.ButtonClear.Tooltip = "";
-            this.cl2GiaBan.ButtonCustom.Tooltip = "";
-            this.cl2GiaBan.ButtonCustom2.Tooltip = "";
-            this.cl2GiaBan.ButtonDropDown.Tooltip = "";
-            this.cl2GiaBan.ButtonFreeText.Tooltip = "";
-            this.cl2GiaBan.HeaderText = "Giá Bán";
-            this.cl2GiaBan.Increment = 1D;
-            this.cl2GiaBan.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.cl2GiaBan.Name = "cl2GiaBan";
-            this.cl2GiaBan.ReadOnly = true;
-            this.cl2GiaBan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // cl2SoLuong
-            // 
-            // 
-            // 
-            // 
-            this.cl2SoLuong.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.cl2SoLuong.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.cl2SoLuong.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cl2SoLuong.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
-            this.cl2SoLuong.ButtonClear.Tooltip = "";
-            this.cl2SoLuong.ButtonCustom.Tooltip = "";
-            this.cl2SoLuong.ButtonCustom2.Tooltip = "";
-            this.cl2SoLuong.ButtonDropDown.Tooltip = "";
-            this.cl2SoLuong.ButtonFreeText.Tooltip = "";
-            this.cl2SoLuong.HeaderText = "Số Lượng Đặt Mua";
-            this.cl2SoLuong.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.cl2SoLuong.Name = "cl2SoLuong";
-            this.cl2SoLuong.ReadOnly = true;
-            this.cl2SoLuong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Column1
-            // 
-            // 
-            // 
-            // 
-            this.Column1.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.Column1.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.Column1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.Column1.BackgroundStyle.TextColor = System.Drawing.SystemColors.WindowText;
-            this.Column1.ButtonClear.Tooltip = "";
-            this.Column1.ButtonCustom.Tooltip = "";
-            this.Column1.ButtonCustom2.Tooltip = "";
-            this.Column1.ButtonDropDown.Tooltip = "";
-            this.Column1.ButtonFreeText.Tooltip = "";
-            this.Column1.HeaderText = "Số Lượng Giao Hàng";
-            this.Column1.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.Column1.Name = "Column1";
             // 
             // GUIQuanLyNhapKho
             // 

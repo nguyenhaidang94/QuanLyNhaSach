@@ -40,16 +40,6 @@
             this.pnlTile = new System.Windows.Forms.Panel();
             this.lblTitle = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.pnlCenter = new System.Windows.Forms.Panel();
-            this.pnlButton = new System.Windows.Forms.Panel();
-            this.ribButton = new DevComponents.DotNetBar.RibbonBar();
-            this.btnThem = new DevComponents.DotNetBar.ButtonItem();
-            this.btnChinhSua = new DevComponents.DotNetBar.ButtonItem();
-            this.btnXoa = new DevComponents.DotNetBar.ButtonItem();
-            this.btnLuu = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTimKiem = new DevComponents.DotNetBar.ButtonItem();
-            this.btnXemChiTiet = new DevComponents.DotNetBar.ButtonItem();
-            this.btnTroLai = new DevComponents.DotNetBar.ButtonItem();
-            this.btnThoat = new DevComponents.DotNetBar.ButtonItem();
             this.pnlChiTietDatMua = new System.Windows.Forms.Panel();
             this.dgw3DSSanPham = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,9 +84,18 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txt1MaPhieuDatMua = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbl1MaPhieuDatMua = new DevComponents.DotNetBar.LabelX();
+            this.pnlButton = new System.Windows.Forms.Panel();
+            this.ribButton = new DevComponents.DotNetBar.RibbonBar();
+            this.btnThem = new DevComponents.DotNetBar.ButtonItem();
+            this.btnChinhSua = new DevComponents.DotNetBar.ButtonItem();
+            this.btnXoa = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLuu = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTimKiem = new DevComponents.DotNetBar.ButtonItem();
+            this.btnXemChiTiet = new DevComponents.DotNetBar.ButtonItem();
+            this.btnTroLai = new DevComponents.DotNetBar.ButtonItem();
+            this.btnThoat = new DevComponents.DotNetBar.ButtonItem();
             this.pnlTile.SuspendLayout();
             this.pnlCenter.SuspendLayout();
-            this.pnlButton.SuspendLayout();
             this.pnlChiTietDatMua.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw3DSSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt3NgayLap)).BeginInit();
@@ -106,6 +105,7 @@
             this.pnlDSPhieuDatMua.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw1DSPhieuDatMua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1NgayLap)).BeginInit();
+            this.pnlButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTile
@@ -143,130 +143,6 @@
             this.pnlCenter.Name = "pnlCenter";
             this.pnlCenter.Size = new System.Drawing.Size(784, 491);
             this.pnlCenter.TabIndex = 6;
-            // 
-            // pnlButton
-            // 
-            this.pnlButton.Controls.Add(this.ribButton);
-            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlButton.Location = new System.Drawing.Point(0, 0);
-            this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(784, 64);
-            this.pnlButton.TabIndex = 6;
-            // 
-            // ribButton
-            // 
-            this.ribButton.AutoOverflowEnabled = true;
-            this.ribButton.BackgroundHoverEnabled = false;
-            // 
-            // 
-            // 
-            this.ribButton.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribButton.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribButton.ContainerControlProcessDialogKey = true;
-            this.ribButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribButton.DragDropSupport = true;
-            this.ribButton.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnThem,
-            this.btnChinhSua,
-            this.btnXoa,
-            this.btnLuu,
-            this.btnTimKiem,
-            this.btnXemChiTiet,
-            this.btnTroLai,
-            this.btnThoat});
-            this.ribButton.Location = new System.Drawing.Point(0, 0);
-            this.ribButton.Name = "ribButton";
-            this.ribButton.Size = new System.Drawing.Size(784, 64);
-            this.ribButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribButton.TabIndex = 0;
-            // 
-            // 
-            // 
-            this.ribButton.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribButton.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribButton.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Enabled = false;
-            this.btnThem.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnThem.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnThem.Name = "btnThem";
-            this.btnThem.SubItemsExpandWidth = 14;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnChinhSua
-            // 
-            this.btnChinhSua.Enabled = false;
-            this.btnChinhSua.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnChinhSua.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnChinhSua.Name = "btnChinhSua";
-            this.btnChinhSua.SubItemsExpandWidth = 14;
-            this.btnChinhSua.Text = "Chỉnh Sửa";
-            this.btnChinhSua.Visible = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Enabled = false;
-            this.btnXoa.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnXoa.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.SubItemsExpandWidth = 14;
-            this.btnXoa.Text = "Xóa";
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Enabled = false;
-            this.btnLuu.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnLuu.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.SubItemsExpandWidth = 14;
-            this.btnLuu.Text = "Lưu";
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Enabled = false;
-            this.btnTimKiem.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnTimKiem.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.SubItemsExpandWidth = 14;
-            this.btnTimKiem.Text = "Tìm Kiếm";
-            // 
-            // btnXemChiTiet
-            // 
-            this.btnXemChiTiet.Enabled = false;
-            this.btnXemChiTiet.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnXemChiTiet.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnXemChiTiet.Name = "btnXemChiTiet";
-            this.btnXemChiTiet.SubItemsExpandWidth = 14;
-            this.btnXemChiTiet.Text = "Chi Tiết";
-            this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
-            // 
-            // btnTroLai
-            // 
-            this.btnTroLai.Enabled = false;
-            this.btnTroLai.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnTroLai.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnTroLai.Name = "btnTroLai";
-            this.btnTroLai.SubItemsExpandWidth = 14;
-            this.btnTroLai.Text = "Trở Lại";
-            this.btnTroLai.Click += new System.EventHandler(this.btnTroLai_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.FixedSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.SubItemsExpandWidth = 14;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // pnlChiTietDatMua
             // 
@@ -1056,6 +932,131 @@
             this.lbl1MaPhieuDatMua.TabIndex = 11;
             this.lbl1MaPhieuDatMua.Text = "Mã Phiếu Đặt Mua:";
             // 
+            // pnlButton
+            // 
+            this.pnlButton.Controls.Add(this.ribButton);
+            this.pnlButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlButton.Location = new System.Drawing.Point(0, 0);
+            this.pnlButton.Name = "pnlButton";
+            this.pnlButton.Size = new System.Drawing.Size(784, 64);
+            this.pnlButton.TabIndex = 6;
+            // 
+            // ribButton
+            // 
+            this.ribButton.AutoOverflowEnabled = true;
+            this.ribButton.BackgroundHoverEnabled = false;
+            // 
+            // 
+            // 
+            this.ribButton.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribButton.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribButton.ContainerControlProcessDialogKey = true;
+            this.ribButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribButton.DragDropSupport = true;
+            this.ribButton.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnThem,
+            this.btnChinhSua,
+            this.btnXoa,
+            this.btnLuu,
+            this.btnTimKiem,
+            this.btnXemChiTiet,
+            this.btnTroLai,
+            this.btnThoat});
+            this.ribButton.Location = new System.Drawing.Point(0, 0);
+            this.ribButton.Name = "ribButton";
+            this.ribButton.Size = new System.Drawing.Size(784, 64);
+            this.ribButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribButton.TabIndex = 0;
+            // 
+            // 
+            // 
+            this.ribButton.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribButton.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribButton.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Enabled = false;
+            this.btnThem.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnThem.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnThem.Name = "btnThem";
+            this.btnThem.SubItemsExpandWidth = 14;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnChinhSua
+            // 
+            this.btnChinhSua.Enabled = false;
+            this.btnChinhSua.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnChinhSua.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnChinhSua.Name = "btnChinhSua";
+            this.btnChinhSua.SubItemsExpandWidth = 14;
+            this.btnChinhSua.Text = "Chỉnh Sửa";
+            this.btnChinhSua.Visible = false;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Enabled = false;
+            this.btnXoa.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnXoa.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.SubItemsExpandWidth = 14;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Visible = false;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Enabled = false;
+            this.btnLuu.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnLuu.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.SubItemsExpandWidth = 14;
+            this.btnLuu.Text = "Lưu";
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Enabled = false;
+            this.btnTimKiem.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnTimKiem.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.SubItemsExpandWidth = 14;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            // 
+            // btnXemChiTiet
+            // 
+            this.btnXemChiTiet.Enabled = false;
+            this.btnXemChiTiet.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnXemChiTiet.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnXemChiTiet.Name = "btnXemChiTiet";
+            this.btnXemChiTiet.SubItemsExpandWidth = 14;
+            this.btnXemChiTiet.Text = "Chi Tiết";
+            this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
+            // 
+            // btnTroLai
+            // 
+            this.btnTroLai.Enabled = false;
+            this.btnTroLai.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnTroLai.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnTroLai.Name = "btnTroLai";
+            this.btnTroLai.SubItemsExpandWidth = 14;
+            this.btnTroLai.Text = "Trở Lại";
+            this.btnTroLai.Click += new System.EventHandler(this.btnTroLai_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.FixedSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.SubItemsExpandWidth = 14;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // GUIQuanLyDatMua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1069,7 +1070,6 @@
             this.Load += new System.EventHandler(this.GUIQuanLyDatMua_Load);
             this.pnlTile.ResumeLayout(false);
             this.pnlCenter.ResumeLayout(false);
-            this.pnlButton.ResumeLayout(false);
             this.pnlChiTietDatMua.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw3DSSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt3NgayLap)).EndInit();
@@ -1079,6 +1079,7 @@
             this.pnlDSPhieuDatMua.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw1DSPhieuDatMua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1NgayLap)).EndInit();
+            this.pnlButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
